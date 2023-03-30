@@ -46,7 +46,7 @@
             <Font name="Courier New" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="604.0" layoutY="311.0" text="User Name">
+      <Label layoutX="604.0" layoutY="311.0" text="User ID">
          <font>
             <Font name="DejaVu Sans Bold" size="14.0" />
          </font>
@@ -56,8 +56,8 @@
             <Font name="DejaVu Sans Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="606.0" layoutY="340.0" prefHeight="45.0" prefWidth="284.0" promptText="Enter User Name" />
-      <TextField layoutX="604.0" layoutY="433.0" prefHeight="45.0" prefWidth="284.0" promptText="*********" />
+      <TextField fx:id="txtUserId" layoutX="606.0" layoutY="340.0" prefHeight="45.0" prefWidth="284.0" promptText="Enter User Name" />
+      <TextField fx:id="txtPassword" layoutX="604.0" layoutY="433.0" prefHeight="45.0" prefWidth="284.0" promptText="*********" />
       <Label layoutX="692.0" layoutY="519.0" text="Forgot Password" textFill="#1e64cd">
          <opaqueInsets>
             <Insets />

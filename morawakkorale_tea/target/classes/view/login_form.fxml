@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="972.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.LoginFormController">
+   <children>
+      <ImageView blendMode="OVERLAY" fitHeight="720.0" fitWidth="1024.0" layoutX="5.0" preserveRatio="true">
+         <image>
+            <Image url="@../img/5389998-middle.png" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="MULTIPLY" fitHeight="252.0" fitWidth="393.0" layoutX="102.0" layoutY="258.0">
+         <image>
+            <Image url="@../img/co-op.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="34.0" layoutY="37.0" prefHeight="56.0" prefWidth="916.0" text="MORAWAKKORALE TEA PRODUCERS' CO-OP SOCIETY LIMITED" textAlignment="CENTER" textFill="#23b92b" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="Courier New Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.3472222089767456" green="0.7894737124443054" blue="0.3988182246685028" />
+               </color></DropShadow>
+         </effect>
+      </Label>
+      <Label layoutX="614.0" layoutY="182.0" prefHeight="45.0" prefWidth="316.0" text="Log in to your account">
+         <font>
+            <Font name="DejaVu Sans Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="579.0" layoutY="233.0" prefHeight="33.0" prefWidth="361.0" text="Welcome Back! Please enter your details.">
+         <font>
+            <Font name="Courier New" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="604.0" layoutY="311.0" text="User Name">
+         <font>
+            <Font name="DejaVu Sans Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="604.0" layoutY="407.0" text="Password">
+         <font>
+            <Font name="DejaVu Sans Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="606.0" layoutY="340.0" prefHeight="45.0" prefWidth="284.0" promptText="Enter User Name" />
+      <TextField layoutX="604.0" layoutY="433.0" prefHeight="45.0" prefWidth="284.0" promptText="*********" />
+      <Label layoutX="692.0" layoutY="519.0" text="Forgot Password" textFill="#1e64cd">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Button fx:id="btnLogin" layoutX="604.0" layoutY="551.0" mnemonicParsing="false" onAction="#LoginbtnOnAction" prefHeight="45.0" prefWidth="284.0" style="-fx-background-color: #1e64cd;" text="Log In" textFill="WHITE">
+         <effect>
+            <ColorAdjust />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="1.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Dashboard_Background.png" />
+         </image>
+      </ImageView>
+      <TextField alignment="CENTER" layoutX="550.0" layoutY="58.0" prefHeight="68.0" prefWidth="517.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+         <font>
+            <Font name="DejaVu Serif Bold" size="26.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="48.0" fitWidth="52.0" layoutX="565.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search.png" />
+         </image>
+      </ImageView>
+      <TextField alignment="CENTER" layoutX="1160.0" layoutY="54.0" prefHeight="68.0" prefWidth="517.0" promptText="Search Month" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+         <font>
+            <Font name="DejaVu Serif Bold" size="26.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="48.0" fitWidth="52.0" layoutX="1186.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="579.0" layoutY="154.0" prefHeight="870.0" prefWidth="1064.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;" />
+   </children>
+</AnchorPane>

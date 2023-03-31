@@ -102,7 +102,7 @@
             </Label>
          </children>
       </AnchorPane>
-        <Pane fx:id="panel" layoutX="-3.0" layoutY="2.0" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;">
+        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;" visible="false">
             <children>
                 <ImageView blendMode="MULTIPLY" fitHeight="1046.0" fitWidth="397.0" layoutX="3.0" layoutY="-2.0" opacity="0.9">
                     <image>
@@ -208,7 +208,7 @@
         </Pane>
         <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="65.0" style="-fx-background-color: white;">
             <children>
-                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="14.0" onMousePressed="#SnowBar" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/data.png" />
                     </image>

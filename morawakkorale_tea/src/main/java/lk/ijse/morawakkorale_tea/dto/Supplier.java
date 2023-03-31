@@ -1,4 +1,4 @@
-package lk.ijse.morawakkorale_tea.dto.tm;
+package lk.ijse.morawakkorale_tea.dto;
 
 import lombok.*;
 

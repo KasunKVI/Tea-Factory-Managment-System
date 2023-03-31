@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane2" prefHeight="1020.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.AccountantDashboardFormController">
+<AnchorPane fx:id="pane2" prefHeight="1020.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ManagerDashboardFormController">
     <children>
         <AnchorPane fx:id="bgPane" layoutX="88.0" layoutY="-1.0" prefHeight="1048.0" prefWidth="1853.0">
             <children>
@@ -132,7 +132,7 @@
                 </Pane>
             </children>
         </AnchorPane>
-        <Pane fx:id="panel" layoutX="-3.0" layoutY="2.0" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;">
+        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;" visible="false">
             <children>
                 <ImageView blendMode="MULTIPLY" fitHeight="1046.0" fitWidth="397.0" layoutX="3.0" layoutY="-2.0" opacity="0.9">
                     <image>
@@ -244,7 +244,7 @@
                               <Image url="@../img/green-tea (2).png" />
                           </image>
                       </ImageView>
-                      <Button fx:id="btnSetting13" contentDisplay="RIGHT" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" onAction="#loadSupplierBills" opacity="0.25" prefHeight="122.0" prefWidth="324.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+                      <Button fx:id="btnSetting13" contentDisplay="RIGHT" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" opacity="0.25" prefHeight="122.0" prefWidth="324.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                           <font>
                               <Font size="25.0" />
                           </font>
@@ -276,7 +276,7 @@
         </Pane>
         <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="65.0" style="-fx-background-color: white;">
             <children>
-                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="14.0" onMousePressed="#SnowBar" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/data.png" />
                     </image>

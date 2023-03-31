@@ -16,14 +16,35 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21ad8ce3-970f-4ec1-9db9-71a171e9caa0" name="Default Changelist" comment="Done Supplier dto">
-      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/dto/tm/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e69471af-aa13-4977-8f8f-03022c0ff047.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e69471af-aa13-4977-8f8f-03022c0ff047.xml" afterDir="false" />
+    <list default="true" id="21ad8ce3-970f-4ec1-9db9-71a171e9caa0" name="Default Changelist" comment="Log in controller 2 nd">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/GeneralManagerDashboardFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/ManagerDashboardFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/MenuBarOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/model/LogInModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/supplier_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/AccountantDashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/AccountantDashboardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/login_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/dto/tm/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/dto/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/dto/tm/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/dto/LogIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/accountant_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/accountant_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/collector_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/collector_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/general_manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/general_manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/AccountantDashboardFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/AccountantDashboardFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/LoginFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/LoginFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/login_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/dto/tm/Supplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/accountant_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/accountant_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/collector_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/collector_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/manager_dashboard_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,16 +71,20 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/img" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -144,7 +169,9 @@
       <workItem from="1680186932144" duration="52000" />
       <workItem from="1680187053424" duration="6194000" />
       <workItem from="1680194419658" duration="1277000" />
-      <workItem from="1680196566595" duration="1490000" />
+      <workItem from="1680196566595" duration="2305000" />
+      <workItem from="1680225902278" duration="6184000" />
+      <workItem from="1680233093684" duration="5988000" />
     </task>
     <task id="LOCAL-00001" summary="Done interfaces 70%">
       <created>1680185655078</created>
@@ -181,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680193774433</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Log in controller 2 nd">
+      <created>1680198124417</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680198124417</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +248,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done interfaces 70%" />
     <MESSAGE value="Done Supplier dto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done Supplier dto" />
+    <MESSAGE value="Log in controller 2 nd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Log in controller 2 nd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="162" width="646" height="769" key="#Launcher" timestamp="1680186971010">
@@ -237,22 +272,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="743" y="298" width="424" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1679907185761" />
-    <state width="1878" height="173" key="GridCell.Tab.0.bottom" timestamp="1680197773780">
+    <state width="1878" height="97" key="GridCell.Tab.0.bottom" timestamp="1680241981314">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="173" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1680197773780" />
-    <state width="1878" height="173" key="GridCell.Tab.0.center" timestamp="1680197773779">
+    <state width="1878" height="97" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1680241981314" />
+    <state width="1878" height="97" key="GridCell.Tab.0.center" timestamp="1680241981314">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="173" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1680197773779" />
-    <state width="1878" height="173" key="GridCell.Tab.0.left" timestamp="1680197773779">
+    <state width="1878" height="97" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1680241981314" />
+    <state width="1878" height="97" key="GridCell.Tab.0.left" timestamp="1680241981314">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="173" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1680197773779" />
-    <state width="1878" height="173" key="GridCell.Tab.0.right" timestamp="1680197773779">
+    <state width="1878" height="97" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1680241981314" />
+    <state width="1878" height="97" key="GridCell.Tab.0.right" timestamp="1680241981314">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="173" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1680197773779" />
+    <state width="1878" height="97" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1680241981314" />
     <state width="1878" height="350" key="GridCell.Tab.1.bottom" timestamp="1680111760808">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -277,14 +312,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="680" y="264" width="549" height="566" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1680187084347" />
-    <state x="443" y="117" width="1024" height="859" key="SettingsEditor" timestamp="1680186899792">
+    <state x="443" y="117" width="1024" height="859" key="SettingsEditor" timestamp="1680233073265">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="443" y="117" width="1024" height="859" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1680186899792" />
-    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1680197836775">
+    <state x="443" y="117" width="1024" height="859" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1680233073265" />
+    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1680198242346">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1680197836775" />
+    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1680198242346" />
     <state x="861" y="420" width="188" height="254" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1679809022605">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -305,5 +340,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-228" y="81" width="1720" height="880" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1680062833327" />
+    <state x="673" y="442" width="553" height="223" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1680228510824">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="673" y="442" width="553" height="223" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1080@0.0.1920.1080" timestamp="1680228510824" />
   </component>
 </project>

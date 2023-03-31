@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lk.ijse.morawakkorale_tea.controller.LoginFormController;
 
 public class Launcher extends Application {
+
+    public static Stage primaryStage;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -17,5 +20,8 @@ public class Launcher extends Application {
         stage.setScene(new Scene(root));
 
         stage.show();
+
+        primaryStage=stage;
+
     }
 }

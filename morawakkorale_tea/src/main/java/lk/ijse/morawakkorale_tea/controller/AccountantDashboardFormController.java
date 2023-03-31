@@ -16,13 +16,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AccountantDashboardFormController implements Initializable {
+public class AccountantDashboardFormController {
 
     @FXML
     public AnchorPane supplierBillPane;
     public Pane panel;
     public BorderPane pn;
     public AnchorPane bgPane;
+
+    @FXML
+    public Pane menuBarPanel;
 
     public void loadSupplierBills(ActionEvent actionEvent) throws IOException {
 
@@ -32,26 +35,23 @@ public class AccountantDashboardFormController implements Initializable {
     }
 
 
-    public void SnowBar(MouseEvent mouseEvent) {
+    public void hideMenuBar(MouseEvent mouseEvent) {
 
-        panel.setVisible(true);
-        FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),panel);
-        fadeTransition1.setFromValue(0);
-        fadeTransition1.setToValue(1);
-        fadeTransition1.play();
+        MenuBarOperation.fadeMenuBar(menuBarPanel,1,0,-88);
 
-        TranslateTransition translateTransition1=new TranslateTransition(Duration.seconds(0.5),panel);
-        translateTransition1.setByX(+88);
-        translateTransition1.play();
+        menuBarPanel.setDisable(true);
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-        panel.setVisible(false);
+    public void showMenuBar(MouseEvent mouseEvent) {
 
+        menuBarPanel.setDisable(false );
+        MenuBarOperation.fadeMenuBar(menuBarPanel,0,1,+88);
+        menuBarPanel.setVisible(true);
 
     }
+
+
 
 }

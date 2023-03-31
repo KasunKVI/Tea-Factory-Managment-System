@@ -26,7 +26,7 @@ public class CollectorDashboardFormController implements Initializable {
     Button btnSetting;
 
     @FXML
-    Pane pane;
+    public Pane menuBarPanel;
 
     @FXML
     AnchorPane pane2;
@@ -67,27 +67,25 @@ public class CollectorDashboardFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        pane.setVisible(false);
 
 
     }
 
-    public void ExitMenu(MouseEvent mouseEvent) {
-        //pane.setVisible(false);
+
+    public void hideMenuBar(MouseEvent mouseEvent) {
+
+        MenuBarOperation.fadeMenuBar(menuBarPanel,1,0,-88);
+
+        menuBarPanel.setDisable(true);
+
     }
 
 
-    public void SnowBar(MouseEvent mouseEvent) {
+    public void showMenuBar(MouseEvent mouseEvent) {
 
-        pane.setVisible(true);
-        FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),pane);
-        fadeTransition1.setFromValue(0);
-        fadeTransition1.setToValue(1);
-        fadeTransition1.play();
-
-        TranslateTransition translateTransition1=new TranslateTransition(Duration.seconds(0.5),pane);
-        translateTransition1.setByX(+88);
-        translateTransition1.play();
+        menuBarPanel.setDisable(false );
+        MenuBarOperation.fadeMenuBar(menuBarPanel,0,1,+88);
+        menuBarPanel.setVisible(true);
 
     }
 

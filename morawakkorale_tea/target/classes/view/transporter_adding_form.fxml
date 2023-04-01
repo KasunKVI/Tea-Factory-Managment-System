@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SupplierAddingForm">
+<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ManagerDashboardFormController">
     <children>
         <Label layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="254.0" text="New Transporter">
             <font>
@@ -20,7 +20,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="295.0" layoutY="182.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Transporter Id" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpId" layoutX="295.0" layoutY="182.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Transporter Id" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -30,7 +30,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="289.0" layoutY="660.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpAddress" layoutX="289.0" layoutY="660.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -40,7 +40,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="294.0" layoutY="440.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpContact" layoutX="294.0" layoutY="440.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -50,7 +50,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="296.0" layoutY="312.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpName" layoutX="296.0" layoutY="312.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -60,7 +60,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="btnLogin" layoutX="407.0" layoutY="870.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="148.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
+        <Button fx:id="btnTrpAdd" layoutX="368.0" layoutY="870.0" mnemonicParsing="false" onAction="#addTransporterToDatabase" prefHeight="54.0" prefWidth="217.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Transpoter" textFill="WHITE">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -82,7 +82,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-      <TextField layoutX="296.0" layoutY="561.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Route " style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtTrpRoute" layoutX="296.0" layoutY="561.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Route " style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

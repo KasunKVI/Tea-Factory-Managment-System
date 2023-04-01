@@ -63,7 +63,7 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Button fx:id="btnLogin" layoutX="604.0" layoutY="551.0" mnemonicParsing="false" onAction="#LoginbtnOnAction" prefHeight="45.0" prefWidth="284.0" style="-fx-background-color: #1e64cd;" text="Log In" textFill="WHITE">
+      <Button fx:id="btnLogin" layoutX="604.0" layoutY="551.0" mnemonicParsing="false" onAction="#loginBtnOnAction" prefHeight="45.0" prefWidth="284.0" style="-fx-background-color: #1e64cd;" text="Log In" textFill="WHITE">
          <effect>
             <ColorAdjust />
          </effect>

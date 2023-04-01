@@ -24,7 +24,8 @@ public class LoginFormController {
     public TextField txtPassword;
 
 
-    public void LoginbtnOnAction() throws IOException, SQLException {
+
+    public void loginBtnOnAction() throws IOException, SQLException {
 
         String id = txtUserId.getText();
         String password = txtPassword.getText();
@@ -89,4 +90,5 @@ public class LoginFormController {
 
 
     }
+
 }

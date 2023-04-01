@@ -24,7 +24,7 @@
                 </ImageView>
                 <Pane layoutX="405.0" layoutY="24.0" opacity="0.9" prefHeight="496.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                     <children>
-                        <Label layoutX="68.0" layoutY="24.0" prefHeight="40.0" prefWidth="243.0" text="Available Item Stocks">
+                        <Label layoutX="68.0" layoutY="24.0" prefHeight="40.0" prefWidth="273.0" text="Available Product Stock">
                             <font>
                                 <Font name="Abyssinica SIL" size="22.0" />
                             </font>
@@ -132,7 +132,7 @@
                 </Pane>
             </children>
         </AnchorPane>
-        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;">
+        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;" visible="false">
             <children>
                 <ImageView blendMode="MULTIPLY" fitHeight="1046.0" fitWidth="397.0" layoutX="3.0" layoutY="-2.0" opacity="0.9">
                     <image>
@@ -281,7 +281,7 @@
                         <Image url="@../img/data.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="955.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="955.0" onMouseClicked="#exitFromSystem" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/exit.png" />
                     </image>

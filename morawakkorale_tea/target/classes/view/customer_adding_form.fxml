@@ -3,14 +3,13 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SupplierAddingForm">
+<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ManagerDashboardFormController">
     <children>
         <Label layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="254.0" text="New Customer">
             <font>
@@ -22,12 +21,12 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="295.0" layoutY="182.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Customer Id" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustId" layoutX="295.0" layoutY="182.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Customer ID" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
         </TextField>
-        <Label layoutX="27.0" layoutY="571.0" prefHeight="34.0" prefWidth="197.0" text="Reg_Date">
+        <Label layoutX="27.0" layoutY="571.0" prefHeight="34.0" prefWidth="197.0" text="Employee ID">
             <font>
                 <Font name="FreeMono" size="22.0" />
             </font>
@@ -37,7 +36,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="294.0" layoutY="440.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustContact" layoutX="294.0" layoutY="440.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -47,7 +46,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField layoutX="296.0" layoutY="312.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustName" layoutX="296.0" layoutY="312.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -57,7 +56,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="btnLogin" layoutX="407.0" layoutY="870.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="148.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
+        <Button fx:id="btnCustAdd" layoutX="380.0" layoutY="870.0" mnemonicParsing="false" onAction="#addCustomerToDatabase" prefHeight="54.0" prefWidth="197.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Customer" textFill="WHITE">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -68,7 +67,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Button fx:id="btnLogin2" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+        <Button fx:id="btnCustDiscard" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -79,7 +78,11 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-      <ComboBox layoutX="287.0" layoutY="665.0" prefHeight="55.0" prefWidth="261.0" promptText="Select Origin" style="-fx-background-radius: 10 10 10 10;" />
-      <DatePicker layoutX="291.0" layoutY="559.0" prefHeight="59.0" prefWidth="254.0" style="-fx-background-radius: 15 15 15 15;" />
+      <ComboBox fx:id="cmbCustOrigin" layoutX="287.0" layoutY="665.0" prefHeight="55.0" prefWidth="261.0" promptText="Select Origin" style="-fx-background-radius: 10 10 10 10;" />
+      <TextField fx:id="txtCustEmplId" layoutX="287.0" layoutY="558.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Your Id" style="-fx-background-radius: 10 10 10 10;">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </TextField>
     </children>
 </AnchorPane>

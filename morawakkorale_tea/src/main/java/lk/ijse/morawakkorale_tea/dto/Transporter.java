@@ -1,9 +1,7 @@
 package lk.ijse.morawakkorale_tea.dto;
 
-import lombok.*;
 
-import java.time.LocalDate;
-import java.util.Date;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,12 +9,12 @@ import java.util.Date;
 @Setter
 @ToString
 
-public class Supplier {
+public class Transporter {
 
     private String id;
     private String name;
     private String contact;
-    private LocalDate reg_date;
+    private String route;
     private String address;
 
 }

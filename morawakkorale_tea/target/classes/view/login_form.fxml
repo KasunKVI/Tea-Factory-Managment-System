@@ -25,7 +25,7 @@
             <Image url="@../img/co-op.png" />
          </image>
       </ImageView>
-      <Label layoutX="34.0" layoutY="37.0" prefHeight="56.0" prefWidth="916.0" text="MORAWAKKORALE TEA PRODUCERS' CO-OP SOCIETY LIMITED" textAlignment="CENTER" textFill="#23b92b" textOverrun="WORD_ELLIPSIS">
+      <Label layoutX="34.0" layoutY="37.0" prefHeight="56.0" prefWidth="916.0" text="MORAWAKKORALE TEA PRODUCERS' CO-OP SOCIETY LIMITED" textAlignment="CENTER" textFill="#1e1e1e" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="Courier New Bold" size="30.0" />
          </font>

@@ -70,13 +70,8 @@
                 </Pane>
             </children>
         </AnchorPane>
-        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;" visible="false">
+        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="-1.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1045.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" visible="false">
             <children>
-                <ImageView blendMode="MULTIPLY" fitHeight="1046.0" fitWidth="397.0" layoutX="3.0" layoutY="-2.0" opacity="0.9">
-                    <image>
-                        <Image url="@../img/Untitled.png" />
-                    </image>
-                </ImageView>
                 <ImageView blendMode="DARKEN" fitHeight="198.0" fitWidth="310.0" layoutX="43.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/co-op.png" />
@@ -212,21 +207,21 @@
                 </Button>
             </children>
         </Pane>
-        <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="65.0" style="-fx-background-color: white;">
+        <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3;">
             <children>
-                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/data.png" />
+                        <Image url="@../img/menu%20(2).png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="955.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="955.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/exit.png" />
+                        <Image url="@../img/power.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/home.png" />
+                        <Image url="@../img/home-button.png" />
                     </image>
                 </ImageView>
             </children>

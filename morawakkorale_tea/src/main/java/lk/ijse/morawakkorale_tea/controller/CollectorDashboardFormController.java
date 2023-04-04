@@ -9,14 +9,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.morawakkorale_tea.dto.Stock;
+import lk.ijse.morawakkorale_tea.model.StockModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -35,21 +42,26 @@ public class CollectorDashboardFormController implements Initializable {
     AnchorPane menu;
 
     @FXML
+    private Label lblStockId;
+
+    @FXML
     public Pane supplierValuesAddPane;
-    public Pane stockPane;
+
+    public TextField txtTransporterIdStock;
+    public DatePicker dtpStockDate;
+    public TextField txtStockValue;
+
+
+    String stock_id;
+    LocalDate date;
+    int stock_value;
+    int transporter_id;
 
 
 
 
     public void btnSettingOnAction(ActionEvent actionEvent) throws IOException {
 
-        Stage stage=new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/view/accountant_dashboard_form.fxml"));
-        stage.setTitle("Accountant Dashboard");
-        stage.centerOnScreen();
-        stage.setScene(new Scene     (root));
-
-        stage.show();
     }
 
     public void btncolorchanger(MouseEvent mouseEvent) {
@@ -67,7 +79,7 @@ public class CollectorDashboardFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
+        generateNextStockId();
 
     }
 
@@ -96,6 +108,56 @@ public class CollectorDashboardFormController implements Initializable {
         fadeTransition1.setFromValue(0);
         fadeTransition1.setToValue(1);
         fadeTransition1.play();
+
+    }
+
+    public void addStockToDatabase(ActionEvent actionEvent) {
+
+
+        stock_id=lblStockId.getText();
+        date=dtpStockDate.getValue();
+        stock_value= Integer.parseInt(txtStockValue.getText());
+        transporter_id= Integer.parseInt(txtTransporterIdStock.getText());
+
+        Stock stock=new Stock(stock_id,date,stock_value,transporter_id);
+
+        try {
+
+            StockModel.addStockToDatabase(stock);
+
+        } catch (SQLException throwables) {
+
+            throwables.printStackTrace();
+
+        }
+
+
+    }
+
+    public void generateNextStockId(){
+
+        try {
+
+            String stock_id = StockModel.generateStockId();
+            lblStockId.setText(stock_id);
+
+        } catch (SQLException throwables) {
+
+            throwables.printStackTrace();
+
+        }
+
+    }
+
+    public void addSupplierValuesToDatabase(ActionEvent actionEvent) {
+
+
+
+    }
+
+    public void completeSupplierValuesAdd(ActionEvent actionEvent) {
+
+        supplierValuesAddPane.setVisible(false);
 
     }
 }

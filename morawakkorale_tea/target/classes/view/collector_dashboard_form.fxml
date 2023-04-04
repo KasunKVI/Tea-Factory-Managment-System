@@ -19,45 +19,45 @@
             <Image url="@../img/Dashboard_Background.png" />
          </image>
       </ImageView>
-      <Pane layoutX="612.0" layoutY="59.0" opacity="0.9" prefHeight="942.0" prefWidth="1146.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 18 18 18 18;">
+      <Pane layoutX="612.0" layoutY="59.0" opacity="0.9" prefHeight="901.0" prefWidth="1113.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 18 18 18 18;">
          <children>
             <Label layoutX="33.0" layoutY="26.0" prefHeight="45.0" prefWidth="263.0" text="New Stock">
                <font>
                   <Font name="DejaVu Serif Bold" size="33.0" />
                </font>
-            </Label>
+               </Label>
             <Label layoutX="39.0" layoutY="185.0" prefHeight="34.0" prefWidth="197.0" text="Transporter ID">
                <font>
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="38.0" layoutY="408.0" prefHeight="34.0" prefWidth="197.0" text="Total Value ">
+            <Label layoutX="40.0" layoutY="418.0" prefHeight="34.0" prefWidth="197.0" text="Total Value ">
                <font>
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="40.0" layoutY="534.0" prefHeight="34.0" prefWidth="197.0" text="Date">
+            <Label layoutX="40.0" layoutY="290.0" prefHeight="34.0" prefWidth="197.0" text="Date">
                <font>
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <TextField layoutX="363.0" layoutY="170.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Transporter Id" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtTransporterIdStock" layoutX="363.0" layoutY="170.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Transporter Id" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <TextField layoutX="351.0" layoutY="376.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Total Tea Value" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtStockValue" layoutX="364.0" layoutY="395.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Total Tea Value" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <DatePicker layoutX="352.0" layoutY="508.0" prefHeight="55.0" prefWidth="267.0" promptText="Select Date" style="-fx-background-radius: 10 10 10 10;" />
-            <Button fx:id="btnAddSuppliersValus" layoutX="36.0" layoutY="277.0" mnemonicParsing="false" onAction="#SuppierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
+            <DatePicker fx:id="dtpStockDate" layoutX="361.0" layoutY="275.0" prefHeight="55.0" prefWidth="267.0" promptText="Select Date" style="-fx-background-radius: 10 10 10 10;" />
+            <Button fx:id="btnAddSuppliersValus" layoutX="275.0" layoutY="574.0" mnemonicParsing="false" onAction="#SuppierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin" layoutX="638.0" layoutY="764.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
+            <Button fx:id="btnAddStock" layoutX="468.0" layoutY="727.0" mnemonicParsing="false" onAction="#addStockToDatabase" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin2" layoutX="389.0" layoutY="766.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+            <Button fx:id="btnLogin2" layoutX="122.0" layoutY="725.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -79,6 +79,11 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
+            <Label fx:id="lblStockId" alignment="CENTER" layoutX="915.0" layoutY="16.0" prefHeight="59.0" prefWidth="160.0" style="-fx-background-radius: 15 15 15 15;" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Chandas" size="26.0" />
+               </font>
+            </Label>
          </children></Pane>
       <Pane fx:id="supplierValuesAddPane" layoutX="628.0" layoutY="66.0" prefHeight="928.0" prefWidth="850.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 18 18 18 18;" visible="false">
          <children>
@@ -136,13 +141,8 @@
             </Button>
          </children>
       </Pane>
-      <Pane fx:id="menuBarPanel" layoutX="-3.0" layoutY="2.0" onMouseExited="#hideMenuBar" prefHeight="1042.0" prefWidth="400.0" style=" -fx-background-radius: 0 24 24 0;" visible="false">
+      <Pane fx:id="menuBarPanel" layoutX="-3.0" layoutY="-7.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1051.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" visible="false">
          <children>
-            <ImageView blendMode="MULTIPLY" fitHeight="1046.0" fitWidth="397.0" layoutX="3.0" layoutY="-2.0" opacity="0.9">
-               <image>
-                  <Image url="@../img/Untitled.png" />
-               </image>
-            </ImageView>
             <ImageView blendMode="DARKEN" fitHeight="198.0" fitWidth="310.0" layoutX="43.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/co-op.png" />
@@ -186,21 +186,21 @@
             </Label>
          </children>
       </Pane>
-      <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="65.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="86.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3;">
          <children>
-            <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/data.png" />
+                  <Image url="@../img/menu (2).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="955.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="955.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/exit.png" />
+                  <Image url="@../img/power.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="82.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/home.png" />
+                  <Image url="@../img/home-button.png" />
                </image>
             </ImageView>
          </children>

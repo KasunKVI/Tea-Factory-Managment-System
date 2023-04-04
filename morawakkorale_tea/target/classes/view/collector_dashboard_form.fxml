@@ -52,12 +52,12 @@
                </font>
             </TextField>
             <DatePicker fx:id="dtpStockDate" layoutX="361.0" layoutY="275.0" prefHeight="55.0" prefWidth="267.0" promptText="Select Date" style="-fx-background-radius: 10 10 10 10;" />
-            <Button fx:id="btnAddSuppliersValus" layoutX="275.0" layoutY="574.0" mnemonicParsing="false" onAction="#SuppierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
+            <Button fx:id="btnAddSuppliersValus" layoutX="261.0" layoutY="759.0" mnemonicParsing="false" onAction="#SuppierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAddStock" layoutX="468.0" layoutY="727.0" mnemonicParsing="false" onAction="#addStockToDatabase" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
+            <Button fx:id="btnAddStock" layoutX="472.0" layoutY="636.0" mnemonicParsing="false" onAction="#addStockToDatabase" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin2" layoutX="122.0" layoutY="725.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+            <Button fx:id="btnLogin2" layoutX="123.0" layoutY="636.0" mnemonicParsing="false" onAction="#discardOrClearStockAddValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -102,22 +102,22 @@
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <TextField layoutX="363.0" layoutY="170.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Supplier Id" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtSupIdStock" layoutX="363.0" layoutY="170.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Supplier Id" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <TextField layoutX="371.0" layoutY="266.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Tea Value" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtSupTeaValue" layoutX="359.0" layoutY="266.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Tea Value" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <Button layoutX="371.0" layoutY="384.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add">
+            <Button layoutX="351.0" layoutY="528.0" mnemonicParsing="false" onAction="#addSupplierValuesToDatabase" prefHeight="55.0" prefWidth="313.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin1" layoutX="607.0" layoutY="759.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Done" textFill="WHITE">
+            <Button layoutX="607.0" layoutY="759.0" mnemonicParsing="false" onAction="#completeSupplierValuesAdd" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Done" textFill="WHITE">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -128,7 +128,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin11" layoutX="354.0" layoutY="762.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+            <Button fx:id="btnLogin11" layoutX="354.0" layoutY="762.0" mnemonicParsing="false" onAction="#discardOrClearSupplierValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -139,6 +139,16 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
+            <Label layoutX="32.0" layoutY="379.0" prefHeight="34.0" prefWidth="197.0" text="Bag Count">
+               <font>
+                  <Font name="FreeMono" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSupTeaBagCount" layoutX="357.0" layoutY="366.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Bag Count" style="-fx-background-radius: 10 10 10 10;">
+               <font>
+                  <Font name="Arial Bold" size="22.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
       <Pane fx:id="menuBarPanel" layoutX="-3.0" layoutY="-7.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1051.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" visible="false">
@@ -158,7 +168,7 @@
                   <Font size="49.0" />
                </font>
             </Label>
-            <Button fx:id="btnSetting" contentDisplay="RIGHT" layoutX="56.0" layoutY="876.0" mnemonicParsing="false" onAction="#btnSettingOnAction" onMouseEntered="#btncolorchanger" onMouseExited="#btncolorback" opacity="0.25" prefHeight="122.0" prefWidth="314.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+            <Button fx:id="btnSetting" contentDisplay="RIGHT" layoutX="56.0" layoutY="876.0" mnemonicParsing="false" onAction="#btnSettingOnAction" opacity="0.25" prefHeight="122.0" prefWidth="314.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                <font>
                   <Font size="25.0" />
                </font>
@@ -166,7 +176,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnSetting1" contentDisplay="RIGHT" layoutX="55.0" layoutY="661.0" mnemonicParsing="false" onAction="#btnSettingOnAction" onMouseEntered="#btncolorchanger" onMouseExited="#btncolorback" opacity="0.25" prefHeight="122.0" prefWidth="314.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+            <Button fx:id="btnSetting1" contentDisplay="RIGHT" layoutX="55.0" layoutY="661.0" mnemonicParsing="false" onAction="#btnSettingOnAction" opacity="0.25" prefHeight="122.0" prefWidth="314.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                <font>
                   <Font size="25.0" />
                </font>

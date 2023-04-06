@@ -17,7 +17,7 @@
     <children>
         <AnchorPane fx:id="backgroundPane" layoutX="88.0" layoutY="-1.0" prefHeight="1048.0" prefWidth="1853.0">
             <children>
-                <ImageView fitHeight="1048.0" fitWidth="1853.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="2.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/Dashboard_Background.png" />
                     </image>

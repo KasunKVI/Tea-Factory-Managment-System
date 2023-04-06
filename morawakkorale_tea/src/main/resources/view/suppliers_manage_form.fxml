@@ -31,29 +31,7 @@
         </ImageView>
         <Pane layoutX="579.0" layoutY="154.0" prefHeight="880.0" prefWidth="1192.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;">
          <children>
-            <Button fx:id="btnLogin1" layoutX="560.0" layoutY="803.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Save" textFill="WHITE">
-               <effect>
-                  <ColorAdjust />
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Arial Black" size="23.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnLogin2" layoutX="751.0" layoutY="802.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Delete" textFill="WHITE">
-               <effect>
-                  <ColorAdjust />
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Arial Black" size="23.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnLogin" layoutX="939.0" layoutY="797.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="214.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Check Eligible" textFill="WHITE">
+            <Button fx:id="btnLogin2" layoutX="995.0" layoutY="802.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Delete" textFill="WHITE">
                <effect>
                   <ColorAdjust />
                </effect>

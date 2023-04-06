@@ -16,11 +16,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21ad8ce3-970f-4ec1-9db9-71a171e9caa0" name="Default Changelist" comment="implementing main process 10%">
+    <list default="true" id="21ad8ce3-970f-4ec1-9db9-71a171e9caa0" name="Default Changelist" comment="collector Dashboard done">
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customer_edit_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_edit_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/supplier_edit_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporter_edit_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/model/Supplier_StockModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/model/Supplier_StockModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/collector_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/collector_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/AccountantDashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/AccountantDashboardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/suppliers_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/suppliers_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/collector_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/collector_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/manager_dashboard_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -66,16 +72,16 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="lk.ijse.morawakkorale_tea.controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/img" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="lk.ijse.morawakkorale_tea.util" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/morawakkorale_tea/src/main/resources" />
       <recent name="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea" />
       <recent name="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lk.ijse.morawakkorale_tea.util" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/img" />
     </key>
   </component>
   <component name="RunManager">
@@ -167,6 +173,14 @@
       <workItem from="1680573145740" duration="9061000" />
       <workItem from="1680589230445" duration="195000" />
       <workItem from="1680591057069" duration="8478000" />
+      <workItem from="1680604778068" duration="39000" />
+      <workItem from="1680605862841" duration="611000" />
+      <workItem from="1680623804860" duration="937000" />
+      <workItem from="1680626426558" duration="814000" />
+      <workItem from="1680660783274" duration="1092000" />
+      <workItem from="1680665726479" duration="5060000" />
+      <workItem from="1680703686485" duration="5237000" />
+      <workItem from="1680748191725" duration="1317000" />
     </task>
     <task id="LOCAL-00001" summary="Done interfaces 70%">
       <created>1680185655078</created>
@@ -259,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680589337354</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="collector Dashboard done">
+      <created>1680604803618</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680604803618</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +319,8 @@
     <MESSAGE value="manger dashboard pages" />
     <MESSAGE value="4 table insert crud" />
     <MESSAGE value="implementing main process 10%" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing main process 10%" />
+    <MESSAGE value="collector Dashboard done" />
+    <option name="LAST_COMMIT_MESSAGE" value="collector Dashboard done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="632" y="162" width="646" height="769" key="#Launcher" timestamp="1680186971010">
@@ -329,22 +351,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="743" y="298" width="424" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1679907185761" />
-    <state width="1878" height="254" key="GridCell.Tab.0.bottom" timestamp="1680604759474">
+    <state width="1878" height="29" key="GridCell.Tab.0.bottom" timestamp="1680665553791">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="254" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1680604759474" />
-    <state width="1878" height="254" key="GridCell.Tab.0.center" timestamp="1680604759474">
+    <state width="1878" height="29" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1680665553791" />
+    <state width="1878" height="29" key="GridCell.Tab.0.center" timestamp="1680665553791">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="254" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1680604759474" />
-    <state width="1878" height="254" key="GridCell.Tab.0.left" timestamp="1680604759474">
+    <state width="1878" height="29" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1680665553791" />
+    <state width="1878" height="29" key="GridCell.Tab.0.left" timestamp="1680665553790">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="254" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1680604759474" />
-    <state width="1878" height="254" key="GridCell.Tab.0.right" timestamp="1680604759474">
+    <state width="1878" height="29" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1680665553790" />
+    <state width="1878" height="29" key="GridCell.Tab.0.right" timestamp="1680665553791">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="254" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1680604759474" />
+    <state width="1878" height="29" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1680665553791" />
     <state width="1878" height="350" key="GridCell.Tab.1.bottom" timestamp="1680111760808">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -373,10 +395,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="443" y="117" width="1024" height="859" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1680233073265" />
-    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1680589345472">
+    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1680604811592">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1680589345472" />
+    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1680604811592" />
     <state x="861" y="420" width="188" height="254" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1679809022605">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

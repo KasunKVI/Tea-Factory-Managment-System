@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,24 +11,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ManagerDashboardFormController">
+<AnchorPane fx:id="main" prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ManagerDashboardFormController">
     <children>
         <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="1.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/Dashboard_Background.png" />
             </image>
         </ImageView>
-        <TextField alignment="CENTER" layoutX="550.0" layoutY="58.0" prefHeight="68.0" prefWidth="517.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
-            <font>
-                <Font name="DejaVu Serif Bold" size="26.0" />
-            </font>
-        </TextField>
-        <ImageView fitHeight="48.0" fitWidth="52.0" layoutX="565.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/search.png" />
-            </image>
-        </ImageView>
-        <Pane layoutX="579.0" layoutY="154.0" prefHeight="880.0" prefWidth="1192.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;">
+        <Pane layoutX="579.0" layoutY="134.0" prefHeight="900.0" prefWidth="1192.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;">
          <children>
             <Button fx:id="btnLogin2" layoutX="995.0" layoutY="802.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Delete" textFill="WHITE">
                <effect>
@@ -42,17 +31,23 @@
                   <Font name="Arial Black" size="23.0" />
                </font>
             </Button>
-            <TableView layoutX="74.0" layoutY="70.0" prefHeight="692.0" prefWidth="1080.0">
+            <TableView layoutX="99.0" layoutY="93.0" prefHeight="669.0" prefWidth="1055.0">
               <columns>
                 <TableColumn minWidth="20.0" prefWidth="111.0" text="ID" />
-                <TableColumn minWidth="20.0" prefWidth="331.0" text="Name" />
-                  <TableColumn prefWidth="209.0" text="Contact" />
+                <TableColumn minWidth="20.0" prefWidth="315.0" text="Name" />
+                  <TableColumn prefWidth="225.0" text="Contact" />
                   <TableColumn prefWidth="129.0" text="Reg_Date" />
-                  <TableColumn prefWidth="227.0" text="Address" />
+                  <TableColumn minWidth="0.0" prefWidth="158.0" text="Address" />
+                  <TableColumn prefWidth="141.0" text="Status" />
               </columns>
             </TableView>
          </children></Pane>
       <Button layoutX="1209.0" layoutY="56.0" mnemonicParsing="false" onAction="#addNewSupplier" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Add New supplier" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="28.0" />
+         </font>
+      </Button>
+      <Button layoutX="679.0" layoutY="56.0" mnemonicParsing="false" onAction="#editSupplier" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Edit Supplier Details" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="28.0" />
          </font>

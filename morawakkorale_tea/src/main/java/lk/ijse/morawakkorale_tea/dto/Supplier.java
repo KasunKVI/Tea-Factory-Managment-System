@@ -16,7 +16,8 @@ public class Supplier {
     private String id;
     private String name;
     private String contact;
-    private LocalDate reg_date;
+    private Date reg_date;
     private String address;
+    private String status;
 
 }

@@ -3,12 +3,10 @@ package lk.ijse.morawakkorale_tea.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -23,17 +21,21 @@ import lk.ijse.morawakkorale_tea.model.SupplierModel;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class ManagerDashboardFormController  {
+public class ManagerDashboardFormController implements Initializable {
 
+    @FXML
+    private AnchorPane main;
     @FXML
     public Pane menuBarPanel;
     public AnchorPane backgroundPane;
 
     Stage stage=new Stage();
-    Stage pm=new Stage();
 
     //Components from customer adding form
     @FXML
@@ -80,10 +82,63 @@ public class ManagerDashboardFormController  {
     public TextField txtPdtProductQuantity;
     public ComboBox cmbPdtProductType;
 
+
+
+    @FXML
+    private TextField txtSupplierIdSearch;
+    public Label lblSupIdEdit;
+    public TextField txtSupNameEdit;
+    public TextField txtSupContactEdit;
+    public TextField txtSupAddressEdit;
+
+    @FXML
+    private TextField txtSupRegDateEdit ;
+    @FXML
+    private TextField txtSupStatusEdit;
+
+    @FXML
+    private TextField txtTransporterIdSearch;
+    @FXML
+    private Label lblTransporterIdEdit;
+    @FXML
+    private TextField txtTransporterNameEdit;
+    @FXML
+    private TextField txtTransporterContactEdit;
+    @FXML
+    private TextField txtTransporterAddressEdit;
+    @FXML
+    private TextField txtTransporterRouteEdit;
+
+
+    @FXML
+    private TextField txtProductIdSearch;
+    @FXML
+    private Label lblProductIdEdit;
+    @FXML
+    private TextField txtProductNameEdit;
+    @FXML
+    private TextField   txtProductStockIdEdit;
+    @FXML
+    private TextField txtProductQuantityEdit;
+    @FXML
+    private TextField txtProductGLValueEdit;
+    @FXML
+    private TextField txtProductTypeEdit;
+    @FXML
+    private TextField txtProductMadeDate;
+    
+
+
+
+
+
+
+
+
     String id;
     String name;
     String contact_no;
-    LocalDate reg_date;
+    Date reg_date;
     String address;
     String route;
     String stockId;
@@ -192,10 +247,10 @@ public class ManagerDashboardFormController  {
         id=txtSupId.getText();
         name=txtSupName.getText();
         contact_no=txtSupContact.getText();
-        reg_date=dtpSupRegDate.getValue();
+        reg_date= Date.valueOf(dtpSupRegDate.getValue());
         address=txtSupAddress.getText();
 
-        Supplier supplier = new Supplier(id,name,contact_no,reg_date,address);
+        Supplier supplier = new Supplier(id,name,contact_no,reg_date,address,null);
 
         try {
 
@@ -264,7 +319,7 @@ public class ManagerDashboardFormController  {
         qtyOnHand= Integer.parseInt(txtPdtProductQuantity.getText());
         productType= (String) cmbPdtProductType.getValue();
 
-        Product product = new Product(id,name,madeDate,qtyOnHand,productType,stockId);
+        Product product = new Product(id,name,madeDate,qtyOnHand,productType);
 
         try {
 
@@ -277,6 +332,144 @@ public class ManagerDashboardFormController  {
 
         stage = (Stage) btnPdtAdd.getScene().getWindow();
         stage.close();
+
+    }
+
+    public void searchSupplierFromDatabase(ActionEvent actionEvent) throws IOException {
+
+        id = txtSupplierIdSearch.getText();
+
+        try {
+
+            Supplier supplier = SupplierModel.searchSupplierFromDatabase(id);
+
+            if (supplier==null){
+
+                new Alert(Alert.AlertType.ERROR,"There is no supplier in this id").show();
+            }else {
+
+
+                lblSupIdEdit.setText(id);
+                txtSupNameEdit.setText(supplier.getName());
+                txtSupContactEdit.setText(supplier.getContact());
+                txtSupAddressEdit.setText(supplier.getAddress());
+                txtSupRegDateEdit.setText(String.valueOf(supplier.getReg_date()));
+                txtSupStatusEdit.setText(supplier.getStatus());
+
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+
+
+    }
+
+
+    public void editSupplier(ActionEvent actionEvent) throws IOException {
+
+        loadEditForm("supplier");
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+
+    }
+
+    public void addEditedSupplierToDatabase(ActionEvent actionEvent) {
+
+
+
+        id=lblSupIdEdit.getText();
+        name=txtSupNameEdit.getText();
+        contact_no=txtSupContactEdit.getText();
+        address=txtSupAddressEdit.getText();
+
+        Supplier supplier=new Supplier(id,name,contact_no,null,address,null);
+
+        try {
+            SupplierModel.addEditedSupplierToDatabase(supplier);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        main.setOpacity(1.0);
+    }
+
+    public void addEditedTransportersToDatabase(ActionEvent actionEvent) {
+
+        id=lblTransporterIdEdit.getText();
+        name=txtTransporterNameEdit.getText();
+        contact_no=txtTransporterContactEdit.getText();
+        address=txtTransporterAddressEdit.getText();
+        route=txtTransporterRouteEdit.getText();
+
+        Transporter transporter = new Transporter(id,name,contact_no,route,address);
+
+        try {
+            TransporterModel.addEditedTransportersToDatabase(transporter);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void searchTransporterFromDatabase(ActionEvent actionEvent) {
+
+        id = txtTransporterIdSearch.getText();
+
+        try {
+            Transporter transporter = TransporterModel.searchTransporterFromDatabase(id);
+
+            if (transporter==null){
+
+                new Alert(Alert.AlertType.ERROR,"There is no transporter in this id").show();
+
+            }else {
+
+
+                lblTransporterIdEdit.setText(id);
+                txtTransporterNameEdit.setText(transporter.getName());
+                txtTransporterContactEdit.setText(transporter.getContact());
+                txtTransporterAddressEdit.setText(transporter.getAddress());
+                txtTransporterRouteEdit.setText(transporter.getRoute());
+
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    public void editTransporter(ActionEvent actionEvent) throws IOException {
+
+        loadEditForm("transporter");
+
+    }
+
+    public void loadEditForm(String form) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/view/"+form+"_edit_form.fxml"));
+        stage.setTitle(form+"  Edit");
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+    public void addEditedProductToDatabase(ActionEvent actionEvent) {
+    }
+
+    public void searchProductFromDatabase(ActionEvent actionEvent) {
+
+        id = txtProductIdSearch.getText();
+    }
+
+    public void editProduct(ActionEvent actionEvent) throws IOException {
+
+        loadEditForm("product");
 
     }
 }

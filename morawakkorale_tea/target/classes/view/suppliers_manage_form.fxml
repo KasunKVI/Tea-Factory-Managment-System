@@ -47,7 +47,7 @@
             <Font name="Arial Black" size="28.0" />
          </font>
       </Button>
-      <Button layoutX="679.0" layoutY="56.0" mnemonicParsing="false" onAction="#EditSupplier" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Edit Supplier Details" textFill="WHITE">
+      <Button layoutX="679.0" layoutY="56.0" mnemonicParsing="false" onAction="#editSupplier" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Edit Supplier Details" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="28.0" />
          </font>

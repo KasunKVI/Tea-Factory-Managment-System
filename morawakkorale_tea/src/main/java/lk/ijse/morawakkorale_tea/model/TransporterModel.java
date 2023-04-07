@@ -41,4 +41,17 @@ public class TransporterModel {
         return CrudUtil.execute(sql,transporter.getName(),transporter.getContact(),transporter.getRoute(),transporter.getAddress(),transporter.getId());
 
     }
+
+    public static int getTransportersCount() throws SQLException {
+
+        String sql = "SELECT tp_id FROM Transporter";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        int count = 0;
+
+        while (resultSet.next()){
+            count++;
+        }
+        return count;
+    }
 }

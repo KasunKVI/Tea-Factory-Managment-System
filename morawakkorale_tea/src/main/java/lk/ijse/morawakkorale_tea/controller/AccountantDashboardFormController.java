@@ -37,20 +37,19 @@ public class AccountantDashboardFormController {
 
     public void hideMenuBar(MouseEvent mouseEvent) {
 
-        MenuBarOperation.fadeMenuBar(menuBarPanel,1,0,-88);
-
-        menuBarPanel.setDisable(true);
+        SideBarOperations.hideMenuBar(menuBarPanel);
 
     }
 
 
     public void showMenuBar(MouseEvent mouseEvent) {
 
-        menuBarPanel.setDisable(false );
-        MenuBarOperation.fadeMenuBar(menuBarPanel,0,1,+88);
-        menuBarPanel.setVisible(true);
+       SideBarOperations.showMenuBar(menuBarPanel);
 
     }
 
 
+    public void exitSystem(MouseEvent mouseEvent) {
+        System.exit(0);
+    }
 }

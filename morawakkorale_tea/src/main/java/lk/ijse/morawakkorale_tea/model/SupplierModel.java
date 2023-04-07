@@ -41,4 +41,17 @@ public class SupplierModel {
         String sql = "UPDATE Supplier SET name = ?, contact = ?, address = ? WHERE sup_id = ?";
         return CrudUtil.execute(sql,supplier.getName(),supplier.getContact(),supplier.getAddress(),supplier.getId());
     }
+
+    public static int getSuppliersCount() throws SQLException {
+
+        String sql = "SELECT sup_id FROM Supplier";
+        ResultSet resultSet=CrudUtil.execute(sql);
+
+        int count=0;
+
+        while (resultSet.next()){
+            count++;
+        }
+        return count;
+    }
 }

@@ -1,17 +1,15 @@
 package lk.ijse.morawakkorale_tea.controller;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -19,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.morawakkorale_tea.dto.Stock;
 import lk.ijse.morawakkorale_tea.dto.Supplier_Stock;
+import lk.ijse.morawakkorale_tea.dto.tm.SupplierTeaValuesTM;
 import lk.ijse.morawakkorale_tea.model.StockModel;
 import lk.ijse.morawakkorale_tea.model.Supplier_StockModel;
 
@@ -26,13 +25,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
 public class CollectorDashboardFormController implements Initializable {
-
-    @FXML
-    private Button btnSetting;
 
     @FXML
     private Pane menuBarPanel;
@@ -45,6 +42,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     @FXML
     private TextField txtTransporterIdStock;
+
     @FXML
     private DatePicker dtpStockDate;
 
@@ -60,6 +58,21 @@ public class CollectorDashboardFormController implements Initializable {
     @FXML
     private TextField txtSupTeaBagCount;
 
+    @FXML
+    private TableView<SupplierTeaValuesTM> tableSupplierTeaValues;
+
+    @FXML
+    private TableColumn<?,?> clmSupplierId;
+
+    @FXML
+    private TableColumn<?,?> clmSupplierBagCount;
+
+    @FXML
+    private TableColumn<?,?> clmSupplierTeaValue;
+
+    @FXML
+    private AnchorPane mainPanel;
+
 
     private String stock_id;
     private LocalDate date;
@@ -70,52 +83,38 @@ public class CollectorDashboardFormController implements Initializable {
     private int supplier_bag_count;
 
 
-
-
-    public void btnSettingOnAction(ActionEvent actionEvent) throws IOException {
-
-
-
-    }
-//
-//    public void btncolorchanger(MouseEvent mouseEvent) {
-//
-//        btnSetting.setStyle("-fx-background-color: #ff0000; -fx-background-radius: 15px;");
-//
-//    }
-//
-//    public void btncolorback(MouseEvent mouseEvent) {
-//
-//        btnSetting.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 15px;");
-//
-//    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         generateNextStockId();
+        setCellValueFactory();
+
+    }
+
+    private void setCellValueFactory() {
+
+        clmSupplierId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        clmSupplierBagCount.setCellValueFactory(new PropertyValueFactory<>("Bag"));
+        clmSupplierTeaValue.setCellValueFactory(new PropertyValueFactory<>("Value"));
 
     }
 
 
     public void hideMenuBar(MouseEvent mouseEvent) {
 
-        MenuBarOperation.fadeMenuBar(menuBarPanel,1,0,-88);
-
-        menuBarPanel.setDisable(true);
+        SideBarOperations.hideMenuBar(menuBarPanel);
 
     }
 
 
     public void showMenuBar(MouseEvent mouseEvent) {
 
-        menuBarPanel.setDisable(false );
-        MenuBarOperation.fadeMenuBar(menuBarPanel,0,1,+88);
-        menuBarPanel.setVisible(true);
+        SideBarOperations.showMenuBar(menuBarPanel);
+
 
     }
 
-    public void SuppierValuesAddWindowShower(ActionEvent actionEvent) {
+    public void supplierValuesAddWindowShower(ActionEvent actionEvent) {
 
         supplierValuesAddPane.setVisible(true);
         FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),supplierValuesAddPane);
@@ -139,9 +138,9 @@ public class CollectorDashboardFormController implements Initializable {
 
             StockModel.addStockToDatabase(stock);
 
-        } catch (SQLException throwables) {
+        } catch (SQLException throwable) {
 
-            throwables.printStackTrace();
+            throwable.printStackTrace();
 
         }
 
@@ -156,15 +155,15 @@ public class CollectorDashboardFormController implements Initializable {
             String stock_id = StockModel.generateStockId();
             lblStockId.setText(stock_id);
 
-        } catch (SQLException throwables) {
+        } catch (SQLException throwable) {
 
-            throwables.printStackTrace();
+            throwable.printStackTrace();
 
         }
 
     }
 
-    public void addSupplierValuesToDatabase(ActionEvent actionEvent) {
+    public void addSupplierValuesToDatabase(ActionEvent actionEvent)  {
 
         supplier_id= Integer.parseInt(txtSupIdStock.getText());
         stock_id=lblStockId.getText();
@@ -177,17 +176,38 @@ public class CollectorDashboardFormController implements Initializable {
 
             Supplier_StockModel.addSupplierValuesToDatabase(supplier_stock);
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+
+            throwable.printStackTrace();
+
         }
 
         discardOrClearSupplierValues(actionEvent);
 
-    }
+        try {
 
-    public void completeSupplierValuesAdd(ActionEvent actionEvent) {
+        ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
+        List<Supplier_Stock> supplierValueList = Supplier_StockModel.getSupplierValue(stock_id);
 
-        supplierValuesAddPane.setVisible(false);
+
+        for(Supplier_Stock stock:supplierValueList){
+
+            observableList.add(new SupplierTeaValuesTM(
+               stock.getSup_id(),
+               stock.getBag_count(),
+               stock.getValue()
+
+            ));
+        }
+
+        tableSupplierTeaValues.setItems(observableList);
+        tableSupplierTeaValues.refresh();
+
+        } catch (SQLException throwable) {
+
+            throwable.printStackTrace();
+
+        }
 
     }
 
@@ -206,4 +226,48 @@ public class CollectorDashboardFormController implements Initializable {
         txtStockValue.setText("");
 
     }
+
+    public void exitSystem(MouseEvent mouseEvent) {
+        System.exit(1);
+    }
+
+    public void filledDate(ActionEvent actionEvent) {
+        txtStockValue.requestFocus();
+    }
+
+    public void filledTotalValue(ActionEvent actionEvent) {
+        addStockToDatabase(actionEvent);
+    }
+
+    public void filledSupplierId(ActionEvent actionEvent) {
+        txtSupTeaValue.requestFocus();
+    }
+
+    public void filledTeaValue(ActionEvent actionEvent) {
+        txtSupTeaBagCount.requestFocus();
+    }
+
+    public void filledBagCount(ActionEvent actionEvent) {
+        addSupplierValuesToDatabase(actionEvent);
+    }
+
+    public void closeSupplierValuesAddForm(ActionEvent actionEvent) {
+        supplierValuesAddPane.setVisible(false);
+    }
+
+
+
+
+
+    public void logOutFromCollectorDashboard(MouseEvent mouseEvent) throws IOException {
+
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
+        Stage stage = (Stage) mainPanel.getScene().getWindow();
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Login Form");
+        stage.centerOnScreen();
+
+    }
+
+
 }

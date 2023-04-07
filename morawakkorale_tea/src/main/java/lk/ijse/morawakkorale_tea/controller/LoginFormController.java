@@ -1,5 +1,6 @@
 package lk.ijse.morawakkorale_tea.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,10 +21,9 @@ import java.util.Optional;
 public class LoginFormController {
 
     @FXML
-    public TextField txtUserId;
-    public TextField txtPassword;
-
-
+    private TextField txtUserId;
+    @FXML
+    private TextField txtPassword;
 
     public void loginBtnOnAction() throws IOException, SQLException {
 
@@ -91,4 +91,15 @@ public class LoginFormController {
 
     }
 
+    public void doneUserId(ActionEvent actionEvent) {
+
+        txtPassword.requestFocus();
+
+    }
+
+    public void doneUserIdAndPassword(ActionEvent actionEvent) throws IOException, SQLException {
+
+        loginBtnOnAction();
+
+    }
 }

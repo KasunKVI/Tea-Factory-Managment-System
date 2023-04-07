@@ -50,13 +50,9 @@ public class StockModel {
 
             String formattedId = "";
 
-            if(num.length()==1) {
+            if(num.length()==1||num.length()==2) {
 
                 formattedId = String.format("%03d", id);
-
-            }else if(num.length()==2){
-
-                formattedId = String.format("%02d", id);
 
             }else{
 

@@ -17,12 +17,12 @@
     <children>
         <AnchorPane fx:id="backgroundPane" layoutX="88.0" layoutY="-1.0" prefHeight="1048.0" prefWidth="1853.0">
             <children>
-                <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="2.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="2.0" onMouseEntered="#updateCompanySummeryForm" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/Dashboard_Background.png" />
                     </image>
                 </ImageView>
-                <Pane layoutX="405.0" layoutY="24.0" opacity="0.9" prefHeight="496.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+                <Pane layoutX="405.0" layoutY="34.0" opacity="0.9" prefHeight="440.0" prefWidth="568.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                     <children>
                         <Label layoutX="68.0" layoutY="24.0" prefHeight="40.0" prefWidth="273.0" text="Available Product Stock">
                             <font>
@@ -47,26 +47,26 @@
                   <Label layoutX="172.0" layoutY="159.0" prefHeight="28.0" prefWidth="231.0" text="English Aftrenoon - Green Tea" />
                   <Label layoutX="172.0" layoutY="256.0" prefHeight="28.0" prefWidth="231.0" text="Earl Grey Tea - Black Tea" />
                   <Label layoutX="162.0" layoutY="362.0" prefHeight="28.0" prefWidth="231.0" text="English Breakfast - Black Tea" />
-                  <Label fx:id="lblBlackTeaCount2" layoutX="427.0" layoutY="360.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
+                  <Label fx:id="lblEnglishBreakfastTeaCount" layoutX="427.0" layoutY="360.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
                      <font>
                         <Font name="KacstOne Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblBlackTeaCount1" layoutX="426.0" layoutY="255.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
+                  <Label fx:id="lblEarlGreyTeaCount" layoutX="426.0" layoutY="255.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
                      <font>
                         <Font name="KacstOne Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblGreenTeaCount" layoutX="427.0" layoutY="159.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
+                  <Label fx:id="lblEnglishAfternoonCount" layoutX="427.0" layoutY="159.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
                      <font>
                         <Font name="KacstOne Bold" size="14.0" />
                      </font>
                   </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="1034.0" layoutY="95.0" opacity="0.9" prefHeight="372.0" prefWidth="796.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+                <Pane layoutX="1014.0" layoutY="95.0" opacity="0.9" prefHeight="372.0" prefWidth="796.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                     <children>
-                        <Label layoutX="68.0" layoutY="24.0" prefHeight="61.0" prefWidth="237.0" text="Products Summery">
+                        <Label layoutX="68.0" layoutY="24.0" prefHeight="61.0" prefWidth="237.0" text="Company Summery">
                             <font>
                                 <Font name="Abyssinica SIL" size="25.0" />
                             </font>
@@ -91,14 +91,14 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <Label fx:id="supplierCountlbl" layoutX="199.0" layoutY="156.0" prefHeight="52.0" prefWidth="104.0">
+                        <Label fx:id="lblSuppliersCount" layoutX="99.0" layoutY="276.0" prefHeight="52.0" prefWidth="104.0">
                             <font>
-                                <Font size="18.0" />
+                                <Font name="padmaa-Bold.1.1" size="33.0" />
                             </font>
                         </Label>
-                        <Label fx:id="transportersCountlbl" layoutX="673.0" layoutY="151.0" prefHeight="52.0" prefWidth="104.0">
+                        <Label fx:id="lblCustomersCount" layoutX="603.0" layoutY="274.0" prefHeight="52.0" prefWidth="104.0">
                             <font>
-                                <Font size="18.0" />
+                                <Font name="padmaa-Bold.1.1" size="30.0" />
                             </font>
                         </Label>
                   <ImageView fitHeight="78.0" fitWidth="100.0" layoutX="578.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
@@ -111,9 +111,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <Label fx:id="lblTransportersCount" layoutX="336.0" layoutY="278.0" prefHeight="52.0" prefWidth="104.0">
+                     <font>
+                        <Font name="padmaa-Bold.1.1" size="30.0" />
+                     </font>
+                  </Label>
                     </children>
                 </Pane>
-                <Pane layoutX="530.0" layoutY="550.0" opacity="0.9" prefHeight="479.0" prefWidth="1042.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+                <Pane layoutX="520.0" layoutY="520.0" opacity="0.9" prefHeight="479.0" prefWidth="1042.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                     <children>
                         <BarChart layoutX="11.0" layoutY="71.0" prefHeight="400.0" prefWidth="938.0">
                             <xAxis>
@@ -139,50 +144,8 @@
                         <Image url="@../img/co-op.png" />
                     </image>
                 </ImageView>
-            <Group layoutX="56.0" layoutY="876.0">
-               <children>
-                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="14.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../img/settings (1).png" />
-                          </image>
-                      </ImageView>
-                      <Label layoutX="121.0" layoutY="66.0" prefHeight="60.0" prefWidth="185.0" text="Setting">
-                          <font>
-                              <Font size="49.0" />
-                          </font>
-                      </Label>
-                      <Button fx:id="btnSetting" contentDisplay="RIGHT" layoutX="-3.0" layoutY="34.0" mnemonicParsing="false" opacity="0.25" prefHeight="122.0" prefWidth="332.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
-                          <font>
-                              <Font size="25.0" />
-                          </font>
-                          <cursor>
-                              <Cursor fx:constant="HAND" />
-                          </cursor>
-                      </Button>
-               </children>
-            </Group>
-            <Group layoutX="55.0" layoutY="728.0">
-               <children>
-                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="18.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../img/logout.png" />
-                          </image>
-                      </ImageView>
-                      <Label layoutX="116.0" layoutY="85.0" prefHeight="60.0" prefWidth="185.0" text="Logout">
-                          <font>
-                              <Font size="49.0" />
-                          </font>
-                      </Label>
-                      <Button fx:id="btnSetting1" contentDisplay="RIGHT" layoutX="-1.0" layoutY="49.0" mnemonicParsing="false" onAction="#logout" opacity="0.25" prefHeight="122.0" prefWidth="334.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
-                          <font>
-                              <Font size="25.0" />
-                          </font>
-                          <cursor>
-                              <Cursor fx:constant="HAND" />
-                          </cursor>
-                      </Button>
-               </children>
-            </Group>
+            <Group layoutX="56.0" layoutY="876.0" />
+            <Group layoutX="55.0" layoutY="728.0" />
             <Group layoutX="50.0" layoutY="570.0">
                <children>
                       <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="18.0" layoutY="-35.0" pickOnBounds="true" preserveRatio="true">
@@ -269,24 +232,49 @@
             </Button>
             </children>
         </Pane>
-        <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3;">
-            <children>
-                <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/menu%20(2).png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="955.0" onMouseClicked="#exitFromSystem" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/power.png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/home-button.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
+      <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: black; -fx-border-color: brown; -fx-border-width: 3;">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/menu.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="955.0" onMouseClicked="#exitSystem" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/power.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/green-home.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="835.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logout.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="704.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/settings.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

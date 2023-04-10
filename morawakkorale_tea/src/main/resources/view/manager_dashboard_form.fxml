@@ -17,7 +17,7 @@
     <children>
         <AnchorPane fx:id="backgroundPane" layoutX="88.0" layoutY="-1.0" prefHeight="1048.0" prefWidth="1853.0">
             <children>
-                <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="2.0" onMouseEntered="#updatePanes" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="2.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/Dashboard_Background.png" />
                     </image>
@@ -49,17 +49,17 @@
                   <Label layoutX="162.0" layoutY="362.0" prefHeight="28.0" prefWidth="231.0" text="English Breakfast - Black Tea" />
                   <Label fx:id="lblEnglishBreakfastTeaCount" layoutX="427.0" layoutY="360.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
                      <font>
-                        <Font name="KacstOne Bold" size="14.0" />
+                        <Font name="Arial Black" size="21.0" />
                      </font>
                   </Label>
                   <Label fx:id="lblEarlGreyTeaCount" layoutX="426.0" layoutY="255.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
                      <font>
-                        <Font name="KacstOne Bold" size="14.0" />
+                        <Font name="Arial Black" size="21.0" />
                      </font>
                   </Label>
                   <Label fx:id="lblEnglishAfternoonCount" layoutX="427.0" layoutY="159.0" prefHeight="28.0" prefWidth="46.0" style="-fx-background-color: #f5f6fa;">
                      <font>
-                        <Font name="KacstOne Bold" size="14.0" />
+                        <Font name="Arial Black" size="21.0" />
                      </font>
                   </Label>
                     </children>
@@ -120,7 +120,7 @@
                 </Pane>
                 <Pane layoutX="520.0" layoutY="520.0" opacity="0.9" prefHeight="479.0" prefWidth="1042.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                     <children>
-                        <BarChart layoutX="11.0" layoutY="71.0" prefHeight="400.0" prefWidth="938.0">
+                        <BarChart fx:id="suppliersChart" layoutX="11.0" layoutY="71.0" prefHeight="400.0" prefWidth="938.0">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
@@ -160,7 +160,7 @@
                       </Label>
                </children>
             </Group>
-                <Button fx:id="btnSetting11" contentDisplay="RIGHT" layoutX="57.0" layoutY="513.0" mnemonicParsing="false" onAction="#showBuyersManage" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+                <Button fx:id="btnCustomer" contentDisplay="RIGHT" layoutX="57.0" layoutY="513.0" mnemonicParsing="false" onAction="#showBuyersManage" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                     <font>
                         <Font size="25.0" />
                     </font>
@@ -180,7 +180,7 @@
                               <Font size="49.0" />
                           </font>
                       </Label>
-                      <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutY="-25.0" mnemonicParsing="false" onAction="#showTransportersManage" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+                      <Button fx:id="btnTransporter" contentDisplay="RIGHT" layoutY="-25.0" mnemonicParsing="false" onAction="#showTransportersManage" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                           <font>
                               <Font size="25.0" />
                           </font>
@@ -222,7 +222,7 @@
                   <Font size="49.0" />
                </font>
             </Label>
-            <Button fx:id="btnSetting2" contentDisplay="RIGHT" layoutX="55.0" layoutY="645.0" mnemonicParsing="false" onAction="#showProductManage" opacity="0.25" prefHeight="122.0" prefWidth="332.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+            <Button fx:id="btnProduct" contentDisplay="RIGHT" layoutX="55.0" layoutY="645.0" mnemonicParsing="false" onAction="#showProductManage" opacity="0.25" prefHeight="122.0" prefWidth="332.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                <font>
                   <Font size="25.0" />
                </font>
@@ -250,7 +250,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgHome" fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" onMouseClicked="#showDashboard" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/green-home.png" />
                </image>

@@ -25,6 +25,7 @@ public class LoginFormController {
     @FXML
     private TextField txtPassword;
 
+
     public void loginBtnOnAction() throws IOException, SQLException {
 
         String id = txtUserId.getText();
@@ -102,4 +103,5 @@ public class LoginFormController {
         loginBtnOnAction();
 
     }
+
 }

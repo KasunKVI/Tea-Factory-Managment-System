@@ -2,9 +2,6 @@ package lk.ijse.morawakkorale_tea.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,12 +10,9 @@ import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Transporter;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
-public class TransporterManageFormController {
-
-    private Stage stage = new Stage();
+public class TransporterAddOrEditFormController {
 
     //Components from supplier adding form
     @FXML
@@ -48,25 +42,17 @@ public class TransporterManageFormController {
     @FXML
     private Button btnTrpAdd;
 
-    private String id;
+    private int id;
     private String name;
     private String contact_no;
     private String address;
     private String route;
 
-
-    public void addNewTransporter(ActionEvent actionEvent) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/view/transporter_adding_form.fxml"));
-        stage.setTitle("Transporter Adder");
-        stage.setScene(new Scene(root));
-        stage.show();
-
-    }
+    private Stage stage = new Stage();
 
     public void addTransporterToDatabase(ActionEvent actionEvent) {
 
-        id=txtTrpId.getText();
+        id= Integer.parseInt(txtTrpId.getText());
         name=txtTrpName.getText();
         contact_no=txtTrpContact.getText();
         route=txtTrpRoute.getText();
@@ -91,7 +77,7 @@ public class TransporterManageFormController {
 
     public void addEditedTransportersToDatabase(ActionEvent actionEvent) {
 
-        id=lblTransporterIdEdit.getText();
+        id= Integer.parseInt(lblTransporterIdEdit.getText());
         name=txtTransporterNameEdit.getText();
         contact_no=txtTransporterContactEdit.getText();
         address=txtTransporterAddressEdit.getText();
@@ -108,10 +94,10 @@ public class TransporterManageFormController {
 
     public void searchTransporterFromDatabase(ActionEvent actionEvent) {
 
-        id = txtTransporterIdSearch.getText();
+        id = Integer.parseInt(txtTransporterIdSearch.getText());
 
         try {
-            Transporter transporter = TransporterModel.searchTransporterFromDatabase(id);
+            Transporter transporter = TransporterModel.searchTransporterFromDatabase(String.valueOf(id));
 
             if (transporter==null){
 
@@ -120,7 +106,7 @@ public class TransporterManageFormController {
             }else {
 
 
-                lblTransporterIdEdit.setText(id);
+                lblTransporterIdEdit.setText(String.valueOf(id));
                 txtTransporterNameEdit.setText(transporter.getName());
                 txtTransporterContactEdit.setText(transporter.getContact());
                 txtTransporterAddressEdit.setText(transporter.getAddress());
@@ -132,21 +118,6 @@ public class TransporterManageFormController {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-
-    }
-
-    public void editTransporter(ActionEvent actionEvent) throws IOException {
-
-        loadEditForm("transporter");
-
-    }
-
-    public void loadEditForm(String form) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/view/"+form+"_edit_form.fxml"));
-        stage.setTitle(form+"  Edit");
-        stage.setScene(new Scene(root));
-        stage.show();
 
     }
 

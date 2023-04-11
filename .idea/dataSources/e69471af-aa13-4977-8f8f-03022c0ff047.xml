@@ -4768,7 +4768,7 @@ id_order</ColNames>
     </column>
     <column id="732" parent="304" name="type">
       <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="733" parent="304" name="PRIMARY">
@@ -4823,7 +4823,7 @@ id_order</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="743" parent="306" name="g_l_value">
+    <column id="743" parent="306" name="leaf_value">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>

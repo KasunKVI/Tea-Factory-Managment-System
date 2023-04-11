@@ -3,6 +3,7 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -123,11 +124,12 @@
                   <NumberAxis side="LEFT" />
                </yAxis>
             </BarChart>
-            <Label layoutX="42.0" layoutY="19.0" prefHeight="40.0" prefWidth="199.0" text="Suppliers">
+            <Label layoutX="42.0" layoutY="19.0" prefHeight="40.0" prefWidth="199.0" text="New Suppliers">
                <font>
                   <Font name="Abyssinica SIL" size="22.0" />
                </font>
             </Label>
+            <ComboBox fx:id="cmbSupplierYear" layoutX="277.0" layoutY="19.0" onAction="#initializeChartUsingYear" prefHeight="40.0" prefWidth="192.0" promptText="Select Year" />
          </children>
       </Pane>
    </children>

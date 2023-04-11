@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.TransporterManageFormController">
+<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.TransporterAddOrEditFormController">
     <children>
         <Label layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="254.0" text="New Transporter">
             <font>

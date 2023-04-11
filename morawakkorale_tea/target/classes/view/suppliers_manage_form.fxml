@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main" prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierManageFormController">
+<AnchorPane fx:id="main" prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierManageDashboardFormController">
     <children>
         <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="1.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -31,16 +31,24 @@
                   <Font name="Arial Black" size="23.0" />
                </font>
             </Button>
-            <TableView layoutX="99.0" layoutY="93.0" prefHeight="669.0" prefWidth="1055.0">
+            <TableView fx:id="allSupplierDetails" layoutX="99.0" layoutY="93.0" prefHeight="669.0" prefWidth="1055.0">
               <columns>
-                <TableColumn minWidth="20.0" prefWidth="111.0" text="ID" />
-                <TableColumn minWidth="20.0" prefWidth="315.0" text="Name" />
-                  <TableColumn prefWidth="225.0" text="Contact" />
-                  <TableColumn prefWidth="129.0" text="Reg_Date" />
-                  <TableColumn minWidth="0.0" prefWidth="158.0" text="Address" />
-                  <TableColumn prefWidth="141.0" text="Status" />
+                <TableColumn fx:id="clmSupId" minWidth="20.0" prefWidth="111.0" text="Id" />
+                <TableColumn fx:id="clmSupName" minWidth="20.0" prefWidth="218.0" text="Name" />
+                  <TableColumn fx:id="clmSupContact" prefWidth="140.0" text="Contact" />
+                  <TableColumn fx:id="clmSupRegDate" prefWidth="142.0" text="Reg_date" />
+                  <TableColumn fx:id="clmSupAddress" minWidth="0.0" prefWidth="327.0" text="Address" />
+                  <TableColumn fx:id="clmSupStatus" prefWidth="116.0" text="Status" />
               </columns>
             </TableView>
+            <ImageView fitHeight="64.0" fitWidth="62.0" layoutX="1100.0" layoutY="13.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/refresh-button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children></Pane>
       <Button layoutX="1209.0" layoutY="56.0" mnemonicParsing="false" onAction="#addNewSupplier" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Add New supplier" textFill="WHITE">
          <font>

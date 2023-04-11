@@ -2,11 +2,14 @@ package lk.ijse.morawakkorale_tea.model;
 
 import lk.ijse.morawakkorale_tea.db.DBConnection;
 import lk.ijse.morawakkorale_tea.dto.Stock;
+import lk.ijse.morawakkorale_tea.dto.Supplier_Stock;
 import lk.ijse.morawakkorale_tea.util.CrudUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StockModel {
 
@@ -64,4 +67,16 @@ public class StockModel {
         return "S001";
     }
 
+    public static List<String> getSupplierValue() throws SQLException {
+
+        String sql = "SELECT stock_id FROM Stock";
+        List<String> stock_ids = new ArrayList<>();
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+            stock_ids.add(resultSet.getString(1));
+
+        }
+        return stock_ids;
+    }
 }

@@ -1,5 +1,4 @@
-package lk.ijse.morawakkorale_tea.dto;
-
+package lk.ijse.morawakkorale_tea.dto.tm;
 
 import lombok.*;
 
@@ -9,7 +8,7 @@ import lombok.*;
 @Setter
 @ToString
 
-public class Transporter {
+public class TransporterTM {
 
     private Integer id;
     private String name;

@@ -5,17 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerManageFormController">
+<AnchorPane prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
     <children>
-        <Label fx:id="lblCustId" layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="214.0">
+        <Label fx:id="lblCustIdEdit" layoutX="34.0" layoutY="103.0" prefHeight="63.0" prefWidth="214.0">
             <font>
                 <Font name="DejaVu Serif Bold" size="26.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupAddress" layoutX="289.0" layoutY="409.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustOriginEdit" editable="false" layoutX="293.0" layoutY="519.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -25,7 +27,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupContact" layoutX="294.0" layoutY="300.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustContactEdit" layoutX="294.0" layoutY="300.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -35,17 +37,17 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupName" layoutX="296.0" layoutY="185.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustNameEdit" layoutX="296.0" layoutY="185.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
         </TextField>
-        <Label layoutX="27.0" layoutY="425.0" prefHeight="34.0" prefWidth="197.0" text="Origin">
+        <Label layoutX="27.0" layoutY="532.0" prefHeight="34.0" prefWidth="197.0" text="Origin">
             <font>
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="btnSupAdd" layoutX="356.0" layoutY="701.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="182.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Save" textFill="WHITE">
+        <Button fx:id="btnCustEdit" layoutX="356.0" layoutY="703.0" mnemonicParsing="false" onAction="#addEditedCustomersToDatabase" prefHeight="54.0" prefWidth="182.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Save" textFill="WHITE">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -67,15 +69,25 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Label layoutX="27.0" layoutY="535.0" prefHeight="34.0" prefWidth="197.0" text="Reg_Date">
-            <font>
-                <Font name="FreeMono" size="22.0" />
-            </font>
-        </Label>
-        <TextField fx:id="txtSupAddress1" editable="false" layoutX="289.0" layoutY="519.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
-            <font>
-                <Font name="Arial Bold" size="22.0" />
-            </font>
-        </TextField>
+      <TextField fx:id="txtCustomerIdSearch" alignment="CENTER" layoutX="24.0" layoutY="24.0" onAction="#searchCustomerFromDatabase" prefHeight="48.0" prefWidth="404.0" promptText="Search Cutomers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+         <font>
+            <Font name="DejaVu Serif Bold" size="26.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="45.0" fitWidth="36.0" layoutX="35.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="27.0" layoutY="416.0" prefHeight="34.0" prefWidth="197.0" text="Employee">
+         <font>
+            <Font name="FreeMono" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCustEmployeeIdEdit" layoutX="294.0" layoutY="409.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </TextField>
     </children>
 </AnchorPane>

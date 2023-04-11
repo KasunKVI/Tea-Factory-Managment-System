@@ -10,8 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="874.0" prefWidth="602.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierManageFormController">
+<AnchorPane prefHeight="874.0" prefWidth="602.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierAddOrEditFormController">
     <children>
+      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="30.0" layoutY="18.0" onAction="#searchSupplierFromDatabase" prefHeight="68.0" prefWidth="446.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+         <font>
+            <Font name="DejaVu Serif Bold" size="26.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
         <Label fx:id="lblSupIdEdit" layoutX="34.0" layoutY="108.0" prefHeight="63.0" prefWidth="214.0">
             <font>
                 <Font name="DejaVu Serif Bold" size="26.0" />
@@ -58,7 +66,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Button fx:id="btnLogin2" layoutX="161.0" layoutY="761.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+        <Button fx:id="btnDiscard" layoutX="161.0" layoutY="761.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -89,11 +97,6 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="30.0" layoutY="18.0" onAction="#searchSupplierFromDatabase" prefHeight="68.0" prefWidth="446.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
-         <font>
-            <Font name="DejaVu Serif Bold" size="26.0" />
-         </font>
-      </TextField>
       <ImageView fitHeight="48.0" fitWidth="52.0" layoutX="43.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/search.png" />

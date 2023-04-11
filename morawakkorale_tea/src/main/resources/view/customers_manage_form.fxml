@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,21 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerManageFormController">
+<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerManageDashboardFormController">
     <children>
         <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="1.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/Dashboard_Background.png" />
-            </image>
-        </ImageView>
-        <TextField alignment="CENTER" layoutX="550.0" layoutY="58.0" prefHeight="68.0" prefWidth="517.0" promptText="Search Cutomers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
-            <font>
-                <Font name="DejaVu Serif Bold" size="26.0" />
-            </font>
-        </TextField>
-        <ImageView fitHeight="48.0" fitWidth="52.0" layoutX="565.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/search.png" />
             </image>
         </ImageView>
         <Pane layoutX="579.0" layoutY="154.0" prefHeight="880.0" prefWidth="1192.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;">
@@ -53,13 +42,12 @@
                         <Font name="Arial Black" size="23.0" />
                     </font>
                 </Button>
-                <TableView layoutX="74.0" layoutY="70.0" prefHeight="692.0" prefWidth="1080.0">
+                <TableView fx:id="allCustomersDetails" layoutX="144.0" layoutY="80.0" prefHeight="692.0" prefWidth="865.0">
                     <columns>
-                        <TableColumn minWidth="20.0" prefWidth="111.0" text="ID" />
-                        <TableColumn minWidth="20.0" prefWidth="331.0" text="Name" />
-                        <TableColumn prefWidth="209.0" text="Contact" />
-                        <TableColumn prefWidth="129.0" text="Reg_Date" />
-                        <TableColumn prefWidth="227.0" text="Origin" />
+                        <TableColumn fx:id="clmCustId" minWidth="20.0" prefWidth="111.0" text="Id" />
+                        <TableColumn fx:id="clmCustName" minWidth="20.0" prefWidth="331.0" text="Name" />
+                        <TableColumn fx:id="clmCustContact" prefWidth="220.0" text="Contact" />
+                        <TableColumn fx:id="clmCustOrigin" prefWidth="202.0" text="Origin" />
                     </columns>
                 </TableView>
             </children></Pane>
@@ -68,5 +56,18 @@
                 <Font name="Arial Black" size="28.0" />
             </font>
         </Button>
+      <Button layoutX="604.0" layoutY="55.0" mnemonicParsing="false" onAction="#editCustomer" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Edit Customer Details" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="28.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="54.0" fitWidth="51.0" layoutX="1683.0" layoutY="173.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/refresh-button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
     </children>
 </AnchorPane>

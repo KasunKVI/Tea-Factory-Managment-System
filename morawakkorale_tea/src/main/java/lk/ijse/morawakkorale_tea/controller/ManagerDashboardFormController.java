@@ -1,11 +1,11 @@
 package lk.ijse.morawakkorale_tea.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
@@ -13,16 +13,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import lk.ijse.morawakkorale_tea.dto.*;
 import lk.ijse.morawakkorale_tea.model.*;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManagerDashboardFormController implements Initializable {
@@ -50,6 +50,9 @@ public class ManagerDashboardFormController implements Initializable {
     private Label lblTransportersCount;
     @FXML
     private Label lblCustomersCount;
+
+    @FXML
+    private ComboBox <Year> cmbSupplierYear;
 
     @FXML
     private ImageView imgHome;
@@ -119,29 +122,47 @@ public class ManagerDashboardFormController implements Initializable {
 
         updatePanes();
         updateBarChart();
+        loadSupplierYears();
 
     }
 
-    private void updateBarChart() {
+    private void updateBarChart() throws SQLException {
 
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("New Suppliers");
-        series.getData().add(new XYChart.Data<>("January", 10));
-        series.getData().add(new XYChart.Data<>("February",20));
-        series.getData().add(new XYChart.Data<>("March",20));
-        series.getData().add(new XYChart.Data<>("April",0));
-        series.getData().add(new XYChart.Data<>("May",3));
-        series.getData().add(new XYChart.Data<>("June",30));
-        series.getData().add(new XYChart.Data<>("July",10));
-        series.getData().add(new XYChart.Data<>("August",25));
-        series.getData().add(new XYChart.Data<>("September",50));
-        series.getData().add(new XYChart.Data<>("October",8));
-        series.getData().add(new XYChart.Data<>("November",16));
-        series.getData().add(new XYChart.Data<>("December",24));
+        XYChart.Series<String, Number>[] series1 = new XYChart.Series[24];
+        String year="";
 
+        for (int i = 0; i < 24; i++) {
 
-        suppliersChart.getData().add(series);
+            if(i<10) {
+                year="200"+i;
+            }else {
+                year="20"+i;
+            }
+            series1[i] = new XYChart.Series<>();
+            series1[i].setName(year);
+            series1[i].getData().add(new XYChart.Data<>("", SupplierModel.getNewSupplierCountYear(year)));
+        }
 
+        suppliersChart.getData().addAll(series1);
+
+    }
+
+    private void loadSupplierYears() {
+
+            ObservableList<Year> obList = FXCollections.observableArrayList();
+            List<Year> years = new ArrayList<>();
+
+            for (int year = 2000; year <= 2023; year++) {
+
+                years.add(Year.of(year));
+            }
+
+            for (Year year : years) {
+
+                obList.add(year);
+            }
+
+            cmbSupplierYear.setItems(obList);
 
     }
 
@@ -160,9 +181,9 @@ public class ManagerDashboardFormController implements Initializable {
         lblTransportersCount.setText(String.valueOf(transporters_count));
         lblCustomersCount.setText(String.valueOf(customers_count));
 
-        int englishAfternoonCount = ProductModel.getProductCountCount("English Afternoon");
-        int earlGreyCount = ProductModel.getProductCountCount("Earl Grey");
-        int englishBreakfastCount = ProductModel.getProductCountCount("English Breakfast");
+        int englishAfternoonCount = ProductModel.getProductCountCount("English Afternoon - Green Tea");
+        int earlGreyCount = ProductModel.getProductCountCount("Earl Grey Tea - Black Tea");
+        int englishBreakfastCount = ProductModel.getProductCountCount("English Breakfast - Black Tea");
 
         lblEnglishAfternoonCount.setText(String.valueOf(englishAfternoonCount));
         lblEarlGreyTeaCount.setText(String.valueOf(earlGreyCount));
@@ -173,4 +194,24 @@ public class ManagerDashboardFormController implements Initializable {
     }
 
 
+    public void initializeChartUsingYear(ActionEvent actionEvent) throws SQLException {
+
+        suppliersChart.getData().clear();
+
+        Year year = cmbSupplierYear.getValue();
+        int yr = year.getValue();
+
+        XYChart.Series<String, Number>[] series = new XYChart.Series[12];
+
+        for (int i = 0; i < 12; i++) {
+
+            series[i] = new XYChart.Series<>();
+            series[i].setName(String.valueOf(Month.of(i+1)));
+            series[i].getData().add(new XYChart.Data<>("", SupplierModel.getNewSupplierCount(yr, i+1)));
+        }
+
+        suppliersChart.getData().addAll(series);
+
+
+    }
 }

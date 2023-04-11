@@ -7,6 +7,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SupplierModel {
 
@@ -24,7 +26,7 @@ public class SupplierModel {
         ResultSet resultSet=CrudUtil.execute(sql,id);
 
         if(resultSet.next()){
-            String sup_id=resultSet.getString(1);
+            Integer sup_id= Integer.valueOf(resultSet.getString(1));
             String name=resultSet.getString(2);
             String contact=resultSet.getString(3);
             Date reg_date=resultSet.getDate(4);
@@ -54,4 +56,54 @@ public class SupplierModel {
         }
         return count;
     }
+
+    public static int getNewSupplierCount(int yr, int i) throws SQLException {
+
+        String sql = "SELECT sup_id FROM Supplier WHERE YEAR(reg_date) = ? AND MONTH(reg_date) = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,yr,i);
+
+        int count=0;
+
+        while (resultSet.next()){
+            count++;
+        }
+        return count;
+    }
+
+    public static int getNewSupplierCountYear(String s) throws SQLException {
+
+        int year= Integer.parseInt(s);
+        String sql = "SELECT sup_id FROM Supplier WHERE YEAR(reg_date) = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,year);
+
+        int count=0;
+
+        while (resultSet.next()){
+            count++;
+        }
+        return count;
+    }
+
+    public static List<Supplier> getAll() throws SQLException {
+
+        String sql = "SELECT * FROM Supplier";
+
+        List<Supplier> supplier = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+                supplier.add(new Supplier(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getDate(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6)
+                ));
+
+        }
+        return supplier;
+    }
+
 }

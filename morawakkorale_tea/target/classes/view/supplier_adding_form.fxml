@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierManageFormController">
+<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierAddOrEditFormController">
    <children>
       <Label layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="214.0" text="New Supplier">
          <font>
@@ -21,7 +21,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupId" layoutX="295.0" layoutY="182.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Supplier Id" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupId" layoutX="295.0" layoutY="182.0" onAction="#enteredSupplierId" prefHeight="55.0" prefWidth="261.0" promptText="Input Supplier Id" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -31,7 +31,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupAddress" layoutX="289.0" layoutY="660.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupAddress" layoutX="289.0" layoutY="660.0" onAction="#enteredSupplierAllDetails" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -41,7 +41,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupContact" layoutX="294.0" layoutY="440.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupContact" layoutX="294.0" layoutY="440.0" onAction="#enteredSupplierContact" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -51,12 +51,12 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupName" layoutX="296.0" layoutY="312.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupName" layoutX="296.0" layoutY="312.0" onAction="#enteredSupplierName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </TextField>
-      <DatePicker fx:id="dtpSupRegDate" layoutX="297.0" layoutY="549.0" prefHeight="59.0" prefWidth="254.0" style="-fx-background-radius: 15 15 15 15;" />
+      <DatePicker fx:id="dtpSupRegDate" layoutX="297.0" layoutY="549.0" onAction="#enteredSupplierRegDate" prefHeight="59.0" prefWidth="254.0" style="-fx-background-radius: 15 15 15 15;" />
       <Label layoutX="27.0" layoutY="681.0" prefHeight="34.0" prefWidth="197.0" text="Address">
          <font>
             <Font name="FreeMono" size="22.0" />
@@ -73,7 +73,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogin2" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+      <Button fx:id="btnLogin2" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
          <effect>
             <ColorAdjust />
          </effect>

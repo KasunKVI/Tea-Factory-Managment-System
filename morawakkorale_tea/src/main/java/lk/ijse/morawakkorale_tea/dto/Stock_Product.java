@@ -13,5 +13,6 @@ public class Stock_Product {
 
     private String product_id;
     private String stock_id;
-    private Integer g_l_Value;
+    private Integer leaf_value;
+
 }

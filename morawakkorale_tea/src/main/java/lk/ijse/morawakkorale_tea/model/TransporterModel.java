@@ -7,6 +7,8 @@ import lk.ijse.morawakkorale_tea.util.CrudUtil;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TransporterModel {
     public static boolean addTransporterToDatabase(Transporter transporter) throws SQLException {
@@ -23,7 +25,7 @@ public class TransporterModel {
 
         if (resultSet.next()){
 
-            String tp_id=resultSet.getString(1);
+            Integer tp_id=resultSet.getInt(1);
             String name=resultSet.getString(2);
             String contact=resultSet.getString(3);
             String route=resultSet.getString(4);
@@ -53,5 +55,26 @@ public class TransporterModel {
             count++;
         }
         return count;
+    }
+
+    public static List<Transporter> getAll() throws SQLException {
+
+        String sql = "SELECT * FROM Transporter";
+
+        List<Transporter>  transporter = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+            transporter.add(new Transporter(
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            ));
+
+        }
+        return transporter;
     }
 }

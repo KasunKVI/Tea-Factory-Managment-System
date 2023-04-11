@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ProductManageFormController">
+<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.ProductAddOrEditFormController">
     <children>
         <Label layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="254.0" text="New Product">
             <font>
@@ -74,7 +74,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <ComboBox fx:id="cmbPdtProductType" layoutX="289.0" layoutY="707.0" prefHeight="55.0" prefWidth="261.0" promptText="Select Type" style="-fx-background-radius: 10 10 10 10;" />
+        <ComboBox fx:id="cmbPdtProductType" layoutX="289.0" layoutY="707.0" onShowing="#addProducts" prefHeight="55.0" prefWidth="261.0" promptText="Select Type" style="-fx-background-radius: 10 10 10 10;" />
         <DatePicker fx:id="dtpPdtMadeDate" layoutX="293.0" layoutY="466.0" prefHeight="59.0" prefWidth="254.0" promptText="Select MFD" style="-fx-background-radius: 15 15 15 15;" />
       <Label layoutX="28.0" layoutY="609.0" prefHeight="34.0" prefWidth="197.0" text="Qty on Hand">
          <font>
@@ -86,6 +86,6 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cmbPdtStockId" layoutX="294.0" layoutY="357.0" prefHeight="55.0" prefWidth="261.0" promptText="Select Stock Id" style="-fx-background-radius: 10 10 10 10;" />
+      <ComboBox fx:id="cmbPdtStockId" layoutX="294.0" layoutY="357.0" onShowing="#addStockIds" prefHeight="55.0" prefWidth="261.0" promptText="Select Stock Id" style="-fx-background-radius: 10 10 10 10;" />
     </children>
 </AnchorPane>

@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class Supplier {
 
-    private String id;
+    private Integer id;
     private String name;
     private String contact;
     private Date reg_date;

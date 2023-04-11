@@ -24,7 +24,9 @@ import lk.ijse.morawakkorale_tea.model.Supplier_StockModel;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -75,7 +77,7 @@ public class CollectorDashboardFormController implements Initializable {
 
 
     private String stock_id;
-    private LocalDate date;
+    private String date;
     private int stock_value;
     private int transporter_id;
     private int supplier_id;
@@ -128,7 +130,7 @@ public class CollectorDashboardFormController implements Initializable {
 
 
         stock_id=lblStockId.getText();
-        date=dtpStockDate.getValue();
+        date= String.valueOf(dtpStockDate.getValue());
         stock_value= Integer.parseInt(txtStockValue.getText());
         transporter_id= Integer.parseInt(txtTransporterIdStock.getText());
 
@@ -254,10 +256,6 @@ public class CollectorDashboardFormController implements Initializable {
     public void closeSupplierValuesAddForm(ActionEvent actionEvent) {
         supplierValuesAddPane.setVisible(false);
     }
-
-
-
-
 
     public void logOutFromCollectorDashboard(MouseEvent mouseEvent) throws IOException {
 

@@ -1,23 +1,23 @@
-package lk.ijse.morawakkorale_tea.dto;
+package lk.ijse.morawakkorale_tea.dto.tm;
 
 import lombok.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 
-
-@AllArgsConstructor
 @NoArgsConstructor
-@Setter
+@AllArgsConstructor
 @Getter
+@Setter
 @ToString
 
-public class Product {
+public class ProductTM {
 
     private String id;
     private String name;
     private String made_date;
-    private Integer qty_on_hand;
+    private String stock_id;
+    private Integer leaf_value;
     private String type;
+    private Integer quantity;
 
 }

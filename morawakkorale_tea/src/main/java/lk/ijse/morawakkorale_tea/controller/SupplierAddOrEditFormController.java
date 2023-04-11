@@ -2,19 +2,19 @@ package lk.ijse.morawakkorale_tea.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Supplier;
 import lk.ijse.morawakkorale_tea.model.SupplierModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class SupplierManageFormController {
+public class SupplierAddOrEditFormController implements Initializable {
 
     @FXML
     private Button btnSupAdd;
@@ -45,39 +45,18 @@ public class SupplierManageFormController {
     @FXML
     private TextField txtSupStatusEdit;
 
-    private String id;
+    private int id;
     private String name;
     private String contact_no;
     private String address;
 
-
-
     private Stage stage = new Stage();
 
-    public void addNewSupplier(ActionEvent actionEvent) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/view/supplier_adding_form.fxml"));
-        stage.setTitle("Supplier Adder");
-        stage.setScene(new Scene(root));
-        stage.show();
 
-    }
-    public void editSupplier(ActionEvent actionEvent) throws IOException {
-
-        loadEditForm("supplier");
-
-    }
-    public void loadEditForm(String form) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/view/"+form+"_edit_form.fxml"));
-        stage.setTitle(form+"  Edit");
-        stage.setScene(new Scene(root));
-        stage.show();
-
-    }
     public void addSupplierToDatabase(ActionEvent actionEvent) {
 
-        id = txtSupId.getText();
+        id = Integer.parseInt(txtSupId.getText());
         name=txtSupName.getText();
         contact_no=txtSupContact.getText();
         Date reg_date = Date.valueOf(dtpSupRegDate.getValue());
@@ -101,9 +80,7 @@ public class SupplierManageFormController {
     }
     public void addEditedSupplierToDatabase(ActionEvent actionEvent) {
 
-
-
-        id=lblSupIdEdit.getText();
+        id= Integer.parseInt(lblSupIdEdit.getText());
         name=txtSupNameEdit.getText();
         contact_no=txtSupContactEdit.getText();
         address=txtSupAddressEdit.getText();
@@ -120,19 +97,19 @@ public class SupplierManageFormController {
 
     public void searchSupplierFromDatabase(ActionEvent actionEvent) throws IOException {
 
-        id = txtSupplierIdSearch.getText();
+        id = Integer.parseInt(txtSupplierIdSearch.getText());
 
         try {
 
-            Supplier supplier = SupplierModel.searchSupplierFromDatabase(id);
+            Supplier supplier = SupplierModel.searchSupplierFromDatabase(String.valueOf(id));
 
             if (supplier==null){
 
                 new Alert(Alert.AlertType.ERROR,"There is no supplier in this id").show();
+
             }else {
 
-
-                lblSupIdEdit.setText(id);
+                lblSupIdEdit.setText(String.valueOf(id));
                 txtSupNameEdit.setText(supplier.getName());
                 txtSupContactEdit.setText(supplier.getContact());
                 txtSupAddressEdit.setText(supplier.getAddress());
@@ -149,5 +126,30 @@ public class SupplierManageFormController {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
+
+
+    }
+
+    public void enteredSupplierId(ActionEvent actionEvent) {
+        txtSupName.requestFocus();
+    }
+
+    public void enteredSupplierAllDetails(ActionEvent actionEvent) {
+        addSupplierToDatabase(actionEvent);
+    }
+
+    public void enteredSupplierContact(ActionEvent actionEvent) {
+        dtpSupRegDate.requestFocus();
+    }
+
+    public void enteredSupplierName(ActionEvent actionEvent) {
+        txtSupContact.requestFocus();
+    }
+
+    public void enteredSupplierRegDate(ActionEvent actionEvent) {
+        txtSupAddress.requestFocus();
+    }
 }

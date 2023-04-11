@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.TransporterManageFormController">
+<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.TransporterManageDashboardFormController">
     <children>
         <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="1.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -42,13 +42,13 @@
                         <Font name="Arial Black" size="23.0" />
                     </font>
                 </Button>
-                <TableView layoutX="74.0" layoutY="70.0" prefHeight="692.0" prefWidth="1080.0">
+                <TableView fx:id="allTransportersDetails" layoutX="74.0" layoutY="70.0" prefHeight="692.0" prefWidth="1080.0">
                     <columns>
-                        <TableColumn minWidth="20.0" prefWidth="111.0" text="ID" />
-                        <TableColumn minWidth="20.0" prefWidth="331.0" text="Name" />
-                        <TableColumn prefWidth="209.0" text="Contact" />
-                        <TableColumn prefWidth="129.0" text="Route" />
-                        <TableColumn prefWidth="227.0" text="Address" />
+                        <TableColumn fx:id="clmTrpId" minWidth="20.0" prefWidth="111.0" text="Id" />
+                        <TableColumn fx:id="clmTrpName" minWidth="20.0" prefWidth="297.0" text="Name" />
+                        <TableColumn fx:id="clmTrpContact" prefWidth="210.0" text="Contact" />
+                        <TableColumn fx:id="clmTrpRoute" prefWidth="204.0" text="Route" />
+                        <TableColumn fx:id="clmTrpAddress" prefWidth="257.0" text="Address" />
                     </columns>
                 </TableView>
             </children></Pane>
@@ -62,5 +62,13 @@
             <Font name="Arial Black" size="28.0" />
          </font>
       </Button>
+      <ImageView fitHeight="54.0" fitWidth="51.0" layoutX="1673.0" layoutY="163.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/refresh-button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
     </children>
 </AnchorPane>

@@ -28,8 +28,8 @@ public class Stock_ProductModel {
 
     public static boolean addProductToDatabase(Stock_Product stock_product) throws SQLException {
 
-        String sql = "INSERT INTO Stock_Product VALUES (?,?)";
-        return CrudUtil.execute(sql,stock_product.getProduct_id(),stock_product.getStock_id());
+        String sql = "INSERT INTO Stock_Product VALUES (?,?,?)";
+        return CrudUtil.execute(sql,stock_product.getProduct_id(),stock_product.getStock_id(),stock_product.getLeaf_value());
     }
 
     public static List<Stock_Product> getAll() throws SQLException {

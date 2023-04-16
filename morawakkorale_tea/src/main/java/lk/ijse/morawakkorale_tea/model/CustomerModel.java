@@ -79,4 +79,10 @@ public class CustomerModel {
         return CrudUtil.execute(sql,customer.getName(),customer.getContact(),customer.getEmployee_id(),customer.getId());
 
     }
+
+    public static boolean deleteCustomerFromDatabase(String customerId) throws SQLException {
+
+        String sql = "DELETE FROM Customer WHERE cust_id = ?";
+        return CrudUtil.execute(sql,customerId);
+    }
 }

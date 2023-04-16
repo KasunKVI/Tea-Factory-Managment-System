@@ -55,7 +55,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="btnSupAdd" layoutX="365.0" layoutY="761.0" mnemonicParsing="false" onAction="#addEditedSupplierToDatabase" prefHeight="54.0" prefWidth="182.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Save" textFill="WHITE">
+        <Button fx:id="btnEditedSupAdd" layoutX="365.0" layoutY="761.0" mnemonicParsing="false" onAction="#addEditedSupplierToDatabase" prefHeight="54.0" prefWidth="182.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Save" textFill="WHITE">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -66,7 +66,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Button fx:id="btnDiscard" layoutX="161.0" layoutY="761.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
+        <Button fx:id="btnDiscard" layoutX="161.0" layoutY="761.0" mnemonicParsing="false" onAction="#discardEditSupplierValues" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
             <effect>
                 <ColorAdjust />
             </effect>

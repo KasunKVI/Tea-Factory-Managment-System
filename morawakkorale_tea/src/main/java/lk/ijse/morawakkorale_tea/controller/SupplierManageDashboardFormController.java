@@ -120,4 +120,30 @@ public class SupplierManageDashboardFormController implements Initializable {
         allSupplierDetails.refresh();
     }
 
+    public void deleteSupplierFromDatabase(ActionEvent actionEvent) {
+
+
+        //Get selected column index
+        int selectedID=allSupplierDetails.getSelectionModel().getSelectedIndex();
+
+        //Get selected values in table
+        SupplierTM supplier = allSupplierDetails.getSelectionModel().getSelectedItem();
+
+        //Assign selected raw's supplier_id
+        int supplierId = supplier.getId();
+
+        //Remove selected raw from the table
+        allSupplierDetails.getItems().remove(selectedID);
+
+        try {
+
+            Supplier_StockModel.deleteSupplierFromDatabase(supplierId);
+            SupplierModel.deleteSupplierFromDatabase(supplierId);
+
+        } catch (SQLException throwable) {
+
+            throwable.printStackTrace();
+
+        }
+    }
 }

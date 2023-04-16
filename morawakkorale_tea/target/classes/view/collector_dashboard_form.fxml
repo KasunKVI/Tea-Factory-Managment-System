@@ -126,7 +126,7 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <Button layoutX="211.0" layoutY="558.0" mnemonicParsing="false" onAction="#addSupplierValuesToDatabase" prefHeight="55.0" prefWidth="313.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add">
+            <Button layoutX="211.0" layoutY="558.0" mnemonicParsing="false" onAction="#addSupplierValuesToTable" prefHeight="55.0" prefWidth="313.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>

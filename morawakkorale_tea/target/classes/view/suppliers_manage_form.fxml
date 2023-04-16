@@ -20,7 +20,7 @@
         </ImageView>
         <Pane layoutX="579.0" layoutY="134.0" prefHeight="900.0" prefWidth="1192.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;">
          <children>
-            <Button fx:id="btnLogin2" layoutX="995.0" layoutY="802.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="160.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Delete" textFill="WHITE">
+            <Button fx:id="btnDeleteSupplier" layoutX="995.0" layoutY="802.0" mnemonicParsing="false" onAction="#deleteSupplierFromDatabase" prefHeight="61.0" prefWidth="160.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Delete" textFill="WHITE">
                <effect>
                   <ColorAdjust />
                </effect>

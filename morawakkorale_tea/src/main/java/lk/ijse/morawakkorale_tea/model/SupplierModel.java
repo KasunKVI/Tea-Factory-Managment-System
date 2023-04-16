@@ -14,8 +14,8 @@ public class SupplierModel {
 
     public static boolean addSupplierToDatabase(Supplier supplier) throws SQLException {
 
-        String sql = "INSERT INTO Supplier(sup_id,name,contact,reg_date,address) VALUES (?,?,?,?,?)";
-        return CrudUtil.execute(sql, supplier.getId(),supplier.getName(),supplier.getContact(),supplier.getReg_date(),supplier.getAddress());
+        String sql = "INSERT INTO Supplier VALUES (?,?,?,?,?,?)";
+        return CrudUtil.execute(sql, supplier.getId(),supplier.getName(),supplier.getContact(),supplier.getReg_date(),supplier.getAddress(),supplier.getStatus());
 
 
     }
@@ -106,4 +106,9 @@ public class SupplierModel {
         return supplier;
     }
 
+    public static boolean deleteSupplierFromDatabase(int supplierId) throws SQLException {
+
+        String sql = "DELETE FROM Supplier WHERE sup_id = ?";
+        return CrudUtil.execute(sql,supplierId);
+    }
 }

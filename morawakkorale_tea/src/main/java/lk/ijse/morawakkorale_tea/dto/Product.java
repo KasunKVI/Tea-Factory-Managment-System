@@ -15,8 +15,7 @@ import java.util.Date;
 public class Product {
 
     private String id;
-    private String name;
-    private String made_date;
+    private LocalDate made_date;
     private Integer qty_on_hand;
     private String type;
 

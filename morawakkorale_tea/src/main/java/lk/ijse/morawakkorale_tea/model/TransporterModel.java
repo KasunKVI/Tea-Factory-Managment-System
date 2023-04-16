@@ -77,4 +77,23 @@ public class TransporterModel {
         }
         return transporter;
     }
+
+    public static String getTransporterPaymentId(int transporterId) throws SQLException {
+
+        String sql = "SELECT pay_id FROM Transporter WHERE tp_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,transporterId);
+
+        String pay_id=null;
+
+        while (resultSet.next()){
+            pay_id=resultSet.getString(1);
+        }
+        return pay_id;
+    }
+
+    public static boolean deleteTransporterFromDatabase(int transporterId) throws SQLException {
+
+        String sql = "DELETE FROM Transporter WHERE tp_id = ?";
+        return CrudUtil.execute(sql,transporterId);
+    }
 }

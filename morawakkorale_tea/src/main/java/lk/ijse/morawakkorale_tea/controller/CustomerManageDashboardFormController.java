@@ -16,6 +16,7 @@ import javafx.stage.StageStyle;
 import lk.ijse.morawakkorale_tea.dto.Customer;
 import lk.ijse.morawakkorale_tea.dto.Transporter;
 import lk.ijse.morawakkorale_tea.dto.tm.CustomerTM;
+import lk.ijse.morawakkorale_tea.dto.tm.SupplierTM;
 import lk.ijse.morawakkorale_tea.dto.tm.TransporterTM;
 import lk.ijse.morawakkorale_tea.model.CustomerModel;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
@@ -107,5 +108,29 @@ public class CustomerManageDashboardFormController implements Initializable {
         getAll();
         allCustomersDetails.refresh();
 
+    }
+
+    public void deleteCustomerFromDatabase(ActionEvent actionEvent) {
+
+        //Get selected column index
+        int selectedID=allCustomersDetails.getSelectionModel().getSelectedIndex();
+
+        //Get selected values in table
+        CustomerTM customer = allCustomersDetails.getSelectionModel().getSelectedItem();
+
+        //Assign selected raw's supplier_id
+        String customerId = customer.getId();
+
+        //Remove selected raw from the table
+        allCustomersDetails.getItems().remove(selectedID);
+
+        try {
+
+            CustomerModel.deleteCustomerFromDatabase(customerId);
+
+        } catch (SQLException throwable) {
+
+            throwable.printStackTrace();
+        }
     }
 }

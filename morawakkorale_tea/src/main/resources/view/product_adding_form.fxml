@@ -27,27 +27,27 @@
                 <Font name="Arial Bold" size="22.0" />
             </font>
         </TextField>
-        <Label layoutX="27.0" layoutY="477.0" prefHeight="34.0" prefWidth="197.0" text="Made_Date">
+        <Label layoutX="37.0" layoutY="517.0" prefHeight="34.0" prefWidth="197.0" text="Made_Date">
             <font>
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Label layoutX="29.0" layoutY="373.0" prefHeight="34.0" prefWidth="197.0" text="Stock ID">
+        <Label layoutX="39.0" layoutY="302.0" prefHeight="34.0" prefWidth="197.0" text="Stock ID">
             <font>
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Label layoutX="34.0" layoutY="281.0" prefHeight="34.0" prefWidth="197.0" text="Name">
+        <Label layoutX="40.0" layoutY="409.0" prefHeight="34.0" prefWidth="197.0" text="Leaf Value">
             <font>
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtPdtName" layoutX="296.0" layoutY="266.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtProductLeafValue" layoutX="295.0" layoutY="396.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Value" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
         </TextField>
-        <Label layoutX="27.0" layoutY="721.0" prefHeight="34.0" prefWidth="197.0" text="Type">
+        <Label layoutX="36.0" layoutY="626.0" prefHeight="34.0" prefWidth="197.0" text="Type">
             <font>
                 <Font name="FreeMono" size="22.0" />
             </font>
@@ -63,7 +63,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Button fx:id="btnLogin2" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: Grey; -fx-background-radius: 10 10 10 10;" text="Discard" textFill="#030303">
+        <Button fx:id="btnDiscardProductAdd" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" onAction="#discardProductAddForm" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -74,18 +74,23 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <ComboBox fx:id="cmbPdtProductType" layoutX="289.0" layoutY="707.0" onShowing="#addProducts" prefHeight="55.0" prefWidth="261.0" promptText="Select Type" style="-fx-background-radius: 10 10 10 10;" />
-        <DatePicker fx:id="dtpPdtMadeDate" layoutX="293.0" layoutY="466.0" prefHeight="59.0" prefWidth="254.0" promptText="Select MFD" style="-fx-background-radius: 15 15 15 15;" />
-      <Label layoutX="28.0" layoutY="609.0" prefHeight="34.0" prefWidth="197.0" text="Qty on Hand">
+        <ComboBox fx:id="cmbPdtProductType" layoutX="295.0" layoutY="611.0" onAction="#enteredProductType" onShowing="#initializeTypeAddCmb" prefHeight="55.0" prefWidth="261.0" promptText="Select Type" style="-fx-background-radius: 10 10 10 10;" />
+        <DatePicker fx:id="dtpPdtMadeDate" layoutX="295.0" layoutY="505.0" prefHeight="59.0" prefWidth="261.0" promptText="Select MFD" style="-fx-background-radius: 15 15 15 15;" />
+      <Label layoutX="36.0" layoutY="729.0" prefHeight="34.0" prefWidth="197.0" text="Qty on Hand">
          <font>
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPdtProductQuantity" layoutX="290.0" layoutY="599.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Quantity" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtPdtProductQuantity" layoutX="295.0" layoutY="715.0" onAction="#enteredProductQuantity" prefHeight="55.0" prefWidth="261.0" promptText="Input Quantity" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cmbPdtStockId" layoutX="294.0" layoutY="357.0" onShowing="#addStockIds" prefHeight="55.0" prefWidth="261.0" promptText="Select Stock Id" style="-fx-background-radius: 10 10 10 10;" />
+      <ComboBox fx:id="cmbPdtStockId" layoutX="295.0" layoutY="288.0" onAction="#enteredStockId" onShowing="#addStockIds" prefHeight="55.0" prefWidth="174.0" promptText="Select Stock Id" style="-fx-background-radius: 10 10 10 10;" />
+      <Label fx:id="lblStockValue" layoutX="490.0" layoutY="289.0" prefHeight="55.0" prefWidth="90.0" style="-fx-background-radius: 10 10 10 10;">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -13,7 +13,6 @@ import java.util.Date;
 public class ProductTM {
 
     private String id;
-    private String name;
     private String made_date;
     private String stock_id;
     private Integer leaf_value;

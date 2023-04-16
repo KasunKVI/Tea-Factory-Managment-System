@@ -2,7 +2,6 @@ package lk.ijse.morawakkorale_tea.model;
 
 import lk.ijse.morawakkorale_tea.db.DBConnection;
 import lk.ijse.morawakkorale_tea.dto.Stock;
-import lk.ijse.morawakkorale_tea.dto.Supplier_Stock;
 import lk.ijse.morawakkorale_tea.util.CrudUtil;
 
 import java.sql.Connection;
@@ -69,7 +68,7 @@ public class StockModel {
 
     public static List<String> getSupplierValue() throws SQLException {
 
-        String sql = "SELECT stock_id FROM Stock";
+        String sql = "SELECT stock_id FROM Stock WHERE value > 0";
         List<String> stock_ids = new ArrayList<>();
         ResultSet resultSet = CrudUtil.execute(sql);
 
@@ -78,5 +77,32 @@ public class StockModel {
 
         }
         return stock_ids;
+    }
+
+    public static boolean deleteTransporterDetails(int transporterId) throws SQLException {
+
+        String sql = "UPDATE Stock SET transporter_id = null WHERE transporter_id = ?";
+        return CrudUtil.execute(sql,transporterId);
+
+    }
+
+    public static String getStockValue(String stock_id) throws SQLException {
+
+        String sql = "SELECT value FROM Stock WHERE stock_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,stock_id);
+
+        String st_id=null;
+
+        while (resultSet.next()) {
+            st_id = resultSet.getString(1);
+        }
+        return st_id;
+    }
+
+    public static boolean updateStock(String stock_id, int leaf_value) throws SQLException {
+
+        String sql = "UPDATE Stock SET value = (value - ?) WHERE stock_id = ?";
+        return CrudUtil.execute(sql,leaf_value,stock_id);
+
     }
 }

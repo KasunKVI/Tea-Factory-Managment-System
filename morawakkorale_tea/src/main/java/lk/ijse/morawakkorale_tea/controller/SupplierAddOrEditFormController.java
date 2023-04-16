@@ -19,6 +19,8 @@ public class SupplierAddOrEditFormController implements Initializable {
     @FXML
     private Button btnSupAdd;
     @FXML
+    private Button btnEditedSupAdd;
+    @FXML
     private TextField txtSupId;
     @FXML
     private TextField txtSupName;
@@ -62,7 +64,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         Date reg_date = Date.valueOf(dtpSupRegDate.getValue());
         address=txtSupAddress.getText();
 
-        Supplier supplier = new Supplier(id,name,contact_no, reg_date,address,null);
+        Supplier supplier = new Supplier(id,name,contact_no, reg_date,address,"New");
 
         try {
 
@@ -92,6 +94,9 @@ public class SupplierAddOrEditFormController implements Initializable {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+
+        stage = (Stage) btnEditedSupAdd.getScene().getWindow();
+        stage.close();
 
     }
 
@@ -151,5 +156,29 @@ public class SupplierAddOrEditFormController implements Initializable {
 
     public void enteredSupplierRegDate(ActionEvent actionEvent) {
         txtSupAddress.requestFocus();
+    }
+
+    public void discardEditSupplierValues(ActionEvent actionEvent) {
+
+        txtSupplierIdSearch.clear();
+        lblSupIdEdit.setText("");
+        txtSupNameEdit.clear();
+        txtSupContactEdit.clear();
+        txtSupAddressEdit.clear();
+        txtSupStatusEdit.clear();
+        txtSupRegDateEdit.clear();
+
+    }
+
+    public void discardNewSupplierAdd(ActionEvent actionEvent) {
+
+        txtSupId.clear();
+        txtSupName.clear();
+        txtSupAddress.clear();
+        txtSupContact.clear();
+        dtpSupRegDate.setValue(null);
+
+        txtSupId.requestFocus();
+
     }
 }

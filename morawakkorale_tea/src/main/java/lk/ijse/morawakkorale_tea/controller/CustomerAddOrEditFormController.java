@@ -1,6 +1,9 @@
 package lk.ijse.morawakkorale_tea.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -8,6 +11,8 @@ import lk.ijse.morawakkorale_tea.dto.Customer;
 import lk.ijse.morawakkorale_tea.model.CustomerModel;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerAddOrEditFormController {
 
@@ -21,7 +26,7 @@ public class CustomerAddOrEditFormController {
     @FXML
     private TextField txtCustEmplId;
     @FXML
-    private ComboBox cmbCustOrigin;
+    private ComboBox<String> cmbCustOrigin;
 
     @FXML
     private TextField txtCustomerIdSearch;
@@ -53,7 +58,7 @@ public class CustomerAddOrEditFormController {
 
         id = txtCustId.getText();
         name = txtCustName.getText();
-        origin = (String) cmbCustOrigin.getValue();
+        origin = cmbCustOrigin.getValue();
         contact_no = txtCustContact.getText();
         employee_id = txtCustEmplId.getText();
 
@@ -120,5 +125,70 @@ public class CustomerAddOrEditFormController {
         }
         stage = (Stage) btnCustEdit.getScene().getWindow();
         stage.close();
+    }
+
+    public void discardCustomerAddingDetails(ActionEvent actionEvent) {
+
+        txtCustId.clear();
+        txtCustName.clear();
+        txtCustContact.clear();
+        txtCustEmplId.clear();
+        cmbCustOrigin.setItems(null);
+
+    }
+
+    public void initializeComboBox(Event event) {
+
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        List<String> type = new ArrayList<>();
+
+        type.add("Local");
+        type.add("Foreign");
+
+        obList.addAll(type);
+
+        cmbCustOrigin.setItems(obList);
+        
+    }
+
+    public void enteredCustOrigin(ActionEvent actionEvent) {
+        txtCustEmplId.requestFocus();
+    }
+
+    public void enteredCustId(ActionEvent actionEvent) {
+        txtCustName.requestFocus();
+    }
+
+
+    public void enteredCustName(ActionEvent actionEvent) {
+        txtCustContact.requestFocus();
+    }
+    
+
+    public void enteredCustContactEdit(ActionEvent actionEvent) {
+        txtCustEmployeeIdEdit.requestFocus();
+    }
+
+    public void enteredCustNameEdit(ActionEvent actionEvent) {
+        txtCustContactEdit.requestFocus();
+    }
+
+    public void enteredCustEmployeeEdit(ActionEvent actionEvent) {
+        addEditedCustomersToDatabase(actionEvent);
+    }
+
+    public void enteredEmployeeId(ActionEvent actionEvent) {
+        addCustomerToDatabase(actionEvent);
+    }
+
+    public void discardCustomerEditForm(ActionEvent actionEvent) {
+
+        txtCustomerIdSearch.clear();
+        lblCustIdEdit.setText("");
+        txtCustNameEdit.clear();
+        txtCustContactEdit.clear();
+        txtCustEmployeeIdEdit.clear();
+        txtCustOriginEdit.clear();
+
     }
 }

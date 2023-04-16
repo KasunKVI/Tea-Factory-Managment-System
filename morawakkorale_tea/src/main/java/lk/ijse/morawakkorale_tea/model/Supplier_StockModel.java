@@ -15,25 +15,21 @@ public class Supplier_StockModel {
         String sql = "INSERT INTO Supplier_Stock(sup_id,stock_id,value,bag_count) VALUES (?,?,?,?)";
         return CrudUtil.execute(sql,supplier_stock.getSup_id(),supplier_stock.getStock_id(),supplier_stock.getValue(),supplier_stock.getBag_count());
 
-
-
     }
 
-    public static List<Supplier_Stock> getSupplierValue(String stockId) throws SQLException {
 
-        String sql = "SELECT * FROM Supplier_Stock WHERE stock_id=?";
-        List<Supplier_Stock> supplierStock = new ArrayList<>();
-        ResultSet resultSet=CrudUtil.execute(sql,stockId);
+    public static boolean deleteSupplierFromDatabase(int supplierId) throws SQLException {
 
-        while (resultSet.next()){
-            supplierStock.add(new Supplier_Stock (
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getInt(3),
-                    resultSet.getInt(4),
-                    resultSet.getString(5)
-            ));
+        String sql = "DELETE FROM Supplier_Stock WHERE sup_id = ?";
+        return CrudUtil.execute(sql,supplierId);
+    }
+
+    public static boolean addSupplierValuesToDatabase(List<Supplier_Stock> supplier_stock) throws SQLException {
+        for(Supplier_Stock stock : supplier_stock){
+            if(!addSupplierValuesToDatabase(stock)){
+                return false;
+            }
         }
-        return supplierStock;
+        return true;
     }
 }

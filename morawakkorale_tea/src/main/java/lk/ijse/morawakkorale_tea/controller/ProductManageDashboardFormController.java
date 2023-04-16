@@ -32,11 +32,8 @@ public class ProductManageDashboardFormController implements Initializable {
 
     @FXML
     private TableView<ProductTM> allProductDetails;
-
     @FXML
     private TableColumn<?,?> clmProductId;
-    @FXML
-    private TableColumn<?,?> clmProductName;
     @FXML
     private TableColumn<?,?> clmProductMadeDate;
     @FXML
@@ -79,6 +76,10 @@ public class ProductManageDashboardFormController implements Initializable {
     }
 
     public void refreshTable(MouseEvent mouseEvent) {
+
+        getAll();
+        allProductDetails.refresh();
+
     }
 
     @Override
@@ -91,25 +92,26 @@ public class ProductManageDashboardFormController implements Initializable {
 
     private void getAll() {
 
+
         ObservableList<ProductTM> obList = FXCollections.observableArrayList();
         try {
             List<Product> pdList = ProductModel.getAll();
             List<Stock_Product> stpList = Stock_ProductModel.getAll();
 
+            for (int i = 0; i < pdList.size() ; i++) {
 
-            for(Product product : pdList) {
+                Product product = pdList.get(i);
+                Stock_Product stock_product = stpList.get(i);
 
-                for(Stock_Product stock_product:stpList)
-
-                 obList.add(new ProductTM(
+                obList.add(new ProductTM(
                         product.getId(),
-                        product.getName(),
-                        product.getMade_date(),
+                        String.valueOf(product.getMade_date()),
                         stock_product.getStock_id(),
                         stock_product.getLeaf_value(),
                         product.getType(),
                         product.getQty_on_hand()
                 ));
+
             }
             allProductDetails.setItems(obList);
         } catch (SQLException throwable) {
@@ -117,12 +119,12 @@ public class ProductManageDashboardFormController implements Initializable {
         }
 
 
+
     }
 
     private void  setCellValueFactory() {
 
         clmProductId.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        clmProductName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         clmProductMadeDate.setCellValueFactory(new PropertyValueFactory<>("Made_date"));
         clmProductStockId.setCellValueFactory(new PropertyValueFactory<>("Stock_id"));
         clmProductLeafValue.setCellValueFactory(new PropertyValueFactory<>("Leaf_value"));

@@ -95,7 +95,7 @@
                   </Label>
                </children>
             </Pane>
-            <Label layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" text="Date And Time">
+            <Label fx:id="lblDateAndTime" layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" text="Date And Time">
                <font>
                   <Font name="Chilanka Regular" size="40.0" />
                </font>

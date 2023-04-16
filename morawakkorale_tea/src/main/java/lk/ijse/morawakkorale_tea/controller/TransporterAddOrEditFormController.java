@@ -41,6 +41,8 @@ public class TransporterAddOrEditFormController {
 
     @FXML
     private Button btnTrpAdd;
+    @FXML
+    private Button btnTransporterAdd;
 
     private int id;
     private String name;
@@ -90,6 +92,8 @@ public class TransporterAddOrEditFormController {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
+        stage = (Stage) btnTransporterAdd.getScene().getWindow();
+        stage.close();
     }
 
     public void searchTransporterFromDatabase(ActionEvent actionEvent) {
@@ -121,4 +125,60 @@ public class TransporterAddOrEditFormController {
 
     }
 
+    public void discardAddTransporterForm(ActionEvent actionEvent) {
+
+        txtTrpId.clear();
+        txtTrpName.clear();
+        txtTrpAddress.clear();
+        txtTrpContact.clear();
+        txtTrpRoute.clear();
+
+    }
+
+    public void discardTransporterEdit(ActionEvent actionEvent) {
+
+        txtTransporterIdSearch.clear();
+        txtTransporterNameEdit.clear();
+        lblTransporterIdEdit.setText("");
+        txtTransporterAddressEdit.clear();
+        txtTransporterContactEdit.clear();
+        txtTransporterRouteEdit.clear();
+
+    }
+
+    public void enteredTransporterEditedAddress(ActionEvent actionEvent) {
+        txtTransporterRouteEdit.requestFocus();
+    }
+
+    public void enteredTransporterEditedContact(ActionEvent actionEvent) {
+        txtTransporterAddressEdit.requestFocus();
+    }
+
+    public void enteredTransporterEditedName(ActionEvent actionEvent) {
+        txtTransporterContactEdit.requestFocus();
+    }
+
+    public void enteredTransporterEditedRoute(ActionEvent actionEvent) {
+        addEditedTransportersToDatabase(actionEvent);
+    }
+
+    public void enteredTransporterId(ActionEvent actionEvent) {
+        txtTrpName.requestFocus();
+    }
+
+    public void enteredTransporterAddress(ActionEvent actionEvent) {
+        addTransporterToDatabase(actionEvent);
+    }
+
+    public void enteredTransporterContact(ActionEvent actionEvent) {
+        txtTrpRoute.requestFocus();
+    }
+
+    public void enteredTransporterName(ActionEvent actionEvent) {
+        txtTrpContact.requestFocus();
+    }
+
+    public void enteredTransporterRoute(ActionEvent actionEvent) {
+        txtTrpAddress.requestFocus();
+    }
 }

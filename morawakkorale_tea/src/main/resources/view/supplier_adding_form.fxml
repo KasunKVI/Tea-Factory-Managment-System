@@ -73,7 +73,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogin2" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
+      <Button fx:id="btnDiscardNewSup" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" onAction="#discardNewSupplierAdd" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
          <effect>
             <ColorAdjust />
          </effect>

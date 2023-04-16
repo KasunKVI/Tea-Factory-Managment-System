@@ -13,9 +13,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Supplier;
+import lk.ijse.morawakkorale_tea.dto.Supplier_Stock;
 import lk.ijse.morawakkorale_tea.dto.Transporter;
 import lk.ijse.morawakkorale_tea.dto.tm.SupplierTM;
 import lk.ijse.morawakkorale_tea.dto.tm.TransporterTM;
+import lk.ijse.morawakkorale_tea.model.PaymentModel;
+import lk.ijse.morawakkorale_tea.model.StockModel;
 import lk.ijse.morawakkorale_tea.model.SupplierModel;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
 
@@ -114,5 +117,37 @@ public class TransporterManageDashboardFormController implements Initializable {
 
         getAll();
         allTransportersDetails.refresh();
+    }
+
+    public void deleteTransporterFromDatabase(ActionEvent actionEvent) {
+
+        //Get selected column index
+        int selectedID=allTransportersDetails.getSelectionModel().getSelectedIndex();
+
+        //Get selected values in table
+        TransporterTM transporterTM = allTransportersDetails.getSelectionModel().getSelectedItem();
+
+        //Assign selected raw's supplier_id
+        int transporterId = transporterTM.getId();
+
+        //Remove selected raw from the table
+        allTransportersDetails.getItems().remove(selectedID);
+
+        try {
+
+            String pay_id = TransporterModel.getTransporterPaymentId(transporterId);
+            StockModel.deleteTransporterDetails(transporterId);
+            TransporterModel.deleteTransporterFromDatabase(transporterId);
+
+            if(pay_id!=null){
+
+                PaymentModel.deleteTransporterPaymentFromDatabase(pay_id);
+
+            }
+
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+
     }
 }

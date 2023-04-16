@@ -18,6 +18,7 @@ import javafx.util.Duration;
 import lk.ijse.morawakkorale_tea.dto.Stock;
 import lk.ijse.morawakkorale_tea.dto.Supplier_Stock;
 import lk.ijse.morawakkorale_tea.dto.tm.SupplierTeaValuesTM;
+import lk.ijse.morawakkorale_tea.model.AddStockModel;
 import lk.ijse.morawakkorale_tea.model.StockModel;
 import lk.ijse.morawakkorale_tea.model.Supplier_StockModel;
 
@@ -26,6 +27,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -84,6 +86,8 @@ public class CollectorDashboardFormController implements Initializable {
     private int supplier_tea_value;
     private int supplier_bag_count;
 
+    ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -134,11 +138,22 @@ public class CollectorDashboardFormController implements Initializable {
         stock_value= Integer.parseInt(txtStockValue.getText());
         transporter_id= Integer.parseInt(txtTransporterIdStock.getText());
 
+        List<Supplier_Stock> supplierStock = new ArrayList<>();
+
         Stock stock=new Stock(stock_id,date,stock_value,transporter_id);
+
+        for (int i = 0; i < tableSupplierTeaValues.getItems().size(); i++) {
+
+            SupplierTeaValuesTM tm = observableList.get(i);
+
+            Supplier_Stock supplier_stock = new Supplier_Stock(tm.getId(), stock_id, tm.getValue(),tm.getBag(),null);
+            supplierStock.add(supplier_stock);
+        }
 
         try {
 
-            StockModel.addStockToDatabase(stock);
+            AddStockModel.addStockToDatabase(supplierStock,stock);
+          //  StockModel.addStockToDatabase(stock);
 
         } catch (SQLException throwable) {
 
@@ -165,51 +180,21 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
-    public void addSupplierValuesToDatabase(ActionEvent actionEvent)  {
+    public void addSupplierValuesToTable(ActionEvent actionEvent)  {
 
         supplier_id= Integer.parseInt(txtSupIdStock.getText());
-        stock_id=lblStockId.getText();
         supplier_tea_value= Integer.parseInt(txtSupTeaValue.getText());
         supplier_bag_count= Integer.parseInt(txtSupTeaBagCount.getText());
 
-        Supplier_Stock supplier_stock=new Supplier_Stock(supplier_id,stock_id,supplier_tea_value,supplier_bag_count,null);
-
-        try {
-
-            Supplier_StockModel.addSupplierValuesToDatabase(supplier_stock);
-
-        } catch (SQLException throwable) {
-
-            throwable.printStackTrace();
-
-        }
-
         discardOrClearSupplierValues(actionEvent);
 
-        try {
+        SupplierTeaValuesTM supplierTeaValuesTM = new SupplierTeaValuesTM(supplier_id,supplier_bag_count,supplier_tea_value);
 
-        ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
-        List<Supplier_Stock> supplierValueList = Supplier_StockModel.getSupplierValue(stock_id);
-
-
-        for(Supplier_Stock stock:supplierValueList){
-
-            observableList.add(new SupplierTeaValuesTM(
-               stock.getSup_id(),
-               stock.getBag_count(),
-               stock.getValue()
-
-            ));
-        }
-
+        observableList.add(supplierTeaValuesTM);
         tableSupplierTeaValues.setItems(observableList);
         tableSupplierTeaValues.refresh();
 
-        } catch (SQLException throwable) {
-
-            throwable.printStackTrace();
-
-        }
+        txtSupIdStock.requestFocus();
 
     }
 
@@ -250,7 +235,7 @@ public class CollectorDashboardFormController implements Initializable {
     }
 
     public void filledBagCount(ActionEvent actionEvent) {
-        addSupplierValuesToDatabase(actionEvent);
+        addSupplierValuesToTable(actionEvent);
     }
 
     public void closeSupplierValuesAddForm(ActionEvent actionEvent) {

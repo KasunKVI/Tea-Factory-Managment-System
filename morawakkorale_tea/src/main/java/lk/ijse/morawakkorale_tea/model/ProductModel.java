@@ -72,4 +72,19 @@ public class ProductModel {
         }
         return product;
     }
+
+    public static int getProductCount(String s) throws SQLException {
+
+        String sql = "SELECT product_id FROM Product WHERE type = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,s);
+
+        int count = 0;
+
+        while (resultSet.next()){
+
+            count++;
+
+        }
+        return count;
+    }
 }

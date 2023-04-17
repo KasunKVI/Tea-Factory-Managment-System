@@ -78,14 +78,6 @@ public class CollectorDashboardFormController implements Initializable {
     private AnchorPane mainPanel;
 
 
-    private String stock_id;
-    private String date;
-    private int stock_value;
-    private int transporter_id;
-    private int supplier_id;
-    private int supplier_tea_value;
-    private int supplier_bag_count;
-
     ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
 
 
@@ -133,27 +125,26 @@ public class CollectorDashboardFormController implements Initializable {
     public void addStockToDatabase(ActionEvent actionEvent) {
 
 
-        stock_id=lblStockId.getText();
-        date= String.valueOf(dtpStockDate.getValue());
-        stock_value= Integer.parseInt(txtStockValue.getText());
-        transporter_id= Integer.parseInt(txtTransporterIdStock.getText());
+        String stock_id = lblStockId.getText();
+        LocalDate date = dtpStockDate.getValue();
+        int stock_value = Integer.parseInt(txtStockValue.getText());
+        int transporter_id = Integer.parseInt(txtTransporterIdStock.getText());
 
         List<Supplier_Stock> supplierStock = new ArrayList<>();
 
-        Stock stock=new Stock(stock_id,date,stock_value,transporter_id);
+        Stock stock=new Stock(stock_id, date.toString(), stock_value, transporter_id);
 
         for (int i = 0; i < tableSupplierTeaValues.getItems().size(); i++) {
 
             SupplierTeaValuesTM tm = observableList.get(i);
 
-            Supplier_Stock supplier_stock = new Supplier_Stock(tm.getId(), stock_id, tm.getValue(),tm.getBag(),null);
+            Supplier_Stock supplier_stock = new Supplier_Stock(tm.getId(), stock_id, tm.getValue(),tm.getBag(),null,date);
             supplierStock.add(supplier_stock);
         }
 
         try {
 
             AddStockModel.addStockToDatabase(supplierStock,stock);
-          //  StockModel.addStockToDatabase(stock);
 
         } catch (SQLException throwable) {
 
@@ -182,13 +173,13 @@ public class CollectorDashboardFormController implements Initializable {
 
     public void addSupplierValuesToTable(ActionEvent actionEvent)  {
 
-        supplier_id= Integer.parseInt(txtSupIdStock.getText());
-        supplier_tea_value= Integer.parseInt(txtSupTeaValue.getText());
-        supplier_bag_count= Integer.parseInt(txtSupTeaBagCount.getText());
+        int supplier_id = Integer.parseInt(txtSupIdStock.getText());
+        int supplier_tea_value = Integer.parseInt(txtSupTeaValue.getText());
+        int supplier_bag_count = Integer.parseInt(txtSupTeaBagCount.getText());
 
         discardOrClearSupplierValues(actionEvent);
 
-        SupplierTeaValuesTM supplierTeaValuesTM = new SupplierTeaValuesTM(supplier_id,supplier_bag_count,supplier_tea_value);
+        SupplierTeaValuesTM supplierTeaValuesTM = new SupplierTeaValuesTM(supplier_id, supplier_bag_count, supplier_tea_value);
 
         observableList.add(supplierTeaValuesTM);
         tableSupplierTeaValues.setItems(observableList);

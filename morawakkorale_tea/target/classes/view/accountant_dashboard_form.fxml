@@ -22,9 +22,9 @@
                       <Image url="@../img/Dashboard_Background.png" />
                   </image>
               </ImageView>
-            <Pane layoutX="550.0" layoutY="20.0" opacity="0.9" prefHeight="496.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+            <Pane layoutX="413.0" layoutY="20.0" opacity="0.9" prefHeight="497.0" prefWidth="867.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                <children>
-                  <AreaChart layoutX="23.0" layoutY="80.0">
+                  <AreaChart fx:id="orderSummeryAreaChart" layoutX="23.0" layoutY="80.0" prefHeight="383.0" prefWidth="790.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -66,12 +66,12 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="supplierCountlbl" layoutX="231.0" layoutY="138.0" prefHeight="52.0" prefWidth="104.0">
+                  <Label fx:id="lblSupplierCount" layoutX="231.0" layoutY="138.0" prefHeight="52.0" prefWidth="104.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="transportersCountlbl" layoutX="244.0" layoutY="400.0" prefHeight="52.0" prefWidth="104.0">
+                  <Label fx:id="lblTransportersCount" layoutX="244.0" layoutY="400.0" prefHeight="52.0" prefWidth="104.0">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -80,7 +80,7 @@
             </Pane>
             <Pane layoutX="410.0" layoutY="550.0" opacity="0.9" prefHeight="479.0" prefWidth="803.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
                <children>
-                  <BarChart layoutX="11.0" layoutY="71.0" prefHeight="400.0" prefWidth="770.0">
+                  <BarChart fx:id="productSummeryBarChart" layoutX="40.0" layoutY="85.0" prefHeight="333.0" prefWidth="749.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -88,16 +88,16 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </BarChart>
-                  <Label layoutX="42.0" layoutY="19.0" prefHeight="40.0" prefWidth="199.0" text="Sales &amp; Purchase">
+                  <Label layoutX="73.0" layoutY="31.0" prefHeight="40.0" prefWidth="199.0" text="Products Summery">
                      <font>
                         <Font name="Abyssinica SIL" size="22.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Label fx:id="lblDateAndTime" layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" text="Date And Time">
+            <Label fx:id="lblDateAndTime" layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;">
                <font>
-                  <Font name="Chilanka Regular" size="40.0" />
+                  <Font name="Dyuthi Regular" size="60.0" />
                </font>
             </Label>
          </children>
@@ -119,7 +119,7 @@
                   <Font size="49.0" />
                </font>
             </Label>
-            <Button fx:id="btnSetting11" contentDisplay="RIGHT" layoutX="50.0" layoutY="570.0" mnemonicParsing="false" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+            <Button fx:id="btnSetting11" contentDisplay="RIGHT" layoutX="50.0" layoutY="570.0" mnemonicParsing="false" onAction="#loadOrderAdder" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                <font>
                   <Font size="25.0" />
                </font>
@@ -137,7 +137,7 @@
                   <Font size="49.0" />
                </font>
             </Label>
-            <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutX="59.0" layoutY="404.0" mnemonicParsing="false" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+            <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutX="59.0" layoutY="404.0" mnemonicParsing="false" onAction="#loadTransporterBills" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
                <font>
                   <Font size="25.0" />
                </font>

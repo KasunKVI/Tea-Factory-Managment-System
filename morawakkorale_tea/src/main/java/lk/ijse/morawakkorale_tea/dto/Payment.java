@@ -10,10 +10,12 @@ import lombok.*;
 
 public class Payment {
 
-    private String id;
+    private Integer id;
     private Integer rate;
     private String type;
     private Integer value;
     private String description;
+    private Integer supp_id;
+    private Integer trp_id;
 
 }

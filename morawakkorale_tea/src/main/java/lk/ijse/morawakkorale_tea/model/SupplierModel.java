@@ -111,4 +111,17 @@ public class SupplierModel {
         String sql = "DELETE FROM Supplier WHERE sup_id = ?";
         return CrudUtil.execute(sql,supplierId);
     }
+
+    public static List<Integer> getAllIds() throws SQLException {
+
+        String sql = "SELECT sup_id FROM Supplier";
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        List<Integer> ids = new ArrayList<>();
+
+        while (resultSet.next()){
+            ids.add(resultSet.getInt(1));
+        }
+        return ids;
+    }
 }

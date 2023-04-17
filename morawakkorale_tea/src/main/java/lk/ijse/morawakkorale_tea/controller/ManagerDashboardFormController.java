@@ -189,8 +189,6 @@ public class ManagerDashboardFormController implements Initializable {
         lblEarlGreyTeaCount.setText(String.valueOf(earlGreyCount));
         lblEnglishBreakfastTeaCount.setText(String.valueOf(englishBreakfastCount));
 
-
-
     }
 
 

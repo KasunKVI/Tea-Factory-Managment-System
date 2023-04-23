@@ -21,7 +21,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtCustId" layoutX="295.0" layoutY="182.0" onAction="#enteredCustId" prefHeight="55.0" prefWidth="261.0" promptText="Input Customer ID" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustId" layoutX="295.0" layoutY="182.0" onAction="#enteredCustId" onKeyReleased="#enterCustomerId" prefHeight="55.0" prefWidth="261.0" promptText="Input Customer ID" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -36,7 +36,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtCustContact" layoutX="296.0" layoutY="420.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustContact" layoutX="296.0" layoutY="420.0" onKeyReleased="#enterCustomerContact" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -46,7 +46,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtCustName" layoutX="296.0" layoutY="302.0" onAction="#enteredCustName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustName" layoutX="296.0" layoutY="302.0" onAction="#enteredCustName" onKeyReleased="#enterCustomerName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -79,7 +79,7 @@
             </font>
         </Button>
       <ComboBox fx:id="cmbCustOrigin" layoutX="296.0" layoutY="544.0" onAction="#enteredCustOrigin" onShowing="#initializeComboBox" prefHeight="55.0" prefWidth="261.0" promptText="Select Origin" style="-fx-background-radius: 10 10 10 10;" />
-      <TextField fx:id="txtCustEmplId" layoutX="296.0" layoutY="658.0" onAction="#enteredEmployeeId" prefHeight="55.0" prefWidth="261.0" promptText="Input Your Id" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtCustEmplId" layoutX="296.0" layoutY="658.0" onAction="#enteredEmployeeId" onKeyReleased="#enterEmployeeId" prefHeight="55.0" prefWidth="261.0" promptText="Input Your Id" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

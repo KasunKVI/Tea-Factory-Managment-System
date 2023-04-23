@@ -54,12 +54,12 @@
                </font>
             </TextField>
             <DatePicker fx:id="dtpStockDate" layoutX="361.0" layoutY="275.0" onAction="#filledDate" prefHeight="55.0" prefWidth="267.0" promptText="Select Date" style="-fx-background-radius: 10 10 10 10;" />
-            <Button fx:id="btnAddSuppliersValus" layoutX="261.0" layoutY="759.0" mnemonicParsing="false" onAction="#supplierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
+            <Button fx:id="btnAddSuppliersValus" layoutX="261.0" layoutY="529.0" mnemonicParsing="false" onAction="#supplierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnAddStock" layoutX="432.0" layoutY="636.0" mnemonicParsing="false" onAction="#addStockToDatabase" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
+            <Button fx:id="btnAddStock" layoutX="432.0" layoutY="696.0" mnemonicParsing="false" onAction="#addStockToDatabase" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -70,7 +70,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin2" layoutX="126.0" layoutY="638.0" mnemonicParsing="false" onAction="#discardOrClearStockAddValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: gray;" text="Discard" textFill="#030303">
+            <Button fx:id="btnLogin2" layoutX="126.0" layoutY="698.0" mnemonicParsing="false" onAction="#discardOrClearStockAddValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: gray;" text="Discard" textFill="#030303">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -200,7 +200,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="835.0" onMouseClicked="#logOutFromCollectorDashboard" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="835.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/logout.png" />
                </image>
@@ -208,7 +208,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="704.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="704.0" onMouseClicked="#openSettingForm" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/settings.png" />
                </image>
@@ -216,6 +216,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Button fx:id="btnLogOut" layoutX="10.0" layoutY="846.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="55.0" prefWidth="62.0" />
          </children>
       </AnchorPane>
    </children>

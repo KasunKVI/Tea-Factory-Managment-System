@@ -1,5 +1,6 @@
 package lk.ijse.morawakkorale_tea.model;
 
+import lk.ijse.morawakkorale_tea.dto.CartDTO;
 import lk.ijse.morawakkorale_tea.dto.Product;
 import lk.ijse.morawakkorale_tea.util.CrudUtil;
 
@@ -29,8 +30,9 @@ public class ProductModel {
             LocalDate made_date = resultSet.getDate(2).toLocalDate();
             Integer qty = resultSet.getInt(3);
             String type = resultSet.getString(4);
+            Double unit_price = resultSet.getDouble(5);
 
-            return new Product(product_id,made_date,qty,type);
+            return new Product(product_id,made_date,qty,type,unit_price);
         }
         return null;
     }
@@ -66,7 +68,8 @@ public class ProductModel {
                     resultSet.getString(1),
                     resultSet.getDate(2).toLocalDate(),
                     resultSet.getInt(3),
-                    resultSet.getString(4)
+                    resultSet.getString(4),
+                    resultSet.getDouble(5)
             ));
 
         }
@@ -86,5 +89,51 @@ public class ProductModel {
 
         }
         return count;
+    }
+
+    public static List<String> getAllIds() throws SQLException {
+
+        String sql = "SELECT product_id FROM Product WHERE qty_on_hand > 0";
+        List<String> ids = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+            ids.add(resultSet.getString(1));
+        }
+        return ids;
+    }
+
+    public static Product getAll(String item_id) throws SQLException {
+
+        String sql = "SELECT * FROM Product WHERE product_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,item_id);
+
+        if(resultSet.next()){
+
+            String product_id = resultSet.getString(1);
+            LocalDate made_date = resultSet.getDate(2).toLocalDate();
+            Integer qty = resultSet.getInt(3);
+            String type = resultSet.getString(4);
+            Double unit_price = resultSet.getDouble(5);
+
+            return new Product(product_id,made_date,qty,type,unit_price);
+        }
+        return null;
+    }
+
+    public static boolean updateProductCount(List<CartDTO> cartDTOS) throws SQLException {
+        for (CartDTO dto : cartDTOS) {
+            if(!updateQty(dto)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean updateQty(CartDTO dto) throws SQLException {
+
+        String sql = "UPDATE Product SET qty_on_hand = (qty_on_hand - ?) WHERE product_id = ?";
+        return CrudUtil.execute(sql,dto.getQty(),dto.getId());
     }
 }

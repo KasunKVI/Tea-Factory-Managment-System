@@ -95,7 +95,12 @@
                   </Label>
                </children>
             </Pane>
-            <Label fx:id="lblDateAndTime" layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;">
+            <Label fx:id="lblDate" layoutX="1370.0" layoutY="750.0" prefHeight="99.0" prefWidth="330.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;">
+               <font>
+                  <Font name="Dyuthi Regular" size="60.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTime" contentDisplay="CENTER" layoutX="1401.0" layoutY="840.0" prefHeight="93.0" prefWidth="271.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Dyuthi Regular" size="60.0" />
                </font>
@@ -114,9 +119,9 @@
                   <Image url="@../img/deal.png" />
                </image>
             </ImageView>
-            <Label layoutX="176.0" layoutY="608.0" prefHeight="60.0" prefWidth="185.0" text="Buyers">
+            <Label layoutX="176.0" layoutY="608.0" prefHeight="60.0" prefWidth="185.0" text="Orders">
                <font>
-                  <Font size="49.0" />
+                  <Font size="31.0" />
                </font>
             </Label>
             <Button fx:id="btnSetting11" contentDisplay="RIGHT" layoutX="50.0" layoutY="570.0" mnemonicParsing="false" onAction="#loadOrderAdder" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
@@ -134,7 +139,7 @@
             </ImageView>
             <Label layoutX="166.0" layoutY="437.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
                <font>
-                  <Font size="49.0" />
+                  <Font size="31.0" />
                </font>
             </Label>
             <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutX="59.0" layoutY="404.0" mnemonicParsing="false" onAction="#loadTransporterBills" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
@@ -147,7 +152,7 @@
             </Button>
             <Label layoutX="163.0" layoutY="286.0" prefHeight="60.0" prefWidth="215.0" text="Suppliers">
                <font>
-                  <Font size="49.0" />
+                  <Font size="30.0" />
                </font>
             </Label>
             <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="73.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
@@ -183,7 +188,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="119.0" onMouseClicked="#showDashboard" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/green-home.png" />
                </image>
@@ -199,7 +204,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="704.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="704.0" onMouseClicked="#openSettingForm" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/settings.png" />
                </image>
@@ -207,6 +212,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Button fx:id="btnLogOut" layoutX="10.0" layoutY="835.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="60.0" prefWidth="62.0" />
          </children>
       </AnchorPane>
     </children>

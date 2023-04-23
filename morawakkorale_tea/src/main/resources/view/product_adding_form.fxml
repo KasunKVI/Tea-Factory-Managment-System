@@ -22,7 +22,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtPdtId" layoutX="295.0" layoutY="182.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Product Id" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtPdtId" layoutX="295.0" layoutY="182.0" onKeyReleased="#enterProductId" prefHeight="55.0" prefWidth="261.0" promptText="Input Product Id" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtProductLeafValue" layoutX="295.0" layoutY="396.0" prefHeight="55.0" prefWidth="261.0" promptText="Input Value" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtProductLeafValue" layoutX="295.0" layoutY="396.0" onKeyReleased="#enterLeafValue" prefHeight="55.0" prefWidth="261.0" promptText="Input Value" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -52,7 +52,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="btnPdtAdd" layoutX="368.0" layoutY="870.0" mnemonicParsing="false" onAction="#addProductToDatabase" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Product" textFill="WHITE">
+        <Button fx:id="btnPdtAdd" layoutX="368.0" layoutY="920.0" mnemonicParsing="false" onAction="#addProductToDatabase" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Product" textFill="WHITE">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -63,7 +63,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Button fx:id="btnDiscardProductAdd" layoutX="201.0" layoutY="871.0" mnemonicParsing="false" onAction="#discardProductAddForm" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
+        <Button fx:id="btnDiscardProductAdd" layoutX="201.0" layoutY="921.0" mnemonicParsing="false" onAction="#discardProductAddForm" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -81,7 +81,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPdtProductQuantity" layoutX="295.0" layoutY="715.0" onAction="#enteredProductQuantity" prefHeight="55.0" prefWidth="261.0" promptText="Input Quantity" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtPdtProductQuantity" layoutX="295.0" layoutY="715.0" onAction="#enteredProductQuantity" onKeyReleased="#enterQuantity" prefHeight="55.0" prefWidth="261.0" promptText="Input Quantity" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -92,5 +92,15 @@
             <Font size="19.0" />
          </font>
       </Label>
+      <Label layoutX="36.0" layoutY="830.0" prefHeight="34.0" prefWidth="197.0" text="Unit Price">
+         <font>
+            <Font name="FreeMono" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtProductUnitPrice" layoutX="295.0" layoutY="815.0" onAction="#enteredProductQuantity" onKeyReleased="#enterUnitPrice" prefHeight="55.0" prefWidth="261.0" promptText="Input Unit Price" style="-fx-background-radius: 10 10 10 10;">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </TextField>
     </children>
 </AnchorPane>

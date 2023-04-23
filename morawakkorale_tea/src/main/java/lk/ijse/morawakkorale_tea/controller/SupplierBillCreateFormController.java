@@ -92,9 +92,7 @@ public class SupplierBillCreateFormController {
                     bagCount,
                     payment
             ));
-
         }
-
 
         File file = ResourceUtils.getFile("/home/kaviyakv/Desktop/Morawakkorale_Tea/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/reports/supplierBills.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
@@ -192,13 +190,12 @@ public class SupplierBillCreateFormController {
 
         int pay = PaymentModel.getPaymentId();
         int payId=pay+1;
-        System.out.println(payId);
 
-        Payment payment = new Payment(payId,Integer.parseInt(txtMonthlyRate.getText()),"Supplier Bill",Integer.parseInt(lblSupLastPayment.getText()),(lblSupplierName.getText())+"-->"+(lblMonth.getText()),Integer.parseInt(lblSupplierId.getText()),null);
+        Payment payment = new Payment(payId,Integer.parseInt(txtMonthlyRate.getText()),"Supplier Bill",Double.parseDouble(lblSupLastPayment.getText()),(lblSupplierName.getText())+"-->"+(lblMonth.getText()),Integer.parseInt(lblSupplierId.getText()),null);
         try {
             PaymentModel.addPayment(payment);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
 
     }

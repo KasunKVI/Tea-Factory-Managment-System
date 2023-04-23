@@ -32,7 +32,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtCustContactEdit" layoutX="296.0" layoutY="300.0" onAction="#enteredCustContactEdit" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustContactEdit" layoutX="296.0" layoutY="300.0" onAction="#enteredCustContactEdit" onKeyReleased="#enterCustomerContactED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtCustNameEdit" layoutX="296.0" layoutY="185.0" onAction="#enteredCustNameEdit" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustNameEdit" layoutX="296.0" layoutY="185.0" onAction="#enteredCustNameEdit" onKeyReleased="#enterCustomerNameED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -84,7 +84,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustEmployeeIdEdit" layoutX="295.0" layoutY="409.0" onAction="#enteredCustEmployeeEdit" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtCustEmployeeIdEdit" layoutX="295.0" layoutY="409.0" onAction="#enteredCustEmployeeEdit" onKeyReleased="#enterEmployeeIdED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

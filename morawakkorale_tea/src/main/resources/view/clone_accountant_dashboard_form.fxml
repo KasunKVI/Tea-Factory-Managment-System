@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="bgPane" prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.AccountantDashboardFormController">
+   <children>
+      <ImageView fitHeight="1048.0" fitWidth="1853.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Dashboard_Background.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="413.0" layoutY="20.0" opacity="0.9" prefHeight="497.0" prefWidth="867.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+         <children>
+            <AreaChart fx:id="orderSummeryAreaChart" layoutX="23.0" layoutY="80.0" prefHeight="383.0" prefWidth="790.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </AreaChart>
+            <Label layoutX="68.0" layoutY="24.0" prefHeight="40.0" prefWidth="199.0" text="Orders Summery">
+               <font>
+                  <Font name="Abyssinica SIL" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="1350.0" layoutY="50.0" opacity="0.9" prefHeight="564.0" prefWidth="368.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+         <children>
+            <Label layoutX="68.0" layoutY="24.0" prefHeight="61.0" prefWidth="237.0" text="Products Summery">
+               <font>
+                  <Font name="Abyssinica SIL" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="78.0" fitWidth="100.0" layoutX="126.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/inventory.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="100.0" layoutX="133.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/management.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="52.0" layoutY="207.0" prefHeight="52.0" prefWidth="260.0" text="Number Of Suppliers">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="467.0" prefHeight="52.0" prefWidth="298.0" text="Number Of Transporters">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSupplierCount" layoutX="231.0" layoutY="138.0" prefHeight="52.0" prefWidth="104.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTransportersCount" layoutX="244.0" layoutY="400.0" prefHeight="52.0" prefWidth="104.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="410.0" layoutY="550.0" opacity="0.9" prefHeight="479.0" prefWidth="803.0" style="-fx-background-color: white; -fx-background-radius: 18 18 18 18;">
+         <children>
+            <BarChart fx:id="productSummeryBarChart" layoutX="40.0" layoutY="85.0" prefHeight="333.0" prefWidth="749.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <Label layoutX="73.0" layoutY="31.0" prefHeight="40.0" prefWidth="199.0" text="Products Summery">
+               <font>
+                  <Font name="Abyssinica SIL" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="lblDateAndTime" layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;">
+         <font>
+            <Font name="Dyuthi Regular" size="60.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

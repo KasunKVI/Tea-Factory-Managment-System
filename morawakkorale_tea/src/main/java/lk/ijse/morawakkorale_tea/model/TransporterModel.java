@@ -30,7 +30,6 @@ public class TransporterModel {
             String contact=resultSet.getString(3);
             String route=resultSet.getString(4);
             String address=resultSet.getString(5);
-            String payment=resultSet.getString(6);
 
             return new Transporter(tp_id,name,contact,route,address);
         }
@@ -95,5 +94,31 @@ public class TransporterModel {
 
         String sql = "DELETE FROM Transporter WHERE tp_id = ?";
         return CrudUtil.execute(sql,transporterId);
+    }
+
+    public static List<Integer> getAllIds() throws SQLException {
+
+        String sql = "SELECT tp_id FROM Transporter";
+        List<Integer> idS = new ArrayList<>();
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+            idS.add(resultSet.getInt(1));
+        }
+        return idS;
+    }
+
+    public static String getRoute(Integer id) throws SQLException {
+
+        String sql = "SELECT route FROM Transporter WHERE tp_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,id);
+
+        String route=null;
+
+        while (resultSet.next()){
+
+            route=resultSet.getString(1);
+        }
+        return route;
     }
 }

@@ -105,4 +105,18 @@ public class StockModel {
         return CrudUtil.execute(sql,leaf_value,stock_id);
 
     }
+
+    public static int getTransporterValues(int id, int month) throws SQLException {
+
+        String sql = "SELECT value FROM Stock WHERE MONTH(date) = ? AND transporter_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,month,id);
+
+        int count = 0;
+
+        while (resultSet.next()){
+            count+=resultSet.getInt(1);
+        }
+
+        return count;
+    }
 }

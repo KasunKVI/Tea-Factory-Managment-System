@@ -17,8 +17,8 @@ public class PaymentModel {
 
     public static boolean addPayment(Payment payment) throws SQLException {
 
-        String sql = "INSERT INTO Payment(pay_id,rate,type,value,description,supp_id) VALUES (?,?,?,?,?,?)";
-        return CrudUtil.execute(sql,payment.getId(),String.valueOf(payment.getRate()),payment.getType(),payment.getValue(),payment.getDescription(),payment.getSupp_id());
+        String sql = "INSERT INTO Payment VALUES (?,?,?,?,?,?,?)";
+        return CrudUtil.execute(sql,payment.getId(),String.valueOf(payment.getRate()),payment.getType(),payment.getValue(),payment.getDescription(),payment.getSupp_id(),payment.getTrp_id());
     }
 
     public static int getPaymentId() throws SQLException {

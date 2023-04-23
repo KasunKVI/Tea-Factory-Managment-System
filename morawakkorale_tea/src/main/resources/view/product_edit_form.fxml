@@ -81,7 +81,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtProductQuantityEdit" layoutX="296.0" layoutY="391.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtProductQuantityEdit" layoutX="296.0" layoutY="391.0" onKeyReleased="#enterProductQuantityED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

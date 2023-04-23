@@ -25,10 +25,11 @@ public class LoginFormController {
     @FXML
     private TextField txtPassword;
 
+    public static String id;
 
     public void loginBtnOnAction() throws IOException, SQLException {
 
-        String id = txtUserId.getText();
+        id= txtUserId.getText();
         String password = txtPassword.getText();
         Stage stage = new Stage();
 

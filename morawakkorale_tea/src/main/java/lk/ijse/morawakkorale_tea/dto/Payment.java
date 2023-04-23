@@ -13,7 +13,7 @@ public class Payment {
     private Integer id;
     private Integer rate;
     private String type;
-    private Integer value;
+    private Double value;
     private String description;
     private Integer supp_id;
     private Integer trp_id;

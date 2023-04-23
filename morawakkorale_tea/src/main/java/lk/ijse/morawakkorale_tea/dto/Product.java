@@ -18,5 +18,6 @@ public class Product {
     private LocalDate made_date;
     private Integer qty_on_hand;
     private String type;
+    private Double unit_price;
 
 }

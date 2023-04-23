@@ -85,4 +85,17 @@ public class CustomerModel {
         String sql = "DELETE FROM Customer WHERE cust_id = ?";
         return CrudUtil.execute(sql,customerId);
     }
+
+    public static List<String> getAllIds() throws SQLException {
+
+        String sql = "SELECT cust_id FROM Customer";
+        List<String> ids = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+            ids.add(resultSet.getString(1));
+        }
+        return ids;
+    }
 }

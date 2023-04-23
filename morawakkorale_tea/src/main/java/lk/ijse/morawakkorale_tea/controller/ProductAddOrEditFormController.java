@@ -7,6 +7,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Product;
 import lk.ijse.morawakkorale_tea.dto.Stock_Product;
@@ -55,6 +56,8 @@ public class ProductAddOrEditFormController implements Initializable {
     @FXML
     private Label lblStockValue;
     @FXML
+    private TextField txtProductUnitPrice;
+    @FXML
     private TextField txtProductIdSearch;
 
 
@@ -73,8 +76,9 @@ public class ProductAddOrEditFormController implements Initializable {
         LocalDate madeDate = dtpPdtMadeDate.getValue();
         int qtyOnHand = Integer.parseInt(txtPdtProductQuantity.getText());
         String productType = cmbPdtProductType.getValue();
+        Double unit_price = Double.valueOf(txtProductUnitPrice.getText());
 
-        Product product = new Product(id, madeDate, qtyOnHand, productType);
+        Product product = new Product(id, madeDate, qtyOnHand, productType,unit_price);
         Stock_Product stock_product = new Stock_Product(id,stockId,leaf_value);
 
         try {
@@ -127,7 +131,7 @@ public class ProductAddOrEditFormController implements Initializable {
         int qty= Integer.parseInt(txtProductQuantityEdit.getText());
         String type=cmbProductTypeBoxEdit.getValue();
 
-        Product product = new Product(id,made_date,qty,type);
+        Product product = new Product(id,made_date,qty,type,null);
 
         try {
             ProductModel.addEditedProductToDatabase(product);
@@ -199,6 +203,7 @@ public class ProductAddOrEditFormController implements Initializable {
         cmbPdtStockId.setItems(null);
         cmbPdtProductType.setItems(null);
         dtpPdtMadeDate.setValue(null);
+        txtProductUnitPrice.clear();
     }
 
     public void enteredProductType(ActionEvent actionEvent) {
@@ -227,5 +232,37 @@ public class ProductAddOrEditFormController implements Initializable {
 
     public void initializedProductTypeEditCmb(Event event) {
         addProducts(cmbProductTypeBoxEdit);
+    }
+                 
+    public void enterProductId(KeyEvent keyEvent) {
+        if (!txtPdtId.getText().matches(Regex.productIdRegEx())) {
+            Regex.setTextColorRed(txtPdtId);
+        }else Regex.setTextBlack(txtPdtId);
+    }
+
+    public void enterLeafValue(KeyEvent keyEvent) {
+        if(!txtProductLeafValue.getText().matches(Regex.valueRegEx())){
+            Regex.setTextColorRed(txtProductLeafValue);
+        }else Regex.setTextBlack(txtProductLeafValue);
+    }
+
+    public void enterUnitPrice(KeyEvent keyEvent) {
+        if(!txtProductUnitPrice.getText().matches(Regex.valueRegEx())){
+            Regex.setTextColorRed(txtProductUnitPrice);
+        }else Regex.setTextBlack(txtProductUnitPrice);
+    }
+
+    public void enterQuantity(KeyEvent keyEvent) {
+
+        if(!txtPdtProductQuantity.getText().matches(Regex.valueRegEx())){
+            Regex.setTextColorRed(txtPdtProductQuantity);
+        }else Regex.setTextBlack(txtPdtProductQuantity);
+    }
+
+    public void enterProductQuantityED(KeyEvent keyEvent) {
+
+        if(!txtProductQuantityEdit.getText().matches(Regex.valueRegEx())){
+            Regex.setTextColorRed(txtProductQuantityEdit);
+        }else Regex.setTextBlack(txtProductQuantityEdit);
     }
 }

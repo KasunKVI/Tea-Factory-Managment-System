@@ -1,18 +1,21 @@
 package lk.ijse.morawakkorale_tea.controller;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.morawakkorale_tea.model.OrderModel;
 import lk.ijse.morawakkorale_tea.model.ProductModel;
@@ -23,8 +26,11 @@ import lombok.SneakyThrows;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
 
@@ -41,13 +47,18 @@ public class AccountantDashboardFormController implements Initializable {
     @FXML
     private Label lblTransportersCount;
     @FXML
-    private Label lblDateAndTime;
+    private Label lblDate;
+    @FXML
+    private Label lblTime;
     @FXML
     private AreaChart<String,Number> orderSummeryAreaChart;
     @FXML
     private BarChart<String,Number> productSummeryBarChart;
     @FXML
     public Pane menuBarPanel;
+
+    @FXML
+    private Button btnLogOut;
 
     public void loadSupplierBills(ActionEvent actionEvent) throws IOException {
 
@@ -83,14 +94,31 @@ public class AccountantDashboardFormController implements Initializable {
             initializeBarChart();
             lblSupplierCount.setText(String.valueOf(SupplierModel.getSuppliersCount()));
             lblTransportersCount.setText(String.valueOf(TransporterModel.getTransportersCount()));
-            lblDateAndTime.setText(String.valueOf(LocalDate.now()));
+            initializeTimeLabel();
+
+    }
+
+    private void initializeTimeLabel() {
+
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        lblDate.setText(format.format(date));
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e ->{
+            LocalTime time = LocalTime.now();
+            lblTime.setText(time.getHour()+":"+time.getMinute()+":"+time.getSecond());
+        }), new KeyFrame(Duration.seconds(1))
+        );
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
 
     }
 
     private void initializeBarChart() throws SQLException {
 
-        XYChart.Series<String, Number>[] series = new XYChart.Series[3];
 
+        XYChart.Series<String, Number>[] series = new XYChart.Series[3];
 
         series[0] = new XYChart.Series<>();
         series[0].setName("English Afternoon");
@@ -137,5 +165,28 @@ public class AccountantDashboardFormController implements Initializable {
         bgPane.getChildren().clear();
         bgPane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/orders_payment_add_form.fxml")));
 
+    }
+
+    public void openSettingForm(MouseEvent mouseEvent) throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/setting_form.fxml"));
+        stage.setTitle("Setting Window");
+        stage.centerOnScreen();
+        stage.setScene(new Scene(root));
+
+        stage.show();
+
+    }
+
+    public void showDashboard(MouseEvent mouseEvent) throws IOException {
+
+        bgPane.getChildren().clear();
+        bgPane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/clone_accountant_dashboard_form.fxml")));
+    }
+
+    public void logOut(ActionEvent actionEvent) throws IOException {
+
+        SideBarOperations.logOut(btnLogOut);
     }
 }

@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
@@ -13,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.model.*;
 import lombok.SneakyThrows;
 
@@ -64,6 +67,9 @@ public class ManagerDashboardFormController implements Initializable {
     private Button btnCustomer;
     @FXML
     private Button btnProduct;
+
+    @FXML
+    private Button btnLogOut;
 
 
     public void hideMenuBar(MouseEvent mouseEvent) {
@@ -211,5 +217,22 @@ public class ManagerDashboardFormController implements Initializable {
         suppliersChart.getData().addAll(series);
 
 
+    }
+
+    public void openSettingForm(MouseEvent mouseEvent) throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/setting_form.fxml"));
+        stage.setTitle("Setting Window");
+        stage.centerOnScreen();
+        stage.setScene(new Scene(root));
+
+        stage.show();
+
+    }
+
+    public void logOut(ActionEvent actionEvent) throws IOException {
+
+        SideBarOperations.logOut(btnLogOut);
     }
 }

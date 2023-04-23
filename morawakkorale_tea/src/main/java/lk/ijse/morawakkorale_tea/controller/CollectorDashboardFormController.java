@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -77,6 +78,9 @@ public class CollectorDashboardFormController implements Initializable {
     @FXML
     private AnchorPane mainPanel;
 
+    @FXML
+    private Button btnLogOut;
+
 
     ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
 
@@ -144,8 +148,14 @@ public class CollectorDashboardFormController implements Initializable {
 
         try {
 
-            AddStockModel.addStockToDatabase(supplierStock,stock);
+           boolean isAdd =  AddStockModel.addStockToDatabase(supplierStock,stock);
 
+           if(isAdd){
+
+               new Alert(Alert.AlertType.CONFIRMATION, "Stock Added").show();
+               tableSupplierTeaValues.getItems().clear();
+
+           }
         } catch (SQLException throwable) {
 
             throwable.printStackTrace();
@@ -233,15 +243,21 @@ public class CollectorDashboardFormController implements Initializable {
         supplierValuesAddPane.setVisible(false);
     }
 
-    public void logOutFromCollectorDashboard(MouseEvent mouseEvent) throws IOException {
+    public void openSettingForm(MouseEvent mouseEvent) throws IOException {
 
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
-        Stage stage = (Stage) mainPanel.getScene().getWindow();
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Login Form");
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/setting_form.fxml"));
+        stage.setTitle("Setting Window");
         stage.centerOnScreen();
+        stage.setScene(new Scene(root));
+
+        stage.show();
 
     }
 
+    public void logOut(ActionEvent actionEvent) throws IOException {
 
+       SideBarOperations.logOut(btnLogOut);
+
+    }
 }

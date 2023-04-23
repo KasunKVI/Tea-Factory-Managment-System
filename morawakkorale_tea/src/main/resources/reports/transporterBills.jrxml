@@ -11,13 +11,13 @@
             <style mode="Opaque" backcolor="#F0EFEF"/>
         </conditionalStyle>
     </style>
-    <field name="sup_id" class="java.lang.Integer">
+    <field name="tp_id" class="java.lang.Integer">
+    </field>
+    <field name="route" class="java.lang.String">
     </field>
     <field name="value" class="java.lang.Integer">
     </field>
-    <field name="bag_count" class="java.lang.Integer">
-    </field>
-    <field name="pay_id" class="java.lang.Double">
+    <field name="payment" class="java.lang.Double">
     </field>
     <background>
         <band splitType="Stretch"/>
@@ -42,7 +42,7 @@
                     <textElement>
                         <font size="22" isBold="false"/>
                     </textElement>
-                    <text><![CDATA[Supplier Bill]]></text>
+                    <text><![CDATA[Transporter Bills]]></text>
                 </staticText>
             </frame>
             <frame>
@@ -69,7 +69,7 @@
                 <textElement>
                     <font isBold="false"/>
                 </textElement>
-                <text><![CDATA[Supplier ID]]></text>
+                <text><![CDATA[Transporter ID]]></text>
             </staticText>
             <staticText>
                 <reportElement style="Column header" x="138" y="7" width="138" height="18" forecolor="#000000" uuid="67545d0f-f7c1-4130-b4f2-cf499b8ad23c">
@@ -78,7 +78,7 @@
                 <textElement>
                     <font isBold="false"/>
                 </textElement>
-                <text><![CDATA[Value]]></text>
+                <text><![CDATA[Route]]></text>
             </staticText>
             <staticText>
                 <reportElement style="Column header" x="276" y="7" width="138" height="18" forecolor="#000000" uuid="058d1ba9-784b-4e35-be56-321cbcb2573d">
@@ -87,7 +87,7 @@
                 <textElement>
                     <font isBold="false"/>
                 </textElement>
-                <text><![CDATA[Bag Count]]></text>
+                <text><![CDATA[Value]]></text>
             </staticText>
             <staticText>
                 <reportElement style="Column header" x="414" y="7" width="138" height="18" forecolor="#000000" uuid="aaa9990a-f8c6-4b80-9b49-f043756fa528">
@@ -111,7 +111,7 @@
                     <textElement>
                         <font size="14"/>
                     </textElement>
-                    <textFieldExpression><![CDATA[$F{sup_id}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$F{tp_id}]]></textFieldExpression>
                 </textField>
                 <textField textAdjust="StretchHeight">
                     <reportElement style="Detail" positionType="Float" x="138" y="0" width="138" height="18" uuid="2c885c35-8b8f-4e4d-88ad-992ad020c952">
@@ -120,7 +120,7 @@
                     <textElement>
                         <font size="14"/>
                     </textElement>
-                    <textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$F{route}]]></textFieldExpression>
                 </textField>
                 <textField textAdjust="StretchHeight">
                     <reportElement style="Detail" positionType="Float" x="276" y="0" width="138" height="18" uuid="f321284c-0d21-4e5c-aaa3-df5c62ba2831">
@@ -129,7 +129,7 @@
                     <textElement>
                         <font size="14"/>
                     </textElement>
-                    <textFieldExpression><![CDATA[$F{bag_count}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
                 </textField>
                 <textField textAdjust="StretchHeight">
                     <reportElement style="Detail" positionType="Float" x="414" y="0" width="138" height="18" uuid="d65797fc-04bf-4848-90b7-143c4db107a8">
@@ -138,7 +138,7 @@
                     <textElement>
                         <font size="14"/>
                     </textElement>
-                    <textFieldExpression><![CDATA[$F{pay_id}]]></textFieldExpression>
+                    <textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
                 </textField>
             </frame>
         </band>

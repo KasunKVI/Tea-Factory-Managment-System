@@ -21,7 +21,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupId" layoutX="295.0" layoutY="182.0" onAction="#enteredSupplierId" prefHeight="55.0" prefWidth="261.0" promptText="Input Supplier Id" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupId" layoutX="295.0" layoutY="182.0" onAction="#enteredSupplierId" onKeyReleased="#enterSupId" prefHeight="55.0" prefWidth="261.0" promptText="Input Supplier Id" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -31,7 +31,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupAddress" layoutX="289.0" layoutY="660.0" onAction="#enteredSupplierAllDetails" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupAddress" layoutX="289.0" layoutY="660.0" onAction="#enteredSupplierAllDetails" onKeyReleased="#enterSupAddress" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -41,7 +41,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupContact" layoutX="294.0" layoutY="440.0" onAction="#enteredSupplierContact" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupContact" layoutX="294.0" layoutY="440.0" onAction="#enteredSupplierContact" onKeyReleased="#enterSupContact" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -51,7 +51,7 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSupName" layoutX="296.0" layoutY="312.0" onAction="#enteredSupplierName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtSupName" layoutX="296.0" layoutY="312.0" onAction="#enteredSupplierName" onKeyReleased="#enterSupName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

@@ -15,8 +15,8 @@ public class ProductModel {
 
     public static boolean addProductToDatabase(Product product) throws SQLException {
 
-        String sql = "INSERT INTO Product VALUES (?,?,?,?)";
-        return CrudUtil.execute(sql,product.getId(),product.getMade_date(),product.getQty_on_hand(),product.getType());
+        String sql = "INSERT INTO Product VALUES (?,?,?,?,?)";
+        return CrudUtil.execute(sql,product.getId(),product.getMade_date(),product.getQty_on_hand(),product.getType(),product.getUnit_price());
     }
 
     public static Product searchProductFromDatabase(String id) throws SQLException {
@@ -135,5 +135,33 @@ public class ProductModel {
 
         String sql = "UPDATE Product SET qty_on_hand = (qty_on_hand - ?) WHERE product_id = ?";
         return CrudUtil.execute(sql,dto.getQty(),dto.getId());
+    }
+
+    public static int getProductQty(String txt) {
+
+        String sql = "SELECT qty_on_hand FROM Product WHERE product_id = ?";
+
+        int qty = 0;
+        try {
+            ResultSet resultSet = CrudUtil.execute(sql,txt);
+
+            while (resultSet.next()){
+                qty=resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return qty;
+    }
+
+    public static boolean isExist(String text) throws SQLException {
+        String sql = "SELECT type FROM Product WHERE product_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,text);
+
+        if (resultSet.next()){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

@@ -2,11 +2,12 @@ package lk.ijse.morawakkorale_tea.controller;
 
 
 import javafx.scene.control.TextField;
+import lk.ijse.morawakkorale_tea.model.ProductModel;
 
 public class Regex {
 
     public static String nameRegEx(){
-        return "^[\\p{L} .'-]+$";
+        return "^[A-Z][a-z]{2,}(\\\\s+[A-Z][a-z]{2,})*$";
     }
 
     public static String emailRegEx(){
@@ -29,19 +30,37 @@ public class Regex {
         return "^P\\d{3}$";
     }
 
-    public static void setTextColorRed(TextField txt){
-
-        txt.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
-
-    }
-
-    public static void setTextBlack(TextField txt){
-
-        txt.setStyle("-fx-text-fill: black; -fx-font-weight: normal;");
-
-    }
-
     public static String valueRegEx(){
-        return "\\d*";
+        return "^(?!0)\\d*$";
     }
+
+    public static String productLeafValue(){
+        return "^(?!0)\\d{3,}$";
+    }
+    public static String idRegEx(){
+        return "[0-9]{5}";
+    }
+
+    public static String addressRegEx(){
+        return "^([A-Z][a-zA-Z0-9]*)(,\\s*[A-Z][a-zA-Z]+)+$";
+    }
+
+    public static String routeRegEx(){
+        return "\\b[A-Z][a-zA-Z]*\\b";
+
+    }
+
+    public static String teaValueTrp(){
+        return "^(?!0)\\d{3,}$";
+    }
+
+    public static String teaValueSup(){
+        return "^(?!0)\\d{1,}$";
+    }
+
+    public static String unitPrice(){
+        return "^(?!0)\\d{2,}$";
+    }
+
+
 }

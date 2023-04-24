@@ -82,7 +82,7 @@ public class SettingFormController implements Initializable {
         try {
 
             LogInModel.updateUser(id,contact,name,email);
-            new Alert(Alert.AlertType.CONFIRMATION, "Are you sure").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Save Details Successfully").show();
 
         } catch (SQLException er) {
 
@@ -92,22 +92,22 @@ public class SettingFormController implements Initializable {
 
     public void enteredName(KeyEvent keyEvent) {
         if (!txtUserName.getText().matches(Regex.nameRegEx())) {
-           Regex.setTextColorRed(txtUserName);
-        }else Regex.setTextBlack(txtUserName);
+           FontChanger.setTextColorRed(txtUserName);
+        }else FontChanger.setTextBlack(txtUserName);
     }
 
     public void enteredEmail(KeyEvent keyEvent) {
 
         if(!txtUserEmail.getText().matches(Regex.emailRegEx())){
-            Regex.setTextColorRed(txtUserEmail);
-        }else Regex.setTextBlack(txtUserEmail);
+            FontChanger.setTextColorRed(txtUserEmail);
+        }else FontChanger.setTextBlack(txtUserEmail);
     }
 
     public void enteredContact(KeyEvent keyEvent) {
 
         if(!txtUserContact.getText().matches(Regex.contactRegEx())){
-            Regex.setTextColorRed(txtUserContact);
-        }else Regex.setTextBlack(txtUserContact);
+            FontChanger.setTextColorRed(txtUserContact);
+        }else FontChanger.setTextBlack(txtUserContact);
     }
 
 }

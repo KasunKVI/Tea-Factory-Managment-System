@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -12,7 +13,7 @@
 
 <AnchorPane prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
     <children>
-      <TextField fx:id="txtCustomerIdSearch" alignment="CENTER" layoutX="24.0" layoutY="24.0" onAction="#searchCustomerFromDatabase" prefHeight="48.0" prefWidth="404.0" promptText="Search Cutomers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+      <TextField fx:id="txtCustomerIdSearch" alignment="CENTER" layoutX="24.0" layoutY="24.0" onAction="#searchCustomerFromDatabase" onKeyReleased="#enterCustomerIdSearch" prefHeight="48.0" prefWidth="404.0" promptText="Search Cutomers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
          <font>
             <Font name="DejaVu Serif Bold" size="26.0" />
          </font>
@@ -22,7 +23,7 @@
                 <Font name="DejaVu Serif Bold" size="26.0" />
             </font>
         </Label>
-        <TextField fx:id="txtCustOriginEdit" editable="false" layoutX="296.0" layoutY="520.0" onAction="#enteredCudtOriginEdit" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtCustOriginEdit" editable="false" layoutX="296.0" layoutY="520.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -84,10 +85,6 @@
             <Font name="FreeMono" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustEmployeeIdEdit" layoutX="295.0" layoutY="409.0" onAction="#enteredCustEmployeeEdit" onKeyReleased="#enterEmployeeIdED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </TextField>
+      <ComboBox fx:id="cmbEmpIds" layoutX="296.0" layoutY="411.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;" />
     </children>
 </AnchorPane>

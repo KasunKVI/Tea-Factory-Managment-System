@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -21,15 +23,14 @@ import lk.ijse.morawakkorale_tea.dto.Supplier_Stock;
 import lk.ijse.morawakkorale_tea.dto.tm.SupplierTeaValuesTM;
 import lk.ijse.morawakkorale_tea.model.AddStockModel;
 import lk.ijse.morawakkorale_tea.model.StockModel;
-import lk.ijse.morawakkorale_tea.model.Supplier_StockModel;
+import lk.ijse.morawakkorale_tea.model.SupplierModel;
+import lk.ijse.morawakkorale_tea.model.TransporterModel;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -76,10 +77,9 @@ public class CollectorDashboardFormController implements Initializable {
     private TableColumn<?,?> clmSupplierTeaValue;
 
     @FXML
-    private AnchorPane mainPanel;
-
-    @FXML
     private Button btnLogOut;
+
+    private boolean condition = false;
 
 
     ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
@@ -118,52 +118,63 @@ public class CollectorDashboardFormController implements Initializable {
 
     public void supplierValuesAddWindowShower(ActionEvent actionEvent) {
 
-        supplierValuesAddPane.setVisible(true);
-        FadeTransition fadeTransition1=new FadeTransition(Duration.seconds(0.5),supplierValuesAddPane);
-        fadeTransition1.setFromValue(0);
-        fadeTransition1.setToValue(1);
-        fadeTransition1.play();
+        if(!condition){
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
+
+        }else {
+
+            supplierValuesAddPane.setVisible(true);
+            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5), supplierValuesAddPane);
+            fadeTransition1.setFromValue(0);
+            fadeTransition1.setToValue(1);
+            fadeTransition1.play();
+        }
 
     }
 
     public void addStockToDatabase(ActionEvent actionEvent) {
 
+        if(!condition){
 
-        String stock_id = lblStockId.getText();
-        LocalDate date = dtpStockDate.getValue();
-        int stock_value = Integer.parseInt(txtStockValue.getText());
-        int transporter_id = Integer.parseInt(txtTransporterIdStock.getText());
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
+        }else {
 
-        List<Supplier_Stock> supplierStock = new ArrayList<>();
 
-        Stock stock=new Stock(stock_id, date.toString(), stock_value, transporter_id);
+            String stock_id = lblStockId.getText();
+            LocalDate date = dtpStockDate.getValue();
+            int stock_value = Integer.parseInt(txtStockValue.getText());
+            int transporter_id = Integer.parseInt(txtTransporterIdStock.getText());
 
-        for (int i = 0; i < tableSupplierTeaValues.getItems().size(); i++) {
+            List<Supplier_Stock> supplierStock = new ArrayList<>();
 
-            SupplierTeaValuesTM tm = observableList.get(i);
+            Stock stock = new Stock(stock_id, date.toString(), stock_value, transporter_id);
 
-            Supplier_Stock supplier_stock = new Supplier_Stock(tm.getId(), stock_id, tm.getValue(),tm.getBag(),null,date);
-            supplierStock.add(supplier_stock);
+            for (int i = 0; i < tableSupplierTeaValues.getItems().size(); i++) {
+
+                SupplierTeaValuesTM tm = observableList.get(i);
+
+                Supplier_Stock supplier_stock = new Supplier_Stock(tm.getId(), stock_id, tm.getValue(), tm.getBag(), null, date);
+                supplierStock.add(supplier_stock);
+            }
+
+            try {
+
+                boolean isAdd = AddStockModel.addStockToDatabase(supplierStock, stock);
+
+                if (isAdd) {
+
+                    new Alert(Alert.AlertType.CONFIRMATION, "Stock Added").show();
+                    tableSupplierTeaValues.getItems().clear();
+
+                }
+            } catch (SQLException throwable) {
+
+                throwable.printStackTrace();
+
+            }
+
+            discardOrClearStockAddValues(actionEvent);
         }
-
-        try {
-
-           boolean isAdd =  AddStockModel.addStockToDatabase(supplierStock,stock);
-
-           if(isAdd){
-
-               new Alert(Alert.AlertType.CONFIRMATION, "Stock Added").show();
-               tableSupplierTeaValues.getItems().clear();
-
-           }
-        } catch (SQLException throwable) {
-
-            throwable.printStackTrace();
-
-        }
-
-        discardOrClearStockAddValues(actionEvent);
-
     }
 
     public void generateNextStockId(){
@@ -183,19 +194,26 @@ public class CollectorDashboardFormController implements Initializable {
 
     public void addSupplierValuesToTable(ActionEvent actionEvent)  {
 
-        int supplier_id = Integer.parseInt(txtSupIdStock.getText());
-        int supplier_tea_value = Integer.parseInt(txtSupTeaValue.getText());
-        int supplier_bag_count = Integer.parseInt(txtSupTeaBagCount.getText());
+        if(!condition){
 
-        discardOrClearSupplierValues(actionEvent);
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
 
-        SupplierTeaValuesTM supplierTeaValuesTM = new SupplierTeaValuesTM(supplier_id, supplier_bag_count, supplier_tea_value);
+        }else {
 
-        observableList.add(supplierTeaValuesTM);
-        tableSupplierTeaValues.setItems(observableList);
-        tableSupplierTeaValues.refresh();
+            int supplier_id = Integer.parseInt(txtSupIdStock.getText());
+            int supplier_tea_value = Integer.parseInt(txtSupTeaValue.getText());
+            int supplier_bag_count = Integer.parseInt(txtSupTeaBagCount.getText());
 
-        txtSupIdStock.requestFocus();
+            discardOrClearSupplierValues(actionEvent);
+
+            SupplierTeaValuesTM supplierTeaValuesTM = new SupplierTeaValuesTM(supplier_id, supplier_bag_count, supplier_tea_value);
+
+            observableList.add(supplierTeaValuesTM);
+            tableSupplierTeaValues.setItems(observableList);
+            tableSupplierTeaValues.refresh();
+
+            txtSupIdStock.requestFocus();
+        }
 
     }
 
@@ -228,18 +246,36 @@ public class CollectorDashboardFormController implements Initializable {
     }
 
     public void filledSupplierId(ActionEvent actionEvent) {
-        txtSupTeaValue.requestFocus();
+
+        if(!condition) {
+            new Alert(Alert.AlertType.ERROR, "Input Valid Supplier Id").show();
+            txtSupIdStock.requestFocus();
+        }else {
+            txtSupTeaValue.requestFocus();
+        }
     }
 
     public void filledTeaValue(ActionEvent actionEvent) {
-        txtSupTeaBagCount.requestFocus();
+        if(!condition) {
+
+            new Alert(Alert.AlertType.ERROR, "Input Valid Tea value").show();
+            txtSupTeaValue.requestFocus();
+        }else {
+            txtSupTeaBagCount.requestFocus();
+        }
     }
 
     public void filledBagCount(ActionEvent actionEvent) {
-        addSupplierValuesToTable(actionEvent);
+        if(!condition) {
+            new Alert(Alert.AlertType.ERROR, "Input Valid BagCount").show();
+            txtSupTeaBagCount.requestFocus();
+        }else {
+            addSupplierValuesToTable(actionEvent);
+        }
     }
 
     public void closeSupplierValuesAddForm(ActionEvent actionEvent) {
+        condition=true;
         supplierValuesAddPane.setVisible(false);
     }
 
@@ -260,4 +296,83 @@ public class CollectorDashboardFormController implements Initializable {
        SideBarOperations.logOut(btnLogOut);
 
     }
+
+    public void enterTransporterId(KeyEvent keyEvent) throws SQLException {
+
+        if (!txtTransporterIdStock.getText().matches(Regex.idRegEx())){
+            condition=false;
+            FontChanger.setTextColorRed(txtTransporterIdStock);
+        }else if(TransporterModel.isExist(txtTransporterIdStock.getText())) {
+                    condition=false;
+                    FontChanger.setTextColorRed(txtTransporterIdStock);
+
+        }else{
+            FontChanger.setTextBlack(txtTransporterIdStock);
+            condition = true;
+        }
+
+
+    }
+
+    public void enterTeaValue(KeyEvent keyEvent) {
+
+        if (!txtStockValue.getText().matches(Regex.teaValueTrp())){
+            condition=false;
+            FontChanger.setTextColorRed(txtStockValue);
+        }else {
+            FontChanger.setTextBlack(txtStockValue);
+            condition = true;
+        }
+    }
+
+    public void enterSupplierId(KeyEvent keyEvent) throws SQLException {
+
+        if (!txtSupIdStock.getText().matches(Regex.idRegEx())) {
+            condition = false;
+            FontChanger.setTextColorRed(txtSupIdStock);
+
+        }else if (SupplierModel.isExist(txtSupIdStock.getText())) {
+
+                condition = false;
+                FontChanger.setTextColorRed(txtSupIdStock);
+        } else {
+                FontChanger.setTextBlack(txtSupIdStock);
+                condition = true;
+        }
+
+
+
+    }
+
+    public void enterSupplierTea(KeyEvent keyEvent) {
+
+        if (!txtSupTeaValue.getText().matches(Regex.teaValueSup())){
+            condition = false;
+            FontChanger.setTextColorRed(txtSupTeaValue);
+        }else {
+            FontChanger.setTextBlack(txtSupTeaValue);
+            condition = true;
+        }
+    }
+
+    public void enterSupplierBag(KeyEvent keyEvent) {
+
+        if (!txtSupTeaBagCount.getText().matches(Regex.valueRegEx())){
+            condition = false;
+            FontChanger.setTextColorRed(txtSupTeaBagCount);
+        }else {
+            FontChanger.setTextBlack(txtSupTeaBagCount);
+            condition = true;
+        }
+    }
+
+    public void checkTransporterId(Event event) {
+
+        if(!condition) {
+
+            new Alert(Alert.AlertType.ERROR, "Input Valid Transporter Id").show();
+            txtTransporterIdStock.requestFocus();
+        }
+
+        }
 }

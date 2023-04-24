@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.morawakkorale_tea.db.DBConnection;
 import lk.ijse.morawakkorale_tea.dto.Payment;
 import lk.ijse.morawakkorale_tea.dto.Supplier;
@@ -71,6 +72,7 @@ public class SupplierBillCreateFormController {
     @FXML
     private TextField txtSupplierIdSearch;
 
+    private boolean condition = true;
 
     public void showReport(ActionEvent actionEvent) throws SQLException, FileNotFoundException, JRException {
 
@@ -105,59 +107,72 @@ public class SupplierBillCreateFormController {
 
     public Supplier searchedSupplierId(ActionEvent actionEvent) {
 
-        String id = txtSupplierIdSearch.getText();
+        if(!condition){
 
-        try {
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
 
-            Supplier supplier = SupplierModel.searchSupplierFromDatabase(id);
+        }else {
 
-            if (supplier==null){
+            String id = txtSupplierIdSearch.getText();
 
-                new Alert(Alert.AlertType.ERROR,"There is no supplier in this id").show();
+            try {
+
+                Supplier supplier = SupplierModel.searchSupplierFromDatabase(id);
+
+                if (supplier == null) {
+
+                    new Alert(Alert.AlertType.ERROR, "There is no supplier in this id").show();
+                }
+
+                return supplier;
+            } catch (SQLException throwable) {
+
+                throwable.printStackTrace();
+
             }
-
-            return supplier;
-        } catch (SQLException throwable) {
-
-            throwable.printStackTrace();
 
         }
         return null;
     }
 
-    public void countSupplierLastPayment(ActionEvent actionEvent) {
-    }
-
     public void selectedMonthOfSupplier(ActionEvent actionEvent) {
 
-        Supplier supplier = searchedSupplierId(actionEvent);
+        if(!condition||txtSupplierIdSearch.getText().isEmpty()){
 
-        int month = cmbMonthSelect.getValue().getValue();
-        int id = Integer.parseInt(txtSupplierIdSearch.getText());
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
 
-        try {
-
-            int totalValue = Supplier_StockModel.getSupplierValues(id,month,"value");
-            int bagCount = Supplier_StockModel.getSupplierValues(id,month,"bag_count");
-
-            lblSupplierName.setText(supplier.getName());
-            lblSupplierId.setText(String.valueOf(supplier.getId()));
-            lblMonth.setText(String.valueOf(cmbMonthSelect.getValue()));
-            lblSupTotalLeafValue.setText(String.valueOf(totalValue));
-            lblSupBagCount.setText(String.valueOf(bagCount));
-            lblSupLastLeafValue.setText(String.valueOf(totalValue-bagCount));
-            txtMonthlyRate.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event) {
-                    double last = Integer.parseInt(lblSupLastLeafValue.getText());
-                    double rate = Integer.parseInt(txtMonthlyRate.getText());
-                    lblSupLastPayment.setText(String.valueOf(rate * last));
-                }
-            });
+        }else {
 
 
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+            Supplier supplier = searchedSupplierId(actionEvent);
+
+            int month = cmbMonthSelect.getValue().getValue();
+            int id = Integer.parseInt(txtSupplierIdSearch.getText());
+
+            try {
+
+                int totalValue = Supplier_StockModel.getSupplierValues(id, month, "value");
+                int bagCount = Supplier_StockModel.getSupplierValues(id, month, "bag_count");
+
+                lblSupplierName.setText(supplier.getName());
+                lblSupplierId.setText(String.valueOf(supplier.getId()));
+                lblMonth.setText(String.valueOf(cmbMonthSelect.getValue()));
+                lblSupTotalLeafValue.setText(String.valueOf(totalValue));
+                lblSupBagCount.setText(String.valueOf(bagCount));
+                lblSupLastLeafValue.setText(String.valueOf(totalValue - bagCount));
+                txtMonthlyRate.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        double last = Integer.parseInt(lblSupLastLeafValue.getText());
+                        double rate = Integer.parseInt(txtMonthlyRate.getText());
+                        lblSupLastPayment.setText(String.valueOf(rate * last));
+                    }
+                });
+
+
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
+            }
         }
 
     }
@@ -198,5 +213,27 @@ public class SupplierBillCreateFormController {
             throwable.printStackTrace();
         }
 
+    }
+
+    public void searchSupplierId(KeyEvent keyEvent) {
+
+        if (!txtSupplierIdSearch.getText().matches(Regex.idRegEx())){
+            condition=false;
+            FontChanger.setTextColorRed(txtSupplierIdSearch);
+        }else {
+            FontChanger.setTextBlack(txtSupplierIdSearch);
+            condition = true;
+        }
+    }
+
+    public void enterMonthlySupplierRate(KeyEvent keyEvent) {
+
+        if (!txtMonthlyRate.getText().matches(Regex.valueRegEx())){
+            condition=false;
+            FontChanger.setTextColorRed(txtMonthlyRate);
+        }else {
+            FontChanger.setTextBlack(txtMonthlyRate);
+            condition = true;
+        }
     }
 }

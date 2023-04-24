@@ -78,11 +78,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-      <ComboBox fx:id="cmbCustOrigin" layoutX="296.0" layoutY="544.0" onAction="#enteredCustOrigin" onShowing="#initializeComboBox" prefHeight="55.0" prefWidth="261.0" promptText="Select Origin" style="-fx-background-radius: 10 10 10 10;" />
-      <TextField fx:id="txtCustEmplId" layoutX="296.0" layoutY="658.0" onAction="#enteredEmployeeId" onKeyReleased="#enterEmployeeId" prefHeight="55.0" prefWidth="261.0" promptText="Input Your Id" style="-fx-background-radius: 10 10 10 10;">
-         <font>
-            <Font name="Arial Bold" size="22.0" />
-         </font>
-      </TextField>
+      <ComboBox fx:id="cmbCustOrigin" layoutX="296.0" layoutY="544.0" onShowing="#initializeComboBox" prefHeight="55.0" prefWidth="261.0" promptText="Select Origin" style="-fx-background-radius: 10 10 10 10;" />
+      <ComboBox fx:id="cmbEmpIds" layoutX="296.0" layoutY="661.0" prefHeight="55.0" prefWidth="261.0" promptText="Select Origin" style="-fx-background-radius: 10 10 10 10;" />
     </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package lk.ijse.morawakkorale_tea.model;
 
+import javafx.scene.control.TextField;
 import lk.ijse.morawakkorale_tea.dto.Supplier;
 import lk.ijse.morawakkorale_tea.util.CrudUtil;
 
@@ -123,5 +124,16 @@ public class SupplierModel {
             ids.add(resultSet.getInt(1));
         }
         return ids;
+    }
+
+    public static boolean isExist(String txtSupIdStock) throws SQLException {
+        String sql = "SELECT name FROM Supplier WHERE sup_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,txtSupIdStock);
+
+        if (resultSet.next()){
+            return false;
+        }else {
+            return true;
+        }
     }
 }

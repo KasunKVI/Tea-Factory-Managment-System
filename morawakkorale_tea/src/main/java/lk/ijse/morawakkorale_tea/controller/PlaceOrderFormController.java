@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.morawakkorale_tea.dto.CartDTO;
 import lk.ijse.morawakkorale_tea.dto.Payment;
 import lk.ijse.morawakkorale_tea.dto.Product;
@@ -87,55 +88,84 @@ public class PlaceOrderFormController implements Initializable {
 
     public void addProductToCart(ActionEvent actionEvent) {
 
-        String item_id=cmbOrderItemIds.getValue();
-        String type=lblOrderProductType.getText();
-        Double unit_price = Double.valueOf(lblProductUnitPrice.getText());
-        Integer qty = Integer.valueOf(txtOrderProductQty.getText());
-        Double total = unit_price * qty;
+        if(cmbOrderItemIds.getValue()==null||cmbOrderCustomerIds.getValue()==null) {
 
-        PlaceOrderTM placeOrderTM = new PlaceOrderTM(item_id,type,unit_price,qty,total);
+            new Alert(Alert.AlertType.ERROR, "Please Select Item And Customer First").show();
 
-        obList.add(placeOrderTM);
-        tblOrderCart.setItems(obList);
-        tblOrderCart.refresh();
+        }else if(txtOrderProductQty.getText().isEmpty()) {
 
-        calculateNetTotal();
+            new Alert(Alert.AlertType.ERROR, "Please add quantity").show();
+            txtOrderProductQty.requestFocus();
 
+        }else {
+
+            int qtyTxt = Integer.parseInt(txtOrderProductQty.getText());
+            int qtyLbl = Integer.parseInt(lblProductQtyOnHand.getText());
+
+            if (qtyTxt > qtyLbl || qtyTxt == 0) {
+
+                new Alert(Alert.AlertType.ERROR, "Please Enter Valid Quantity").show();
+                txtOrderProductQty.requestFocus();
+
+            } else {
+
+
+                String item_id = cmbOrderItemIds.getValue();
+                String type = lblOrderProductType.getText();
+                Double unit_price = Double.valueOf(lblProductUnitPrice.getText());
+                Integer qty = qtyTxt;
+                Double total = unit_price * qty;
+
+                PlaceOrderTM placeOrderTM = new PlaceOrderTM(item_id, type, unit_price, qty, total);
+
+                obList.add(placeOrderTM);
+                tblOrderCart.setItems(obList);
+                tblOrderCart.refresh();
+
+                calculateNetTotal();
+            }
+
+        }
+
+        clearItemDetails();
 
     }
 
     public void placeOrder(ActionEvent actionEvent) throws SQLException {
 
-        int pay = PaymentModel.getPaymentId();
-        int payId=pay+1;
 
-        Payment payment = new Payment(payId,0,"Order Payment",Double.parseDouble(lblOrderTotalPrice.getText()),(cmbOrderCustomerIds.getValue())+"-->"+(LocalDate.now()),null,null);
-        try {
-            PaymentModel.addPayment(payment);
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
+            int pay = PaymentModel.getPaymentId();
+            int payId = pay + 1;
+
+            Payment payment = new Payment(payId, 0, "Order Payment", Double.parseDouble(lblOrderTotalPrice.getText()), (cmbOrderCustomerIds.getValue()) + "-->" + (LocalDate.now()), null, null);
+            try {
+                PaymentModel.addPayment(payment);
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
+            }
 
 
-        String id = lblOrderId.getText();
-        String customer_id = cmbOrderCustomerIds.getValue();
+            String id = lblOrderId.getText();
+            String customer_id = cmbOrderCustomerIds.getValue();
 
-        List<CartDTO> cartDTOS = new ArrayList<>();
+            List<CartDTO> cartDTOS = new ArrayList<>();
 
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+            for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
 
-            PlaceOrderTM tm = obList.get(i);
+                PlaceOrderTM tm = obList.get(i);
 
-            CartDTO cartDTO = new CartDTO(tm.getItem_id(),tm.getType(), tm.getQty());
-            cartDTOS.add(cartDTO);
-        }
+                CartDTO cartDTO = new CartDTO(tm.getItem_id(), tm.getType(), tm.getQty());
+                cartDTOS.add(cartDTO);
+            }
 
-        boolean isPlaced = PlaceOrderModel.placeOrder(id,customer_id,payId,lblOrderTotalPrice.getText(),cartDTOS);
-        if(isPlaced) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Order Placed!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Order Not Placed!").show();
-        }
+            boolean isPlaced = PlaceOrderModel.placeOrder(id, customer_id, payId, lblOrderTotalPrice.getText(), cartDTOS);
+            if (isPlaced) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed!").show();
+                tblOrderCart.getItems().clear();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Order Not Placed!").show();
+            }
+
     }
 
     public void showReport(ActionEvent actionEvent) {
@@ -148,6 +178,7 @@ public class PlaceOrderFormController implements Initializable {
         initializeItemIdsBox();
         setCellValueFactory();
         generateNextOrderId();
+
     }
 
     private void setCellValueFactory() {
@@ -200,11 +231,14 @@ public class PlaceOrderFormController implements Initializable {
         try {
             Product product = ProductModel.getAll(item_id);
 
-            lblOrderProductType.setText(product.getType());
-            lblProductUnitPrice.setText(String.valueOf(product.getUnit_price()));
-            lblProductQtyOnHand.setText(String.valueOf(product.getQty_on_hand()));
-            lblProductMadeDate.setText(String.valueOf(product.getMade_date()));
+            if (product!=null) {
 
+                lblOrderProductType.setText(product.getType());
+                lblProductUnitPrice.setText(String.valueOf(product.getUnit_price()));
+                lblProductQtyOnHand.setText(String.valueOf(product.getQty_on_hand()));
+                lblProductMadeDate.setText(String.valueOf(product.getMade_date()));
+
+            }
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -235,6 +269,36 @@ public class PlaceOrderFormController implements Initializable {
             throwable.printStackTrace();
 
         }
+
+    }
+
+    public void enterProductQty(KeyEvent keyEvent) {
+
+
+        if(cmbOrderItemIds.getValue()==null) {
+            FontChanger.setTextColorRed(txtOrderProductQty);
+        }else {
+            int qtyTxt = Integer.parseInt(txtOrderProductQty.getText());
+            int qtyLbl = Integer.parseInt(lblProductQtyOnHand.getText());
+
+            if (qtyTxt > qtyLbl || qtyTxt == 0) {
+
+                FontChanger.setTextColorRed(txtOrderProductQty);
+            } else {
+                FontChanger.setTextBlack(txtOrderProductQty);
+            }
+        }
+    }
+
+    public void clearItemDetails(){
+
+        cmbOrderCustomerIds.setValue(null);
+        cmbOrderItemIds.setValue(null);
+        lblOrderProductType.setText("");
+        lblProductMadeDate.setText("");
+        lblProductUnitPrice.setText("");
+        lblProductQtyOnHand.setText("");
+        txtOrderProductQty.clear();
 
     }
 }

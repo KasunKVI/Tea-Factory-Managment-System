@@ -20,7 +20,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTrpId" layoutX="295.0" layoutY="187.0" onAction="#enteredTransporterId" prefHeight="55.0" prefWidth="261.0" promptText="Input Transporter Id" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpId" layoutX="295.0" layoutY="187.0" onAction="#enteredTransporterId" onKeyReleased="#enterTransporterId" prefHeight="55.0" prefWidth="261.0" promptText="Input Transporter Id" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -30,7 +30,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTrpAddress" layoutX="293.0" layoutY="649.0" onAction="#enteredTransporterAddress" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpAddress" layoutX="293.0" layoutY="649.0" onAction="#enteredTransporterAddress" onKeyReleased="#enterTransporterAddress" prefHeight="55.0" prefWidth="261.0" promptText="Input Address" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -40,7 +40,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTrpContact" layoutX="294.0" layoutY="414.0" onAction="#enteredTransporterContact" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpContact" layoutX="294.0" layoutY="414.0" onAction="#enteredTransporterContact" onKeyReleased="#enterTransporterContact" prefHeight="55.0" prefWidth="261.0" promptText="Input Contact " style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -50,7 +50,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTrpName" layoutX="294.0" layoutY="301.0" onAction="#enteredTransporterName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTrpName" layoutX="294.0" layoutY="301.0" onAction="#enteredTransporterName" onKeyReleased="#enterTransporterName" prefHeight="55.0" prefWidth="261.0" promptText="Input Name" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -82,7 +82,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-      <TextField fx:id="txtTrpRoute" layoutX="294.0" layoutY="528.0" onAction="#enteredTransporterRoute" prefHeight="55.0" prefWidth="261.0" promptText="Input Route " style="-fx-background-radius: 10 10 10 10;">
+      <TextField fx:id="txtTrpRoute" layoutX="294.0" layoutY="528.0" onAction="#enteredTransporterRoute" onKeyReleased="#enterTransporterRoute" prefHeight="55.0" prefWidth="261.0" promptText="Input Route " style="-fx-background-radius: 10 10 10 10;">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>

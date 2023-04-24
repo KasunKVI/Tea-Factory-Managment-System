@@ -18,7 +18,7 @@
             <Image url="@../img/Dashboard_Background.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="550.0" layoutY="58.0" onAction="#searchedSupplierId" prefHeight="68.0" prefWidth="517.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="550.0" layoutY="58.0" onAction="#searchedSupplierId" onKeyReleased="#searchSupplierId" prefHeight="68.0" prefWidth="517.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
          <font>
             <Font name="DejaVu Serif Bold" size="26.0" />
          </font>
@@ -89,7 +89,7 @@
                   <Font name="DejaVu Serif Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="txtMonthlyRate" layoutX="577.0" layoutY="23.0" onAction="#countSupplierLastPayment" prefHeight="43.0" prefWidth="170.0" promptText="Please Enter Rate">
+            <TextField fx:id="txtMonthlyRate" layoutX="577.0" layoutY="23.0" onKeyReleased="#enterMonthlySupplierRate" prefHeight="43.0" prefWidth="170.0" promptText="Please Enter Rate">
                <font>
                   <Font name="DejaVu Serif Bold" size="15.0" />
                </font>

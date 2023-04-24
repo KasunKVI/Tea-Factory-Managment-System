@@ -43,17 +43,17 @@
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTransporterIdStock" layoutX="363.0" layoutY="170.0" prefHeight="55.0" prefWidth="261.0" promptText="Enter Transporter Id" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtTransporterIdStock" layoutX="363.0" layoutY="170.0" onKeyReleased="#enterTransporterId" prefHeight="55.0" prefWidth="261.0" promptText="Enter Transporter Id" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtStockValue" layoutX="364.0" layoutY="395.0" onAction="#filledTotalValue" prefHeight="55.0" prefWidth="261.0" promptText="Enter Total Tea Value" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtStockValue" layoutX="364.0" layoutY="395.0" onAction="#filledTotalValue" onKeyReleased="#enterTeaValue" prefHeight="55.0" prefWidth="261.0" promptText="Enter Total Tea Value" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="dtpStockDate" layoutX="361.0" layoutY="275.0" onAction="#filledDate" prefHeight="55.0" prefWidth="267.0" promptText="Select Date" style="-fx-background-radius: 10 10 10 10;" />
+            <DatePicker fx:id="dtpStockDate" layoutX="361.0" layoutY="275.0" onAction="#filledDate" onShowing="#checkTransporterId" prefHeight="55.0" prefWidth="267.0" promptText="Select Date" style="-fx-background-radius: 10 10 10 10;" />
             <Button fx:id="btnAddSuppliersValus" layoutX="261.0" layoutY="529.0" mnemonicParsing="false" onAction="#supplierValuesAddWindowShower" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add Suppliers Values">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
@@ -116,12 +116,12 @@
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtSupIdStock" layoutX="363.0" layoutY="170.0" onAction="#filledSupplierId" prefHeight="55.0" prefWidth="261.0" promptText="Enter Supplier Id" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtSupIdStock" layoutX="363.0" layoutY="170.0" onAction="#filledSupplierId" onKeyReleased="#enterSupplierId" prefHeight="55.0" prefWidth="261.0" promptText="Enter Supplier Id" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtSupTeaValue" layoutX="359.0" layoutY="266.0" onAction="#filledTeaValue" prefHeight="55.0" prefWidth="261.0" promptText="Enter Tea Value" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtSupTeaValue" layoutX="359.0" layoutY="266.0" onAction="#filledTeaValue" onKeyReleased="#enterSupplierTea" prefHeight="55.0" prefWidth="261.0" promptText="Enter Tea Value" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -147,7 +147,7 @@
                   <Font name="FreeMono" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtSupTeaBagCount" layoutX="357.0" layoutY="366.0" onAction="#filledBagCount" prefHeight="55.0" prefWidth="261.0" promptText="Enter Bag Count" style="-fx-background-radius: 10 10 10 10;">
+            <TextField fx:id="txtSupTeaBagCount" layoutX="357.0" layoutY="366.0" onAction="#filledBagCount" onKeyReleased="#enterSupplierBag" prefHeight="55.0" prefWidth="261.0" promptText="Enter Bag Count" style="-fx-background-radius: 10 10 10 10;">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>

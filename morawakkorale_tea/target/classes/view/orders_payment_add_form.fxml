@@ -90,7 +90,7 @@
                   <Font name="Liberation Mono Bold" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="txtOrderProductQty" layoutX="266.0" layoutY="825.0" prefHeight="60.0" prefWidth="154.0">
+            <TextField fx:id="txtOrderProductQty" layoutX="266.0" layoutY="825.0" onKeyReleased="#enterProductQty" prefHeight="60.0" prefWidth="154.0">
                <font>
                   <Font name="Liberation Mono Bold" size="25.0" />
                </font>

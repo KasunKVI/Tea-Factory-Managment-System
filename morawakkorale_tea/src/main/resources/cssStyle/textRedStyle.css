@@ -1,0 +1,13 @@
+
+.my-text-field-red {
+    -fx-text-fill: red;
+    -fx-font-family: Arial Bold;
+    -fx-font-size: 22px;
+    -fx-background-radius:10,10,10,10 ;
+}
+.my-text-field-black {
+    -fx-text-fill: black;
+    -fx-font-family: Arial Bold;
+    -fx-font-size: 22px;
+    -fx-background-radius:10,10,10,10 ;
+}

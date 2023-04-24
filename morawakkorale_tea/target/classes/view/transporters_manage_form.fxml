@@ -46,7 +46,7 @@
                 <Font name="Arial Black" size="28.0" />
             </font>
         </Button>
-      <Button layoutX="664.0" layoutY="57.0" mnemonicParsing="false" onAction="#editTransporter" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Edit Transporter Details" textFill="WHITE">
+      <Button layoutX="664.0" layoutY="57.0" mnemonicParsing="false" onAction="#loadEditForm" prefHeight="64.0" prefWidth="446.0" style="-fx-background-color: #4cd137; -fx-background-radius: 10 10 10 10;" text="Edit Transporter Details" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="28.0" />
          </font>

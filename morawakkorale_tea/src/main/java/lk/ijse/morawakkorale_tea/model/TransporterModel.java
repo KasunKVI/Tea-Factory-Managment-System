@@ -121,4 +121,15 @@ public class TransporterModel {
         }
         return route;
     }
+
+    public static boolean isExist(String text) throws SQLException {
+        String sql = "SELECT name FROM Transporter WHERE tp_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,text);
+
+        if (resultSet.next()){
+            return false;
+        }else {
+            return true;
+        }
+    }
 }

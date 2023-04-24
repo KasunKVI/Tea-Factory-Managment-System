@@ -57,21 +57,20 @@ public class TransporterManageDashboardFormController implements Initializable {
         stage.setTitle("Transporter Adder");
         stage.setScene(new Scene(root));
         stage.show();
+        Scene scene = root.getScene();
+        scene.getStylesheets().add("/cssStyle/textRedStyle.css");
 
     }
 
-    public void editTransporter(ActionEvent actionEvent) throws IOException {
 
-        loadEditForm("transporter");
+    public void loadEditForm(ActionEvent actionEvent) throws IOException {
 
-    }
-
-    public void loadEditForm(String form) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/view/"+form+"_edit_form.fxml"));
-        stage.setTitle(form+"  Edit");
+        Parent root = FXMLLoader.load(getClass().getResource("/view/transporter_edit_form.fxml"));
+        stage.setTitle("Transporter  Edit");
         stage.setScene(new Scene(root));
         stage.show();
+        Scene scene = root.getScene();
+        scene.getStylesheets().add("/cssStyle/textRedStyle.css");
 
     }
 

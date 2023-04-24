@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Transporter;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
@@ -50,50 +51,65 @@ public class TransporterAddOrEditFormController {
     private String address;
     private String route;
 
+    private boolean condition = true;
     private Stage stage = new Stage();
 
     public void addTransporterToDatabase(ActionEvent actionEvent) {
 
-        id= Integer.parseInt(txtTrpId.getText());
-        name=txtTrpName.getText();
-        contact_no=txtTrpContact.getText();
-        route=txtTrpRoute.getText();
-        address=txtTrpAddress.getText();
+        if (!condition){
 
-        Transporter transporter = new Transporter(id,name,contact_no,route,address);
+            new Alert(Alert.AlertType.ERROR, "Please enter correct details").show();
 
-        try {
+        }else {
 
-            TransporterModel.addTransporterToDatabase(transporter);
+            id = Integer.parseInt(txtTrpId.getText());
+            name = txtTrpName.getText();
+            contact_no = txtTrpContact.getText();
+            route = txtTrpRoute.getText();
+            address = txtTrpAddress.getText();
 
-        } catch (SQLException throwable) {
+            Transporter transporter = new Transporter(id, name, contact_no, route, address);
 
-            throwable.printStackTrace();
+            try {
 
+                TransporterModel.addTransporterToDatabase(transporter);
+
+            } catch (SQLException throwable) {
+
+                throwable.printStackTrace();
+
+            }
+
+            stage = (Stage) btnTrpAdd.getScene().getWindow();
+            stage.close();
         }
-
-        stage = (Stage) btnTrpAdd.getScene().getWindow();
-        stage.close();
 
     }
 
     public void addEditedTransportersToDatabase(ActionEvent actionEvent) {
 
-        id= Integer.parseInt(lblTransporterIdEdit.getText());
-        name=txtTransporterNameEdit.getText();
-        contact_no=txtTransporterContactEdit.getText();
-        address=txtTransporterAddressEdit.getText();
-        route=txtTransporterRouteEdit.getText();
+        if (!condition){
 
-        Transporter transporter = new Transporter(id,name,contact_no,route,address);
+            new Alert(Alert.AlertType.ERROR, "Please enter correct details").show();
 
-        try {
-            TransporterModel.addEditedTransportersToDatabase(transporter);
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+        }else {
+
+            id = Integer.parseInt(lblTransporterIdEdit.getText());
+            name = txtTransporterNameEdit.getText();
+            contact_no = txtTransporterContactEdit.getText();
+            address = txtTransporterAddressEdit.getText();
+            route = txtTransporterRouteEdit.getText();
+
+            Transporter transporter = new Transporter(id, name, contact_no, route, address);
+
+            try {
+                TransporterModel.addEditedTransportersToDatabase(transporter);
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
+            }
+            stage = (Stage) btnTransporterAdd.getScene().getWindow();
+
         }
-        stage = (Stage) btnTransporterAdd.getScene().getWindow();
-        stage.close();
     }
 
     public void searchTransporterFromDatabase(ActionEvent actionEvent) {
@@ -180,5 +196,104 @@ public class TransporterAddOrEditFormController {
 
     public void enteredTransporterRoute(ActionEvent actionEvent) {
         txtTrpAddress.requestFocus();
+    }
+
+    public void enterTransporterId(KeyEvent keyEvent) {
+
+        if (!txtTrpId.getText().matches(Regex.idRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTrpId);
+        }else {
+            FontChanger.setTextBlack(txtTrpId);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterAddress(KeyEvent keyEvent) {
+
+        if (!txtTrpAddress.getText().matches(Regex.addressRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTrpAddress);
+        }else {
+            FontChanger.setTextBlack(txtTrpAddress);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterContact(KeyEvent keyEvent) {
+
+        if (!txtTrpContact.getText().matches(Regex.contactRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTrpContact);
+        }else {
+            FontChanger.setTextBlack(txtTrpContact);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterName(KeyEvent keyEvent) {
+
+        if (!txtTrpName.getText().matches(Regex.nameRegEx())) {
+            condition = false;
+            FontChanger.setTextColorRed(txtTrpName);
+        } else{
+            FontChanger.setTextBlack(txtTrpName);
+            condition = true;
+         }
+    }
+
+    public void enterTransporterRoute(KeyEvent keyEvent) {
+
+        if (!txtTrpRoute.getText().matches(Regex.routeRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTrpRoute);
+        }else {
+            FontChanger.setTextBlack(txtTrpRoute);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterContactED(KeyEvent keyEvent) {
+
+        if (!txtTransporterContactEdit.getText().matches(Regex.contactRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTransporterContactEdit);
+        }else {
+            FontChanger.setTextBlack(txtTransporterContactEdit);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterNameED(KeyEvent keyEvent) {
+
+        if (!txtTransporterNameEdit.getText().matches(Regex.nameRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTransporterNameEdit);
+        }else {
+            FontChanger.setTextBlack(txtTransporterNameEdit);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterRouteED(KeyEvent keyEvent) {
+
+        if (!txtTransporterRouteEdit.getText().matches(Regex.routeRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTransporterRouteEdit);
+        }else {
+            FontChanger.setTextBlack(txtTransporterRouteEdit);
+            condition = true;
+        }
+    }
+
+    public void enterTransporterAddressED(KeyEvent keyEvent) {
+
+        if (!txtTransporterAddressEdit.getText().matches(Regex.addressRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTransporterAddressEdit);
+        }else {
+            FontChanger.setTextBlack(txtTransporterAddressEdit);
+            condition = true;
+        }
     }
 }

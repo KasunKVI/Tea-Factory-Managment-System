@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="874.0" prefWidth="602.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierAddOrEditFormController">
     <children>
-      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="30.0" layoutY="18.0" onAction="#searchSupplierFromDatabase" prefHeight="68.0" prefWidth="446.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="30.0" layoutY="18.0" onAction="#searchSupplierFromDatabase" onKeyReleased="#enterSupplierIdSearch" prefHeight="68.0" prefWidth="446.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
          <font>
             <Font name="DejaVu Serif Bold" size="26.0" />
          </font>
@@ -25,7 +25,7 @@
                 <Font name="DejaVu Serif Bold" size="26.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupAddressEdit" layoutX="289.0" layoutY="409.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtSupAddressEdit" layoutX="289.0" layoutY="409.0" onKeyReleased="#enterSupplierAddressED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -35,7 +35,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupContactEdit" layoutX="294.0" layoutY="300.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtSupContactEdit" layoutX="294.0" layoutY="300.0" onAction="#enteredSupContactEdit" onKeyReleased="#enterSupplierContactED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -45,7 +45,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtSupNameEdit" layoutX="296.0" layoutY="185.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtSupNameEdit" layoutX="296.0" layoutY="185.0" onAction="#enteredSupNameEdit" onKeyReleased="#enterSupplierNameED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>

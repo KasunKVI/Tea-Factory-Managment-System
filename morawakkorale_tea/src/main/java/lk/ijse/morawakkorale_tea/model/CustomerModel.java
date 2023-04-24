@@ -98,4 +98,16 @@ public class CustomerModel {
         }
         return ids;
     }
+
+    public static boolean isExist(String text) throws SQLException {
+
+        String sql = "SELECT name FROM Customer WHERE cust_id = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,text);
+
+        if (resultSet.next()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

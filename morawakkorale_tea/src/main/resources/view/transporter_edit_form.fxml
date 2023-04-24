@@ -22,7 +22,7 @@
                 <Font name="DejaVu Serif Bold" size="26.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTransporterAddressEdit" layoutX="289.0" layoutY="409.0" onAction="#enteredTransporterEditedAddress" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTransporterAddressEdit" layoutX="289.0" layoutY="409.0" onAction="#enteredTransporterEditedAddress" onKeyReleased="#enterTransporterAddressED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -32,7 +32,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTransporterContactEdit" layoutX="294.0" layoutY="300.0" onAction="#enteredTransporterEditedContact" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTransporterContactEdit" layoutX="294.0" layoutY="300.0" onAction="#enteredTransporterEditedContact" onKeyReleased="#enterTransporterContactED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTransporterNameEdit" layoutX="296.0" layoutY="185.0" onAction="#enteredTransporterEditedName" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTransporterNameEdit" layoutX="296.0" layoutY="185.0" onAction="#enteredTransporterEditedName" onKeyReleased="#enterTransporterNameED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>
@@ -79,7 +79,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="txtTransporterRouteEdit" layoutX="289.0" layoutY="519.0" onAction="#enteredTransporterEditedRoute" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+        <TextField fx:id="txtTransporterRouteEdit" layoutX="289.0" layoutY="519.0" onAction="#enteredTransporterEditedRoute" onKeyReleased="#enterTransporterRouteED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
             <font>
                 <Font name="Arial Bold" size="22.0" />
             </font>

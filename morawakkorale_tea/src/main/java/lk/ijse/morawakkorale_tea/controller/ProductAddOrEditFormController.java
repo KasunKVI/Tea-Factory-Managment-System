@@ -11,18 +11,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Product;
 import lk.ijse.morawakkorale_tea.dto.Stock_Product;
-import lk.ijse.morawakkorale_tea.model.AddProductModel;
-import lk.ijse.morawakkorale_tea.model.ProductModel;
-import lk.ijse.morawakkorale_tea.model.StockModel;
-import lk.ijse.morawakkorale_tea.model.Stock_ProductModel;
+import lk.ijse.morawakkorale_tea.model.*;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ProductAddOrEditFormController implements Initializable {
 
@@ -38,7 +32,6 @@ public class ProductAddOrEditFormController implements Initializable {
     private ComboBox<String> cmbProductTypeBoxEdit;
     @FXML
     private DatePicker dtpProductDateEdit;
-
 
     //Components from product adding form
     @FXML
@@ -59,10 +52,12 @@ public class ProductAddOrEditFormController implements Initializable {
     private TextField txtProductUnitPrice;
     @FXML
     private TextField txtProductIdSearch;
-
-
     @FXML
     private Button btnPdtAdd;
+    @FXML
+
+    private Stage stage = new Stage();
+    private boolean condition = false;
     @FXML
     private Button btnProductAdd;
     private String id;
@@ -70,80 +65,123 @@ public class ProductAddOrEditFormController implements Initializable {
 
     public void addProductToDatabase(ActionEvent actionEvent) {
 
-        id=txtPdtId.getText();
-        int leaf_value = Integer.parseInt(txtProductLeafValue.getText());
-        String stockId = cmbPdtStockId.getValue();
-        LocalDate madeDate = dtpPdtMadeDate.getValue();
-        int qtyOnHand = Integer.parseInt(txtPdtProductQuantity.getText());
-        String productType = cmbPdtProductType.getValue();
-        Double unit_price = Double.valueOf(txtProductUnitPrice.getText());
+        if(!condition||txtPdtId.getText().isEmpty()||txtProductLeafValue.getText().isEmpty()||txtPdtProductQuantity.getText().isEmpty()||txtProductUnitPrice.getText().isEmpty()||cmbPdtProductType.getValue()==null||cmbPdtStockId.getValue()==null||dtpPdtMadeDate.getValue()==null) {
 
-        Product product = new Product(id, madeDate, qtyOnHand, productType,unit_price);
-        Stock_Product stock_product = new Stock_Product(id,stockId,leaf_value);
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
 
-        try {
+        }else {
 
-            AddProductModel.addProductToDataBase(stockId,leaf_value,product,stock_product);
+            id = txtPdtId.getText();
+            int leaf_value = Integer.parseInt(txtProductLeafValue.getText());
+            String stockId = cmbPdtStockId.getValue();
+            LocalDate madeDate = dtpPdtMadeDate.getValue();
+            int qtyOnHand = Integer.parseInt(txtPdtProductQuantity.getText());
+            String productType = cmbPdtProductType.getValue();
+            Double unit_price = Double.valueOf(txtProductUnitPrice.getText());
 
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+            Product product = new Product(id, madeDate, qtyOnHand, productType, unit_price);
+            Stock_Product stock_product = new Stock_Product(id, stockId, leaf_value);
+
+            try {
+
+                AddProductModel.addProductToDataBase(stockId, leaf_value, product, stock_product);
+
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Product added successful. Do yo want to add another product", yes, no).showAndWait();
+
+                if (result.orElse(no) == yes) {
+
+                    discardProductAddForm(actionEvent);
+
+                }else {
+
+                    stage = (Stage) btnPdtAdd.getScene().getWindow();
+                    stage.close();
+                }
+
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
+            }
         }
-
-
-        Stage stage = (Stage) btnPdtAdd.getScene().getWindow();
-        stage.close();
 
     }
 
     public void searchProductFromDatabase(ActionEvent actionEvent) {
 
-        id = txtProductIdSearch.getText();
+        if(!condition){
+            new Alert(Alert.AlertType.ERROR, "Input Valid Id").show();
 
-        try {
-            Product product = ProductModel.searchProductFromDatabase(id);
-            Stock_Product stock_product = Stock_ProductModel.searchProductFromDatabase(id);
+        }else {
 
-            if (product==null||stock_product==null){
+            id = txtProductIdSearch.getText();
 
-                new Alert(Alert.AlertType.ERROR,"There is no supplier in this id").show();
-            }else {
+            try {
+                Product product = ProductModel.searchProductFromDatabase(id);
+                Stock_Product stock_product = Stock_ProductModel.searchProductFromDatabase(id);
 
-                lblProductIdEdit.setText(id);
-                txtProductLeafValueEdit.setText(String.valueOf(stock_product.getLeaf_value()));
-                dtpProductDateEdit.setValue(product.getMade_date());
-                txtProductQuantityEdit.setText(String.valueOf(product.getQty_on_hand()));
-                txtProductStockIdEdit.setText(stock_product.getStock_id());
-                cmbProductTypeBoxEdit.setValue(product.getType());
+                if (product == null || stock_product == null) {
+
+                    new Alert(Alert.AlertType.ERROR, "There is no product in this id").show();
+                    txtProductIdSearch.requestFocus();
+
+                } else {
+
+                    lblProductIdEdit.setText(id);
+                    txtProductLeafValueEdit.setText(String.valueOf(stock_product.getLeaf_value()));
+                    dtpProductDateEdit.setValue(product.getMade_date());
+                    txtProductQuantityEdit.setText(String.valueOf(product.getQty_on_hand()));
+                    txtProductStockIdEdit.setText(stock_product.getStock_id());
+                    cmbProductTypeBoxEdit.setValue(product.getType());
+
+                    txtProductQuantityEdit.requestFocus();
+                }
+
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
             }
-
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
         }
-        txtProductQuantityEdit.requestFocus();
 
     }
 
 
     public void addEditedProductToDatabase(ActionEvent actionEvent) {
 
-        id=lblProductIdEdit.getText();
-        LocalDate made_date= dtpProductDateEdit.getValue();
-        int qty= Integer.parseInt(txtProductQuantityEdit.getText());
-        String type=cmbProductTypeBoxEdit.getValue();
+        if (!condition||txtProductQuantityEdit.getText().isEmpty()||txtProductLeafValueEdit.getText().isEmpty()||txtProductStockIdEdit.getText().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
+        } else {
 
-        Product product = new Product(id,made_date,qty,type,null);
+            id = lblProductIdEdit.getText();
+            LocalDate made_date = dtpProductDateEdit.getValue();
+            int qty = Integer.parseInt(txtProductQuantityEdit.getText());
+            String type = cmbProductTypeBoxEdit.getValue();
 
-        try {
-            ProductModel.addEditedProductToDatabase(product);
+            Product product = new Product(id, made_date, qty, type, null);
 
-        } catch (SQLException throwable) {
+            try {
+                ProductModel.addEditedProductToDatabase(product);
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-            throwable.printStackTrace();
+                Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Product edited successful. Do yo want to edit another product", yes, no).showAndWait();
 
+                if (result.orElse(no) == yes) {
+
+                    discardProductEditForm(actionEvent);
+
+                }else {
+
+                    stage = (Stage) btnProductAdd.getScene().getWindow();
+                    stage.close();
+                }
+
+            } catch (SQLException throwable) {
+
+                throwable.printStackTrace();
+
+            }
         }
-
-        Stage stage = (Stage) btnProductAdd.getScene().getWindow();
-        stage.close();
 
     }
 
@@ -204,6 +242,7 @@ public class ProductAddOrEditFormController implements Initializable {
         cmbPdtProductType.setItems(null);
         dtpPdtMadeDate.setValue(null);
         txtProductUnitPrice.clear();
+        lblStockValue.setText("");
     }
 
     public void enteredProductType(ActionEvent actionEvent) {
@@ -234,35 +273,75 @@ public class ProductAddOrEditFormController implements Initializable {
         addProducts(cmbProductTypeBoxEdit);
     }
                  
-    public void enterProductId(KeyEvent keyEvent) {
+    public void enterProductId(KeyEvent keyEvent) throws SQLException {
+
         if (!txtPdtId.getText().matches(Regex.productIdRegEx())) {
-            Regex.setTextColorRed(txtPdtId);
-        }else Regex.setTextBlack(txtPdtId);
+            condition=false;
+            FontChanger.setTextColorRed(txtPdtId);
+
+        }else if(ProductModel.isExist(txtPdtId.getText())) {
+
+            FontChanger.setTextColorRed(txtPdtId);
+            condition = false;
+
+        }else {
+            FontChanger.setTextBlack(txtPdtId);
+            condition = true;
+        }
     }
 
     public void enterLeafValue(KeyEvent keyEvent) {
-        if(!txtProductLeafValue.getText().matches(Regex.valueRegEx())){
-            Regex.setTextColorRed(txtProductLeafValue);
-        }else Regex.setTextBlack(txtProductLeafValue);
+
+        if(!txtProductLeafValue.getText().matches(Regex.productLeafValue())){
+            condition=false;
+            FontChanger.setTextColorRed(txtProductLeafValue);
+        }else {
+            FontChanger.setTextBlack(txtProductLeafValue);
+            condition = true;
+        }
     }
 
     public void enterUnitPrice(KeyEvent keyEvent) {
-        if(!txtProductUnitPrice.getText().matches(Regex.valueRegEx())){
-            Regex.setTextColorRed(txtProductUnitPrice);
-        }else Regex.setTextBlack(txtProductUnitPrice);
+
+        if(!txtProductUnitPrice.getText().matches(Regex.unitPrice())){
+            condition=false;
+            FontChanger.setTextColorRed(txtProductUnitPrice);
+        }else {
+            FontChanger.setTextBlack(txtProductUnitPrice);
+            condition = true;
+        }
     }
 
     public void enterQuantity(KeyEvent keyEvent) {
 
         if(!txtPdtProductQuantity.getText().matches(Regex.valueRegEx())){
-            Regex.setTextColorRed(txtPdtProductQuantity);
-        }else Regex.setTextBlack(txtPdtProductQuantity);
+            condition=false;
+            FontChanger.setTextColorRed(txtPdtProductQuantity);
+        }else {
+            FontChanger.setTextBlack(txtPdtProductQuantity);
+            condition = true;
+        }
     }
 
     public void enterProductQuantityED(KeyEvent keyEvent) {
 
         if(!txtProductQuantityEdit.getText().matches(Regex.valueRegEx())){
-            Regex.setTextColorRed(txtProductQuantityEdit);
-        }else Regex.setTextBlack(txtProductQuantityEdit);
+            condition=false;
+            FontChanger.setTextColorRed(txtProductQuantityEdit);
+        }else {
+            FontChanger.setTextBlack(txtProductQuantityEdit);
+            condition = true;
+        }
+    }
+
+    public void enterProductIdSearch(KeyEvent keyEvent) {
+
+        if(!txtProductIdSearch.getText().matches(Regex.productIdRegEx())){
+            condition=false;
+            FontChanger.setTextColorRed(txtProductIdSearch);
+        }else {
+            FontChanger.setTextBlack(txtProductIdSearch);
+            condition = true;
+        }
     }
 }

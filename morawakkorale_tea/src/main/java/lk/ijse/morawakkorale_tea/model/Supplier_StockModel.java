@@ -13,8 +13,8 @@ public class Supplier_StockModel {
 
     public static boolean addSupplierValuesToDatabase(Supplier_Stock supplier_stock) throws SQLException {
 
-        String sql = "INSERT INTO Supplier_Stock(sup_id,stock_id,value,bag_count,date) VALUES (?,?,?,?,?)";
-        return CrudUtil.execute(sql, supplier_stock.getSup_id(), supplier_stock.getStock_id(), supplier_stock.getValue(), supplier_stock.getBag_count(), supplier_stock.getDate());
+        String sql = "INSERT INTO Supplier_Stock(sup_id,stock_id,value,bag_count,date,status) VALUES (?,?,?,?,?,?)";
+        return CrudUtil.execute(sql, supplier_stock.getSup_id(), supplier_stock.getStock_id(), supplier_stock.getValue(), supplier_stock.getBag_count(), supplier_stock.getDate(),"unpaid");
 
     }
 
@@ -54,8 +54,8 @@ public class Supplier_StockModel {
 
     public static int getSupplierValues(Integer id, int month, String value) throws SQLException {
 
-        String sql = "SELECT "+value+" FROM Supplier_Stock WHERE MONTH(date) = ? AND sup_id = ?";
-        ResultSet resultSet = CrudUtil.execute(sql,month,id);
+        String sql = "SELECT "+value+" FROM Supplier_Stock WHERE MONTH(date) = ? AND sup_id = ? AND status = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,month,id,"unpaid");
 
         int count = 0;
 
@@ -63,5 +63,11 @@ public class Supplier_StockModel {
             count+=resultSet.getInt(1);
         }
         return count;
+    }
+
+    public static boolean addPayment(int id, int month) throws SQLException {
+
+        String sql = "UPDATE Supplier_Stock SET status = ? WHERE MONTH(date) = ? AND sup_id = ?";
+        return CrudUtil.execute(sql,"paid",month,id);
     }
 }

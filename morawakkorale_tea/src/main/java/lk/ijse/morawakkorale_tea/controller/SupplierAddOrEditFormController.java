@@ -63,7 +63,7 @@ public class SupplierAddOrEditFormController implements Initializable {
 
         if(!condition||txtSupId.getText().isEmpty()||txtSupName.getText().isEmpty()||txtSupContact.getText().isEmpty()||txtSupAddress.getText().isEmpty()||dtpSupRegDate.getValue()==null){
 
-            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
+            new Alert(Alert.AlertType.ERROR, "please enter details first").show();
 
         }else {
 
@@ -156,6 +156,8 @@ public class SupplierAddOrEditFormController implements Initializable {
                 if (supplier == null) {
 
                     new Alert(Alert.AlertType.ERROR, "There is no supplier in this id").show();
+                    FontChanger.setSearchBarRed(txtSupplierIdSearch);
+                    txtSupplierIdSearch.requestFocus();
 
                 } else {
 

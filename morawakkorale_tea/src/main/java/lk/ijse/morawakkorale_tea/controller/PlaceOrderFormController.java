@@ -122,12 +122,12 @@ public class PlaceOrderFormController implements Initializable {
                 tblOrderCart.setItems(obList);
                 tblOrderCart.refresh();
 
+                cmbOrderItemIds.getItems().remove(cmbOrderItemIds.getValue().indexOf(item_id));
                 calculateNetTotal();
+                clearItemDetails();
             }
 
         }
-
-        clearItemDetails();
 
     }
 
@@ -292,7 +292,6 @@ public class PlaceOrderFormController implements Initializable {
 
     public void clearItemDetails(){
 
-        cmbOrderCustomerIds.setValue(null);
         cmbOrderItemIds.setValue(null);
         lblOrderProductType.setText("");
         lblProductMadeDate.setText("");

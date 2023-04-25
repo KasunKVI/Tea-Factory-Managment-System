@@ -7,6 +7,7 @@ import lk.ijse.morawakkorale_tea.util.CrudUtil;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,8 +109,8 @@ public class StockModel {
 
     public static int getTransporterValues(int id, int month) throws SQLException {
 
-        String sql = "SELECT value FROM Stock WHERE MONTH(date) = ? AND transporter_id = ?";
-        ResultSet resultSet = CrudUtil.execute(sql,month,id);
+        String sql = "SELECT value FROM Stock WHERE MONTH(date) = ? AND transporter_id = ? AND status = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,month,id,"unpaid");
 
         int count = 0;
 
@@ -118,5 +119,24 @@ public class StockModel {
         }
 
         return count;
+    }
+
+    public static boolean addPayment(int id, int month) throws SQLException {
+
+        String sql = "UPDATE Stock SET status = ? WHERE MONTH(date) = ? AND transporter_id = ?";
+        return CrudUtil.execute(sql,"paid",month,id);
+    }
+
+
+    public static boolean isExist(int date, int month) throws SQLException {
+
+        String sql = "SELECT value FROM Stock WHERE MONTH(date) = ? AND DAY(date) = ?";
+        ResultSet resultSet = CrudUtil.execute(sql,month,date);
+
+        if (resultSet.next()){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

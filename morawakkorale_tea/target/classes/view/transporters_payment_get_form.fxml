@@ -18,7 +18,7 @@
                 <Image url="@../img/Dashboard_Background.png" />
             </image>
         </ImageView>
-        <TextField fx:id="txtTransporterIdSearch" alignment="CENTER" layoutX="550.0" layoutY="58.0" onAction="#searchedTransporterId" prefHeight="68.0" prefWidth="517.0" promptText="Search Transporter ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+        <TextField fx:id="txtTransporterIdSearch" alignment="CENTER" layoutX="550.0" layoutY="58.0" onAction="#searchedTransporterId" onKeyReleased="#enterTransporterIdSearch" prefHeight="68.0" prefWidth="517.0" promptText="Search Transporter ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
             <font>
                 <Font name="DejaVu Serif Bold" size="26.0" />
             </font>
@@ -73,7 +73,7 @@
                         <Font name="DejaVu Serif Bold" size="21.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtMonthlyRate" layoutX="577.0" layoutY="23.0" onAction="#countTransporterLastPayment" prefHeight="43.0" prefWidth="170.0" promptText="Please Enter Rate">
+                <TextField fx:id="txtMonthlyRate" layoutX="577.0" layoutY="23.0" onKeyReleased="#enterTransporterMonthlyRate" onMouseClicked="#checkMonth" prefHeight="43.0" prefWidth="170.0" promptText="Please Enter Rate">
                     <font>
                         <Font name="DejaVu Serif Bold" size="15.0" />
                     </font>
@@ -94,6 +94,6 @@
                </font>
             </Label>
             </children></Pane>
-        <ComboBox fx:id="cmbMonthSelect" layoutX="1224.0" layoutY="58.0" onAction="#selectedMonthOfTransporter" onShowing="#initializedMonthBox" prefHeight="67.0" prefWidth="366.0" promptText="Select Month" style="-fx-background-radius: 15 15 15 15;" />
+        <ComboBox fx:id="cmbMonthSelect" layoutX="1224.0" layoutY="58.0" onAction="#selectedMonthOfTransporter" prefHeight="67.0" prefWidth="366.0" promptText="Select Month" style="-fx-background-radius: 15 15 15 15;" />
     </children>
 </AnchorPane>

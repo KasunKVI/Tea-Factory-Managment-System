@@ -37,9 +37,6 @@ import javafx.scene.control.Label;
 public class AccountantDashboardFormController implements Initializable {
 
     @FXML
-    public AnchorPane supplierBillPane;
-    public Pane panel;
-    public BorderPane pn;
     public AnchorPane bgPane;
 
     @FXML
@@ -56,7 +53,6 @@ public class AccountantDashboardFormController implements Initializable {
     private BarChart<String,Number> productSummeryBarChart;
     @FXML
     public Pane menuBarPanel;
-
     @FXML
     private Button btnLogOut;
 
@@ -67,20 +63,17 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
-
     public void hideMenuBar(MouseEvent mouseEvent) {
 
         SideBarOperations.hideMenuBar(menuBarPanel);
 
     }
 
-
     public void showMenuBar(MouseEvent mouseEvent) {
 
        SideBarOperations.showMenuBar(menuBarPanel);
 
     }
-
 
     public void exitSystem(MouseEvent mouseEvent) {
         System.exit(0);

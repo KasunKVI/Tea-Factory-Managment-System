@@ -2,16 +2,15 @@ package lk.ijse.morawakkorale_tea.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.dto.Transporter;
+import lk.ijse.morawakkorale_tea.model.SupplierModel;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
 
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class TransporterAddOrEditFormController {
 
@@ -56,9 +55,9 @@ public class TransporterAddOrEditFormController {
 
     public void addTransporterToDatabase(ActionEvent actionEvent) {
 
-        if (!condition){
+        if (!condition||txtTrpId.getText().isEmpty()||txtTrpName.getText().isEmpty()||txtTrpContact.getText().isEmpty()||txtTrpRoute.getText().isEmpty()||txtTrpAddress.getText().isEmpty()){
 
-            new Alert(Alert.AlertType.ERROR, "Please enter correct details").show();
+            new Alert(Alert.AlertType.ERROR, "Please enter valid details").show();
 
         }else {
 
@@ -73,22 +72,33 @@ public class TransporterAddOrEditFormController {
             try {
 
                 TransporterModel.addTransporterToDatabase(transporter);
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Transporter added successful. Do yo want to add another transporter", yes, no).showAndWait();
+
+                if (result.orElse(no) == yes) {
+
+                    discardAddTransporterForm(actionEvent);
+
+                }else {
+
+                    stage = (Stage) btnTrpAdd.getScene().getWindow();
+                    stage.close();
+                }
 
             } catch (SQLException throwable) {
 
                 throwable.printStackTrace();
 
             }
-
-            stage = (Stage) btnTrpAdd.getScene().getWindow();
-            stage.close();
         }
 
     }
 
     public void addEditedTransportersToDatabase(ActionEvent actionEvent) {
 
-        if (!condition){
+        if (!condition||txtTransporterNameEdit.getText().isEmpty()||txtTransporterContactEdit.getText().isEmpty()||txtTransporterRouteEdit.getText().isEmpty()||txtTransporterAddressEdit.getText().isEmpty()||txtTransporterIdSearch.getText().isEmpty()){
 
             new Alert(Alert.AlertType.ERROR, "Please enter correct details").show();
 
@@ -104,39 +114,58 @@ public class TransporterAddOrEditFormController {
 
             try {
                 TransporterModel.addEditedTransportersToDatabase(transporter);
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Transporter edited successful. Do yo want to edit another transporter", yes, no).showAndWait();
+
+                if (result.orElse(no) == yes) {
+
+                    discardTransporterEdit(actionEvent);
+
+                }else {
+
+                    stage = (Stage) btnTransporterAdd.getScene().getWindow();
+                    stage.close();
+                }
             } catch (SQLException throwable) {
                 throwable.printStackTrace();
             }
-            stage = (Stage) btnTransporterAdd.getScene().getWindow();
-
         }
     }
 
     public void searchTransporterFromDatabase(ActionEvent actionEvent) {
 
-        id = Integer.parseInt(txtTransporterIdSearch.getText());
+        if(!condition){
+            new Alert(Alert.AlertType.ERROR, "Input Valid Id").show();
+        }else {
 
-        try {
-            Transporter transporter = TransporterModel.searchTransporterFromDatabase(String.valueOf(id));
+            id = Integer.parseInt(txtTransporterIdSearch.getText());
 
-            if (transporter==null){
+            try {
+                Transporter transporter = TransporterModel.searchTransporterFromDatabase(String.valueOf(id));
 
-                new Alert(Alert.AlertType.ERROR,"There is no transporter in this id").show();
+                if (transporter == null) {
 
-            }else {
+                    new Alert(Alert.AlertType.ERROR, "There is no transporter in this id").show();
+                    FontChanger.setSearchBarRed(txtTransporterIdSearch);
+                    txtTransporterIdSearch.requestFocus();
+
+                } else {
 
 
-                lblTransporterIdEdit.setText(String.valueOf(id));
-                txtTransporterNameEdit.setText(transporter.getName());
-                txtTransporterContactEdit.setText(transporter.getContact());
-                txtTransporterAddressEdit.setText(transporter.getAddress());
-                txtTransporterRouteEdit.setText(transporter.getRoute());
+                    lblTransporterIdEdit.setText(String.valueOf(id));
+                    txtTransporterNameEdit.setText(transporter.getName());
+                    txtTransporterContactEdit.setText(transporter.getContact());
+                    txtTransporterAddressEdit.setText(transporter.getAddress());
+                    txtTransporterRouteEdit.setText(transporter.getRoute());
 
+                }
+
+
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
             }
-
-
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
         }
 
     }
@@ -198,11 +227,15 @@ public class TransporterAddOrEditFormController {
         txtTrpAddress.requestFocus();
     }
 
-    public void enterTransporterId(KeyEvent keyEvent) {
+    public void enterTransporterId(KeyEvent keyEvent) throws SQLException {
 
-        if (!txtTrpId.getText().matches(Regex.idRegEx())){
-            condition =false;
+        if (!txtTrpId.getText().matches(Regex.idRegEx())) {
+            condition = false;
             FontChanger.setTextColorRed(txtTrpId);
+
+        } else if(!TransporterModel.isExist(txtTrpId.getText())) {
+                FontChanger.setTextColorRed(txtTrpId);
+                condition = false;
         }else {
             FontChanger.setTextBlack(txtTrpId);
             condition = true;
@@ -295,5 +328,17 @@ public class TransporterAddOrEditFormController {
             FontChanger.setTextBlack(txtTransporterAddressEdit);
             condition = true;
         }
+    }
+
+    public void enterTransporterIdSearchED(KeyEvent keyEvent) {
+
+        if (!txtTransporterIdSearch.getText().matches(Regex.idRegEx())){
+            condition =false;
+            FontChanger.setTextColorRed(txtTransporterIdSearch);
+        }else {
+            FontChanger.setTextBlack(txtTransporterIdSearch);
+            condition = true;
+        }
+
     }
 }

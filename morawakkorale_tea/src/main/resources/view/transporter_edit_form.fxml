@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.TransporterAddOrEditFormController">
     <children>
-      <TextField fx:id="txtTransporterIdSearch" alignment="CENTER" layoutX="10.0" layoutY="18.0" onAction="#searchTransporterFromDatabase" prefHeight="68.0" prefWidth="445.0" promptText="Search Transpoters ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+      <TextField fx:id="txtTransporterIdSearch" alignment="CENTER" layoutX="10.0" layoutY="18.0" onAction="#searchTransporterFromDatabase" onKeyReleased="#enterTransporterIdSearchED" prefHeight="68.0" prefWidth="445.0" promptText="Search Transpoters ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
          <font>
             <Font name="DejaVu Serif Bold" size="26.0" />
          </font>

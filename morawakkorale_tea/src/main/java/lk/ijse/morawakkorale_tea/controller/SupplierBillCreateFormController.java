@@ -7,11 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.db.DBConnection;
 import lk.ijse.morawakkorale_tea.dto.Payment;
 import lk.ijse.morawakkorale_tea.dto.Supplier;
@@ -29,18 +29,16 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.Month;
 import java.time.Year;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 
-public class SupplierBillCreateFormController {
+public class SupplierBillCreateFormController implements Initializable {
 
     @FXML
     private ComboBox<Month> cmbMonthSelect;
@@ -76,33 +74,40 @@ public class SupplierBillCreateFormController {
 
     public void showReport(ActionEvent actionEvent) throws SQLException, FileNotFoundException, JRException {
 
-        int month = cmbMonthSelect.getValue().getValue();
+        if(!condition||txtSupplierIdSearch.getText().isEmpty()||txtMonthlyRate.getText().isEmpty()||cmbMonthSelect.getValue()==null){
 
-        List<Integer> supplierIds = SupplierModel.getAllIds();
-        List<Supplier_Bill> supplier = new ArrayList<>();
+            new Alert(Alert.AlertType.ERROR, "Input Details First").show();
 
-        for (Integer id : supplierIds) {
+        }else {
 
-            int totalValue = Supplier_StockModel.getSupplierValues(id,month,"value");
-            int bagCount = Supplier_StockModel.getSupplierValues(id,month,"bag_count");
-            int rate = Integer.parseInt(txtMonthlyRate.getText());
-            Double payment = (double) ((totalValue - bagCount) * rate);
+            int month = cmbMonthSelect.getValue().getValue();
 
-            supplier.add(new Supplier_Bill(
-                    id,
-                    totalValue,
-                    bagCount,
-                    payment
-            ));
+            List<Integer> supplierIds = SupplierModel.getAllIds();
+            List<Supplier_Bill> supplier = new ArrayList<>();
+
+            for (Integer id : supplierIds) {
+
+                int totalValue = Supplier_StockModel.getSupplierValues(id, month, "value");
+                int bagCount = Supplier_StockModel.getSupplierValues(id, month, "bag_count");
+                int rate = Integer.parseInt(txtMonthlyRate.getText());
+                Double payment = (double) ((totalValue - bagCount) * rate);
+
+                supplier.add(new Supplier_Bill(
+                        id,
+                        totalValue,
+                        bagCount,
+                        payment
+                ));
+            }
+
+            File file = ResourceUtils.getFile("/home/kaviyakv/Desktop/Morawakkorale_Tea/morawakkorale_tea/src/main/resources/reports/supplierBills.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(supplier);
+            Map<String, Object> map = new HashMap<>();
+            map.put("CreatedBy", "Kasun Kavinda - GDSE65");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, dataSource);
+            JasperViewer.viewReport(jasperPrint, false);
         }
-
-        File file = ResourceUtils.getFile("/home/kaviyakv/Desktop/Morawakkorale_Tea/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/reports/supplierBills.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(supplier);
-        Map<String,Object> map = new HashMap<>();
-        map.put("CreatedBy","Kasun Kavinda - GDSE65");
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,map,dataSource);
-        JasperViewer.viewReport(jasperPrint,false);
     }
 
     public Supplier searchedSupplierId(ActionEvent actionEvent) {
@@ -122,6 +127,8 @@ public class SupplierBillCreateFormController {
                 if (supplier == null) {
 
                     new Alert(Alert.AlertType.ERROR, "There is no supplier in this id").show();
+                    FontChanger.setSearchBarRed(txtSupplierIdSearch);
+                    txtSupplierIdSearch.requestFocus();
                 }
 
                 return supplier;
@@ -139,7 +146,7 @@ public class SupplierBillCreateFormController {
 
         if(!condition||txtSupplierIdSearch.getText().isEmpty()){
 
-            new Alert(Alert.AlertType.ERROR, "Input Valid Details").show();
+            new Alert(Alert.AlertType.ERROR, "Input Id First").show();
 
         }else {
 
@@ -160,15 +167,6 @@ public class SupplierBillCreateFormController {
                 lblSupTotalLeafValue.setText(String.valueOf(totalValue));
                 lblSupBagCount.setText(String.valueOf(bagCount));
                 lblSupLastLeafValue.setText(String.valueOf(totalValue - bagCount));
-                txtMonthlyRate.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        double last = Integer.parseInt(lblSupLastLeafValue.getText());
-                        double rate = Integer.parseInt(txtMonthlyRate.getText());
-                        lblSupLastPayment.setText(String.valueOf(rate * last));
-                    }
-                });
-
 
             } catch (SQLException throwable) {
                 throwable.printStackTrace();
@@ -177,14 +175,8 @@ public class SupplierBillCreateFormController {
 
     }
 
-    public void initializedMonthBox(Event event) {
+    public void initializedMonthBox() {
 
-
-        comboBoxAdd(cmbMonthSelect);
-
-    }
-
-    static void comboBoxAdd(ComboBox<Month> cmbMonthSelect) {
         ObservableList<Month> obList = FXCollections.observableArrayList();
         List<Month> months = new ArrayList<>();
 
@@ -199,30 +191,53 @@ public class SupplierBillCreateFormController {
         }
 
         cmbMonthSelect.setItems(obList);
+
     }
 
     public void correctSupplierMonthlyPayment(ActionEvent actionEvent) throws SQLException {
 
-        int pay = PaymentModel.getPaymentId();
-        int payId=pay+1;
+        if(!condition||txtSupplierIdSearch.getText().isEmpty()||cmbMonthSelect.getValue()==null||txtMonthlyRate.getText().isEmpty()||lblSupLastPayment.getText().equals("0.0")){
+            new Alert(Alert.AlertType.ERROR, "Input Details First").show();
+        }else {
 
-        Payment payment = new Payment(payId,Integer.parseInt(txtMonthlyRate.getText()),"Supplier Bill",Double.parseDouble(lblSupLastPayment.getText()),(lblSupplierName.getText())+"-->"+(lblMonth.getText()),Integer.parseInt(lblSupplierId.getText()),null);
-        try {
-            PaymentModel.addPayment(payment);
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+            int pay = PaymentModel.getPaymentId();
+            int payId = pay + 1;
+
+            Payment payment = new Payment(payId, Integer.parseInt(txtMonthlyRate.getText()), "Supplier Bill", Double.parseDouble(lblSupLastPayment.getText()), (lblSupplierName.getText()) + "-->" + (lblMonth.getText()), Integer.parseInt(lblSupplierId.getText()), null);
+            try {
+
+                int month = cmbMonthSelect.getValue().getValue();
+                int id = Integer.parseInt(txtSupplierIdSearch.getText());
+
+                PaymentModel.addPayment(payment);
+                Supplier_StockModel.addPayment(id,month);
+                ButtonType yes = new ButtonType("payment", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("report", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Supplier payment added successful. Do yo want to add another supplier payment or see report", yes, no).showAndWait();
+
+                if (result.orElse(no) == yes) {
+
+                    clearForm();
+
+                }
+
+            } catch (SQLException throwable) {
+                throwable.printStackTrace();
+            }
         }
-
     }
 
     public void searchSupplierId(KeyEvent keyEvent) {
 
         if (!txtSupplierIdSearch.getText().matches(Regex.idRegEx())){
             condition=false;
-            FontChanger.setTextColorRed(txtSupplierIdSearch);
+            FontChanger.setSearchBarRed(txtSupplierIdSearch);
         }else {
-            FontChanger.setTextBlack(txtSupplierIdSearch);
+            FontChanger.setSearchBarBlack(txtSupplierIdSearch);
             condition = true;
+            ActionEvent actionEvent=new ActionEvent();
+            searchedSupplierId(actionEvent);
         }
     }
 
@@ -234,6 +249,40 @@ public class SupplierBillCreateFormController {
         }else {
             FontChanger.setTextBlack(txtMonthlyRate);
             condition = true;
+            double last = Integer.parseInt(lblSupLastLeafValue.getText());
+            double rate = Integer.parseInt(txtMonthlyRate.getText());
+            lblSupLastPayment.setText(String.valueOf(rate * last));
+
         }
+    }
+
+    public void checkMonth(MouseEvent mouseEvent) {
+
+        if(cmbMonthSelect.getValue()==null){
+            new Alert(Alert.AlertType.ERROR, "Select Month First").show();
+        }
+        if(txtSupplierIdSearch.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR, "Input Id First").show();
+        }
+    }
+
+    public void clearForm(){
+
+        txtSupplierIdSearch.clear();
+        txtMonthlyRate.clear();
+        lblSupplierName.setText("");
+        lblSupplierId.setText("");
+        lblSupTotalLeafValue.setText("");
+        lblSupBagCount.setText("");
+        lblSupLastLeafValue.setText("");
+        lblSupLastPayment.setText("");
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        initializedMonthBox();
+
     }
 }

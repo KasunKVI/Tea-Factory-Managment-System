@@ -91,7 +91,12 @@
             </Label>
          </children>
       </Pane>
-      <Label fx:id="lblDateAndTime" layoutX="1400.0" layoutY="750.0" prefHeight="153.0" prefWidth="324.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;">
+      <Label fx:id="lblDate" layoutX="1370.0" layoutY="750.0" prefHeight="99.0" prefWidth="330.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;">
+         <font>
+            <Font name="Dyuthi Regular" size="60.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" contentDisplay="CENTER" layoutX="1401.0" layoutY="840.0" prefHeight="93.0" prefWidth="271.0" style="-fx-background-color: white; -fx-background-radius: 15 15 15 15;" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="Dyuthi Regular" size="60.0" />
          </font>

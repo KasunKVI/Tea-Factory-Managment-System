@@ -238,7 +238,33 @@ public class CollectorDashboardFormController implements Initializable {
     }
 
     public void filledDate(ActionEvent actionEvent) {
-        txtStockValue.requestFocus();
+
+        LocalDate lDate = dtpStockDate.getValue();
+
+        int date=lDate.getDayOfMonth();
+        int month = lDate.getMonthValue();
+
+        int year = LocalDate.now().getYear();
+
+        if (year!=lDate.getYear()){
+            new Alert(Alert.AlertType.ERROR, "This value too old").show();
+        }else {
+
+            try {
+                boolean isExist = StockModel.isExist(date, month);
+
+                if (isExist) {
+                    new Alert(Alert.AlertType.ERROR, "This Day Stock Already Added").show();
+                    dtpStockDate.requestFocus();
+                } else {
+                    txtStockValue.requestFocus();
+                }
+            } catch (SQLException er) {
+                er.printStackTrace();
+            }
+        }
+
+
     }
 
     public void filledTotalValue(ActionEvent actionEvent) {

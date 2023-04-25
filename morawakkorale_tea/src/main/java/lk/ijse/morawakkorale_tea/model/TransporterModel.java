@@ -123,6 +123,7 @@ public class TransporterModel {
     }
 
     public static boolean isExist(String text) throws SQLException {
+
         String sql = "SELECT name FROM Transporter WHERE tp_id = ?";
         ResultSet resultSet = CrudUtil.execute(sql,text);
 

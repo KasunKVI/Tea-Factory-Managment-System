@@ -169,6 +169,7 @@ public class ProductAddOrEditFormController implements Initializable {
                 if (result.orElse(no) == yes) {
 
                     discardProductEditForm(actionEvent);
+                    txtPdtId.requestFocus();
 
                 }else {
 

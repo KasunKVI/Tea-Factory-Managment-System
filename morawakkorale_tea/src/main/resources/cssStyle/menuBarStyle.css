@@ -1,23 +1,19 @@
 .button
 {
-    -fx-background-color:#dcdde1;
+    -fx-background-color:#32ff7e;
     -fx-background-radius: 0 30 30 0;
-
 
 }
 .button:hover
 {
-    -fx-background-color: #48dbfb;
+    -fx-background-color: #cd84f1;
     -fx-background-radius: 0 30 30 0;
 
 }
 .button:pressed
 {
-    -fx-background-color:#5f27cd;
+    -fx-background-color:#6ab04c;
     -fx-background-radius: 0 30 30 0;
 
 }
-.menuBarPanel
-{
-    -fx-background-color:#5f27cd;
-}
+

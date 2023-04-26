@@ -165,7 +165,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane fx:id="menuBarPanel" layoutX="-3.0" layoutY="-7.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1051.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" visible="false">
+      <Pane fx:id="menuBarPanel" layoutX="-3.0" layoutY="-7.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1051.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" stylesheets="@../cssStyle/menuBarStyle.css" visible="false">
          <children>
             <ImageView blendMode="DARKEN" fitHeight="198.0" fitWidth="310.0" layoutX="43.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>

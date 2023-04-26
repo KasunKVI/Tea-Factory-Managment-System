@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -107,67 +108,80 @@
             </Label>
          </children>
       </AnchorPane>
-        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="-4.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1048.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" visible="false">
+        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="-4.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1048.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" stylesheets="@../cssStyle/menuBarStyle.css" visible="false">
             <children>
                 <ImageView blendMode="DARKEN" fitHeight="198.0" fitWidth="310.0" layoutX="43.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/co-op.png" />
                     </image>
                 </ImageView>
-            <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="68.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/deal.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="176.0" layoutY="608.0" prefHeight="60.0" prefWidth="185.0" text="Orders">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnSetting11" contentDisplay="RIGHT" layoutX="50.0" layoutY="570.0" mnemonicParsing="false" onAction="#loadOrderAdder" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="70.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/shipment.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="166.0" layoutY="437.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutX="59.0" layoutY="404.0" mnemonicParsing="false" onAction="#loadTransporterBills" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label layoutX="163.0" layoutY="286.0" prefHeight="60.0" prefWidth="215.0" text="Suppliers">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="73.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/green-tea (2).png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnSetting13" contentDisplay="RIGHT" layoutX="65.0" layoutY="247.0" mnemonicParsing="false" onAction="#loadSupplierBills" opacity="0.25" prefHeight="122.0" prefWidth="324.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <Group layoutX="1.0" layoutY="570.0" />
+            <Group layoutX="2.0" layoutY="404.0">
+               <children>
+                  <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="72.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/shipment.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="168.0" layoutY="110.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutX="4.0" layoutY="77.0" mnemonicParsing="false" onAction="#loadTransporterBills" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Group>
+            <Group layoutX="3.0" layoutY="291.0">
+               <children>
+                  <Label layoutX="159.0" layoutY="39.0" prefHeight="60.0" prefWidth="215.0" text="Suppliers">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="69.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/green-tea (2).png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnSetting13" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#loadSupplierBills" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Group>
+            <Group layoutX="5.0" layoutY="673.0">
+               <children>
+                  <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="67.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/deal.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="175.0" layoutY="38.0" prefHeight="60.0" prefWidth="185.0" text="Orders">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnSetting11" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#loadOrderAdder" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Group>
             </children>
         </Pane>
       <AnchorPane fx:id="menu" layoutY="-1.0" prefHeight="1048.0" prefWidth="86.0" style="-fx-background-color: black; -fx-border-color: brown; -fx-border-width: 3;">

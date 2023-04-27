@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
+<AnchorPane fx:id="addPane" prefHeight="1011.0" prefWidth="612.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" stylesheets="@../cssStyle/addingFormsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
     <children>
         <Label layoutX="34.0" layoutY="33.0" prefHeight="63.0" prefWidth="254.0" text="New Customer">
             <font>
@@ -56,7 +56,7 @@
                 <Font name="FreeMono" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="btnCustAdd" layoutX="380.0" layoutY="870.0" mnemonicParsing="false" onAction="#addCustomerToDatabase" prefHeight="54.0" prefWidth="197.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Customer" textFill="WHITE">
+        <Button fx:id="btnCustAdd" layoutX="380.0" layoutY="870.0" mnemonicParsing="false" onAction="#addCustomerToDatabase" prefHeight="54.0" prefWidth="208.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Customer" textFill="WHITE">
             <effect>
                 <ColorAdjust />
             </effect>
@@ -67,7 +67,7 @@
                 <Font name="System Bold" size="21.0" />
             </font>
         </Button>
-        <Button fx:id="btnCustDiscard" layoutX="211.0" layoutY="871.0" mnemonicParsing="false" onAction="#discardCustomerAddingDetails" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
+        <Button fx:id="btnCustDiscard" layoutX="211.0" layoutY="871.0" mnemonicParsing="false" onAction="#discardCustomerAddingDetails" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
             <effect>
                 <ColorAdjust />
             </effect>

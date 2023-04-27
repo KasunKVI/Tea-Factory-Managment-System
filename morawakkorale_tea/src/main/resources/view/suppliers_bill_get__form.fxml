@@ -11,14 +11,14 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1048.0" prefWidth="1853.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierBillCreateFormController">
+<AnchorPane prefHeight="1048.0" prefWidth="1853.0" stylesheets="@../cssStyle/paymentFormsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.SupplierBillCreateFormController">
    <children>
       <ImageView fitHeight="1048.0" fitWidth="1853.0" layoutY="1.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/Dashboard_Background.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="550.0" layoutY="58.0" onAction="#searchedSupplierId" onKeyReleased="#searchSupplierId" prefHeight="68.0" prefWidth="517.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+      <TextField fx:id="txtSupplierIdSearch" alignment="CENTER" layoutX="550.0" layoutY="58.0" onAction="#searchedSupplierId" onKeyReleased="#searchSupplierId" prefHeight="68.0" prefWidth="517.0" promptText="Search Suppliers ID" style="-fx-background-color: trasparent; -fx-border-radius: 15 15 15 15;">
          <font>
             <Font name="DejaVu Serif Bold" size="26.0" />
          </font>

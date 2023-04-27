@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
+<AnchorPane fx:id="addPane" prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" stylesheets="@../cssStyle/addingFormsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
     <children>
       <TextField fx:id="txtCustomerIdSearch" alignment="CENTER" layoutX="24.0" layoutY="24.0" onAction="#searchCustomerFromDatabase" onKeyReleased="#enterCustomerIdSearch" prefHeight="48.0" prefWidth="404.0" promptText="Search Cutomers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
          <font>

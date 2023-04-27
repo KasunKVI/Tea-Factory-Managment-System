@@ -79,6 +79,9 @@ public class CollectorDashboardFormController implements Initializable {
     @FXML
     private Button btnLogOut;
 
+    @FXML
+    private Button btnAddSuppliersValus;
+
     private boolean condition = false;
 
 
@@ -165,6 +168,7 @@ public class CollectorDashboardFormController implements Initializable {
 
                     new Alert(Alert.AlertType.CONFIRMATION, "Stock Added").show();
                     tableSupplierTeaValues.getItems().clear();
+                    discardOrClearStockAddValues(actionEvent);
 
                 }
             } catch (SQLException throwable) {
@@ -173,7 +177,6 @@ public class CollectorDashboardFormController implements Initializable {
 
             }
 
-            discardOrClearStockAddValues(actionEvent);
         }
     }
 
@@ -241,34 +244,38 @@ public class CollectorDashboardFormController implements Initializable {
 
         LocalDate lDate = dtpStockDate.getValue();
 
-        int date=lDate.getDayOfMonth();
-        int month = lDate.getMonthValue();
+        if(lDate != null){
 
-        int year = LocalDate.now().getYear();
+            int date = lDate.getDayOfMonth();
+            int month = lDate.getMonthValue();
+            int year = LocalDate.now().getYear();
 
-        if (year!=lDate.getYear()){
-            new Alert(Alert.AlertType.ERROR, "This value too old").show();
-        }else {
 
-            try {
-                boolean isExist = StockModel.isExist(date, month);
+            if (year != lDate.getYear()) {
 
-                if (isExist) {
-                    new Alert(Alert.AlertType.ERROR, "This Day Stock Already Added").show();
-                    dtpStockDate.requestFocus();
-                } else {
-                    txtStockValue.requestFocus();
+                new Alert(Alert.AlertType.ERROR, "This value too old").show();
+
+            } else {
+
+                try {
+                    boolean isExist = StockModel.isExist(date, month);
+
+                    if (isExist) {
+                        new Alert(Alert.AlertType.ERROR, "This Day Stock Already Added").show();
+
+                    } else {
+                        txtStockValue.requestFocus();
+                    }
+                } catch (SQLException er) {
+                    er.printStackTrace();
                 }
-            } catch (SQLException er) {
-                er.printStackTrace();
             }
         }
-
 
     }
 
     public void filledTotalValue(ActionEvent actionEvent) {
-        addStockToDatabase(actionEvent);
+        supplierValuesAddWindowShower(actionEvent);
     }
 
     public void filledSupplierId(ActionEvent actionEvent) {

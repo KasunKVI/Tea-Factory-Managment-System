@@ -15,8 +15,8 @@ public class StockModel {
 
     public static boolean addStockToDatabase(Stock stock) throws SQLException {
 
-        String sql = "INSERT INTO Stock VALUES (?,?,?,?)";
-        return CrudUtil.execute(sql,stock.getStock_id(),stock.getDate(),stock.getValue(),stock.getTransporter_id());
+        String sql = "INSERT INTO Stock VALUES (?,?,?,?,?)";
+        return CrudUtil.execute(sql,stock.getStock_id(),stock.getDate(),stock.getValue(),stock.getTransporter_id(),"unpaid");
         
     }
 

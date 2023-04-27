@@ -139,50 +139,27 @@
                 </Pane>
             </children>
         </AnchorPane>
-        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="-2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1048.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" visible="false">
+        <Pane fx:id="menuBarPanel" disable="true" layoutX="-3.0" layoutY="-2.0" onMouseExited="#hideMenuBar" opacity="0.9" prefHeight="1048.0" prefWidth="400.0" style="-fx-background-radius: 0 24 24 0; -fx-background-color: white;" stylesheets="@../cssStyle/menuBarStyle.css" visible="false">
             <children>
                 <ImageView blendMode="DARKEN" fitHeight="198.0" fitWidth="310.0" layoutX="43.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/co-op.png" />
                     </image>
                 </ImageView>
-            <Group layoutX="56.0" layoutY="876.0" />
-            <Group layoutX="55.0" layoutY="728.0" />
-            <Group layoutX="50.0" layoutY="570.0">
-               <children>
-                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="18.0" layoutY="-35.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../img/deal.png" />
-                          </image>
-                      </ImageView>
-                      <Label layoutX="126.0" layoutY="-25.0" prefHeight="60.0" prefWidth="185.0" text="Buyers">
-                          <font>
-                              <Font size="31.0" />
-                          </font>
-                      </Label>
-               </children>
-            </Group>
-                <Button fx:id="btnCustomer" contentDisplay="RIGHT" layoutX="57.0" layoutY="513.0" mnemonicParsing="false" onAction="#showBuyersManage" opacity="0.25" prefHeight="122.0" prefWidth="330.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
-                    <font>
-                        <Font size="25.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
+            <Group layoutX="50.0" layoutY="570.0" />
             <Group layoutX="59.0" layoutY="404.0">
                <children>
-                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="11.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="-7.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../img/shipment.png" />
                           </image>
                       </ImageView>
-                      <Label layoutX="107.0" layoutY="3.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
+                      <Label layoutX="89.0" layoutY="58.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
                           <font>
                               <Font size="31.0" />
                           </font>
                       </Label>
-                      <Button fx:id="btnTransporter" contentDisplay="RIGHT" layoutY="-25.0" mnemonicParsing="false" onAction="#showTransportersManage" opacity="0.25" prefHeight="122.0" prefWidth="328.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+                      <Button fx:id="btnTransporter" contentDisplay="RIGHT" layoutX="-54.0" layoutY="30.0" mnemonicParsing="false" onAction="#showTransportersManage" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
                           <font>
                               <Font size="25.0" />
                           </font>
@@ -194,17 +171,17 @@
             </Group>
             <Group layoutX="65.0" layoutY="247.0">
                <children>
-                      <Label layoutX="98.0" layoutY="33.0" prefHeight="60.0" prefWidth="215.0" text="Suppliers">
+                      <Label layoutX="81.0" layoutY="32.0" prefHeight="60.0" prefWidth="215.0" text="Suppliers">
                           <font>
                               <Font size="31.0" />
                           </font>
                       </Label>
-                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="8.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="-9.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../img/green-tea (2).png" />
                           </image>
                       </ImageView>
-                      <Button fx:id="btnSupplier" contentDisplay="RIGHT" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" onAction="#showSupplierManage" opacity="0.25" prefHeight="122.0" prefWidth="324.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+                      <Button fx:id="btnSupplier" contentDisplay="RIGHT" layoutX="-59.0" layoutY="1.0" mnemonicParsing="false" onAction="#showSupplierManage" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
                           <font>
                               <Font size="25.0" />
                           </font>
@@ -214,17 +191,18 @@
                       </Button>
                </children>
             </Group>
-            <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="62.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true">
+            <Group layoutX="55.0" layoutY="645.0" />
+            <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="61.0" layoutY="831.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/shipping.png" />
                </image>
             </ImageView>
-            <Label layoutX="177.0" layoutY="682.0" prefHeight="60.0" prefWidth="195.0" text="Products">
+            <Label layoutX="176.0" layoutY="838.0" prefHeight="60.0" prefWidth="195.0" text="Products">
                <font>
                   <Font size="31.0" />
                </font>
             </Label>
-            <Button fx:id="btnProduct" contentDisplay="RIGHT" layoutX="55.0" layoutY="645.0" mnemonicParsing="false" onAction="#showProductManage" opacity="0.25" prefHeight="122.0" prefWidth="332.0" style="-fx-background-radius: 15 15 15 15;" textAlignment="RIGHT" textFill="#36e83e">
+            <Button fx:id="btnProduct" contentDisplay="RIGHT" layoutX="5.0" layoutY="801.0" mnemonicParsing="false" onAction="#showProductManage" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
                <font>
                   <Font size="25.0" />
                </font>
@@ -232,6 +210,24 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+                <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="59.0" layoutY="647.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/deal.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="167.0" layoutY="657.0" prefHeight="60.0" prefWidth="185.0" text="Buyers">
+                    <font>
+                        <Font size="31.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnCustomer" contentDisplay="RIGHT" layoutX="4.0" layoutY="622.0" mnemonicParsing="false" onAction="#showBuyersManage" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
             </children>
         </Pane>
       <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: black; -fx-border-color: brown; -fx-border-width: 3;">
@@ -276,7 +272,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="btnLogOut" layoutX="10.0" layoutY="835.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="60.0" prefWidth="62.0" />
+            <Button fx:id="btnLogOut" layoutX="10.0" layoutY="835.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="60.0" prefWidth="62.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </AnchorPane>
     </children>

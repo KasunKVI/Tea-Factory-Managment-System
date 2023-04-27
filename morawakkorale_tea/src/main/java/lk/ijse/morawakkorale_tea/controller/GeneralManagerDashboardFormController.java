@@ -10,6 +10,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
@@ -36,6 +37,9 @@ public class GeneralManagerDashboardFormController implements Initializable {
 
     @FXML
     private AnchorPane bgPane;
+
+    @FXML
+    private Button btnLogOut;
 
 
     public void hideMenuBar(MouseEvent mouseEvent) {
@@ -159,5 +163,11 @@ public class GeneralManagerDashboardFormController implements Initializable {
 
         bgPane.getChildren().clear();
         bgPane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/clone_general_manager_dashboard_form.fxml")));
+    }
+
+    public void logOut(ActionEvent actionEvent) throws IOException {
+
+        SideBarOperations.logOut(btnLogOut);
+
     }
 }

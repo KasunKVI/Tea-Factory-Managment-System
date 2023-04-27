@@ -17,11 +17,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ad8ce3-970f-4ec1-9db9-71a171e9caa0" name="Default Changelist" comment="done validation and little bit css">
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/addingFormsStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/managerFormStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/paymentFormsStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/placeOrderFormStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/stockPane.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/supplierValuesPane.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/menuBarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/cssStyle/menuBarStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/GeneralManagerDashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/GeneralManagerDashboardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/PlaceOrderFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/controller/PlaceOrderFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/model/StockModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/java/lk/ijse/morawakkorale_tea/model/StockModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/accountant_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/accountant_dashboard_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/collector_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/collector_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customer_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customer_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customer_edit_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customer_edit_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customers_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/customers_manage_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/general_manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/general_manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/orders_payment_add_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/orders_payment_add_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_edit_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_edit_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/product_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/setting_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/setting_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/supplier_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/supplier_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/supplier_edit_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/supplier_edit_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/suppliers_bill_get__form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/suppliers_bill_get__form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/suppliers_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/suppliers_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporter_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporter_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporter_edit_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporter_edit_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporters_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporters_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporters_payment_get_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/src/main/resources/view/transporters_payment_get_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/CollectorDashboardFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/GeneralManagerDashboardFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/controller/GeneralManagerDashboardFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/model/StockModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/lk/ijse/morawakkorale_tea/model/StockModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/accountant_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/accountant_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/collector_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/collector_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/customer_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/customer_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/customers_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/customers_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/general_manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/general_manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/manager_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/manager_dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/orders_payment_add_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/orders_payment_add_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/product_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/product_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/product_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/product_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/supplier_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/supplier_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/suppliers_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/suppliers_manage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/transporter_adding_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/transporter_adding_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/transporters_manage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/morawakkorale_tea/target/classes/view/transporters_manage_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +274,16 @@
       <workItem from="1682398351478" duration="10014000" />
       <workItem from="1682427067693" duration="14580000" />
       <workItem from="1682473618459" duration="1208000" />
-      <workItem from="1682498171148" duration="921000" />
+      <workItem from="1682498171148" duration="944000" />
+      <workItem from="1682503167171" duration="1948000" />
+      <workItem from="1682509720111" duration="2389000" />
+      <workItem from="1682517712571" duration="1896000" />
+      <workItem from="1682561807402" duration="3625000" />
+      <workItem from="1682567998435" duration="1238000" />
+      <workItem from="1682569985941" duration="270000" />
+      <workItem from="1682570478302" duration="242000" />
+      <workItem from="1682570736185" duration="12000" />
+      <workItem from="1682570876106" duration="7328000" />
     </task>
     <task id="LOCAL-00001" summary="Done interfaces 70%">
       <created>1680185655078</created>
@@ -402,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682444223944</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="done validation and little bit css">
+      <created>1682499964016</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1682499964016</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,38 +554,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="743" y="298" width="637" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1682260688692" />
-    <state width="1878" height="146" key="GridCell.Tab.0.bottom" timestamp="1682499049752">
+    <state width="1878" height="74" key="GridCell.Tab.0.bottom" timestamp="1682580022309">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="146" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1682499049752" />
-    <state width="1878" height="146" key="GridCell.Tab.0.center" timestamp="1682499049751">
+    <state width="1878" height="74" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1682580022309" />
+    <state width="1878" height="74" key="GridCell.Tab.0.center" timestamp="1682580022309">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="146" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1682499049751" />
-    <state width="1878" height="146" key="GridCell.Tab.0.left" timestamp="1682499049751">
+    <state width="1878" height="74" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1682580022309" />
+    <state width="1878" height="74" key="GridCell.Tab.0.left" timestamp="1682580022309">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="146" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1682499049751" />
-    <state width="1878" height="146" key="GridCell.Tab.0.right" timestamp="1682499049752">
+    <state width="1878" height="74" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1682580022309" />
+    <state width="1878" height="74" key="GridCell.Tab.0.right" timestamp="1682580022309">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="146" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1682499049752" />
-    <state width="1878" height="350" key="GridCell.Tab.1.bottom" timestamp="1681878593640">
+    <state width="1878" height="74" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1682580022309" />
+    <state width="1878" height="350" key="GridCell.Tab.1.bottom" timestamp="1682572913393">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="350" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1681878593640" />
-    <state width="1878" height="350" key="GridCell.Tab.1.center" timestamp="1681878593640">
+    <state width="1878" height="350" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1682572913393" />
+    <state width="1878" height="350" key="GridCell.Tab.1.center" timestamp="1682572913393">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="350" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1681878593640" />
-    <state width="1878" height="350" key="GridCell.Tab.1.left" timestamp="1681878593640">
+    <state width="1878" height="350" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1682572913393" />
+    <state width="1878" height="350" key="GridCell.Tab.1.left" timestamp="1682572913393">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="350" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1681878593640" />
-    <state width="1878" height="350" key="GridCell.Tab.1.right" timestamp="1681878593640">
+    <state width="1878" height="350" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1682572913393" />
+    <state width="1878" height="350" key="GridCell.Tab.1.right" timestamp="1682572913393">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="350" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1681878593640" />
+    <state width="1878" height="350" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1682572913393" />
     <state width="222" height="457" key="HiddenNamespacesPopup" timestamp="1680193522175">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -544,10 +602,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="519" y="93" width="1024" height="859" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1682262965222" />
-    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1682444227962">
+    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1682499976077">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1682444227962" />
+    <state x="555" y="276" width="800" height="542" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1682499976077" />
     <state x="861" y="420" width="188" height="254" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1679809022605">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -604,9 +662,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="801" y="301" width="308" height="491" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1681139566026" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1682408240137">
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1682510696018">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1682408240137" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1682510696018" />
   </component>
 </project>

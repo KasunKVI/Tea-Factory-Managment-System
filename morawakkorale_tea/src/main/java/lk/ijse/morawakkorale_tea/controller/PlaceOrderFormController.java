@@ -134,6 +134,12 @@ public class PlaceOrderFormController implements Initializable {
     public void placeOrder(ActionEvent actionEvent) throws SQLException {
 
 
+        if(tblOrderCart.getItems().isEmpty()){
+
+            new Alert(Alert.AlertType.ERROR, " Please add item to your cart first").show();
+
+        }else {
+
             int pay = PaymentModel.getPaymentId();
             int payId = pay + 1;
 
@@ -165,6 +171,7 @@ public class PlaceOrderFormController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.ERROR, "Order Not Placed!").show();
             }
+        }
 
     }
 

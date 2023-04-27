@@ -21,7 +21,7 @@
             <Image url="@../img/Dashboard_Background.png" />
          </image>
       </ImageView>
-      <Pane layoutX="612.0" layoutY="59.0" opacity="0.9" prefHeight="901.0" prefWidth="1113.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 18 18 18 18;">
+      <Pane fx:id="stockAddPane" layoutX="612.0" layoutY="59.0" prefHeight="901.0" prefWidth="1113.0" style="-fx-background-radius: 18 18 18 18;" stylesheets="@../cssStyle/stockPane.css">
          <children>
             <Label layoutX="33.0" layoutY="26.0" prefHeight="45.0" prefWidth="263.0" text="New Stock">
                <font>
@@ -58,6 +58,9 @@
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="btnAddStock" layoutX="432.0" layoutY="696.0" mnemonicParsing="false" onAction="#addStockToDatabase" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Add Stock" textFill="WHITE">
                <effect>
@@ -70,7 +73,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <Button fx:id="btnLogin2" layoutX="126.0" layoutY="698.0" mnemonicParsing="false" onAction="#discardOrClearStockAddValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: gray;" text="Discard" textFill="#030303">
+            <Button fx:id="btnDiscard" layoutX="126.0" layoutY="698.0" mnemonicParsing="false" onAction="#discardOrClearStockAddValues" prefHeight="59.0" prefWidth="200.0" text="Discard" textFill="#030303">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -99,7 +102,7 @@
               </columns>
             </TableView>
          </children></Pane>
-      <Pane fx:id="supplierValuesAddPane" layoutX="628.0" layoutY="66.0" prefHeight="900.0" prefWidth="707.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 18 18 18 18; -fx-border-width: 3; -fx-border-color: green;" visible="false">
+      <Pane fx:id="supplierValuesAddPane" layoutX="628.0" layoutY="66.0" prefHeight="900.0" prefWidth="707.0" style="-fx-background-radius: 18 18 18 18; -fx-border-width: 3; -fx-border-color: green;" stylesheets="@../cssStyle/supplierValuesPane.css" visible="false">
          <children>
             <Label layoutX="33.0" layoutY="26.0" prefHeight="45.0" prefWidth="333.0" text="Suppliers Values">
                <font>
@@ -126,12 +129,15 @@
                   <Font name="Arial Bold" size="22.0" />
                </font>
             </TextField>
-            <Button layoutX="211.0" layoutY="558.0" mnemonicParsing="false" onAction="#addSupplierValuesToTable" prefHeight="55.0" prefWidth="313.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add">
+            <Button fx:id="btnAddSupplier" layoutX="211.0" layoutY="558.0" mnemonicParsing="false" onAction="#addSupplierValuesToTable" prefHeight="55.0" prefWidth="313.0" style="-fx-background-color: #4FFF4F; -fx-background-radius: 10 10 10 10;" text="Add">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="btnLogin11" layoutX="424.0" layoutY="698.0" mnemonicParsing="false" onAction="#discardOrClearSupplierValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
+            <Button fx:id="btnDiscardSv" layoutX="424.0" layoutY="698.0" mnemonicParsing="false" onAction="#discardOrClearSupplierValues" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
                <effect>
                   <ColorAdjust />
                </effect>
@@ -216,7 +222,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="btnLogOut" layoutX="10.0" layoutY="846.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="55.0" prefWidth="62.0" />
+            <Button fx:id="btnLogOut" layoutX="10.0" layoutY="846.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="55.0" prefWidth="62.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </AnchorPane>
    </children>

@@ -61,7 +61,6 @@
                       </Button>
                     </children>
                 </Group>
-                <Group layoutX="59.0" layoutY="404.0" visible="false" />
                 <Group layoutX="65.0" layoutY="247.0">
                     <children>
                         <Label layoutX="98.0" layoutY="33.0" prefHeight="60.0" prefWidth="215.0" text="Suppliers">
@@ -106,24 +105,28 @@
                       </Button>
                </children>
             </Group>
-                  <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="70.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
-                      <image>
-                          <Image url="@../img/shipment.png" />
-                      </image>
-                  </ImageView>
-                  <Label layoutX="166.0" layoutY="453.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
-                      <font>
-                          <Font size="31.0" />
-                      </font>
-                  </Label>
-                  <Button fx:id="btnSetting12" contentDisplay="RIGHT" layoutX="4.0" layoutY="425.0" mnemonicParsing="false" onAction="#transportersFormLoad" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
-                      <font>
-                          <Font size="25.0" />
-                      </font>
-                      <cursor>
-                          <Cursor fx:constant="HAND" />
-                      </cursor>
-                  </Button>
+            <Group layoutX="4.0" layoutY="425.0">
+               <children>
+                        <ImageView fitHeight="73.0" fitWidth="88.0" layoutX="66.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/shipment.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="162.0" layoutY="28.0" prefHeight="60.0" prefWidth="207.0" text="Transporters">
+                            <font>
+                                <Font size="31.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnSetting12" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#transportersFormLoad" opacity="0.25" prefHeight="122.0" prefWidth="379.0" style="-fx-background-radius: 0 30 30 0;" textAlignment="RIGHT" textFill="#36e83e">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+               </children>
+            </Group>
             </children>
         </Pane>
       <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: black; -fx-border-color: brown; -fx-border-width: 3;">
@@ -160,6 +163,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Button fx:id="btnLogOut" layoutX="9.0" layoutY="839.0" mnemonicParsing="false" onAction="#logOut" opacity="0.0" prefHeight="60.0" prefWidth="62.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="704.0" onMouseClicked="#openSettingForm" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/settings.png" />

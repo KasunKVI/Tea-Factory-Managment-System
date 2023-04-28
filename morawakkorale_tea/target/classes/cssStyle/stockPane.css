@@ -1,0 +1,128 @@
+
+.button {
+    -fx-border-color:darkgray;
+    -fx-border-radius: 10 10 10 10 ;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 1);
+
+}
+
+#stockAddPane {
+
+    -fx-background-color: beige;
+
+}
+#btnDiscard{
+    -fx-background-color:white;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-border-color: gray;
+}
+
+#btnAddStock:pressed{
+    -fx-effect: dropshadow(gaussian, salmon, 10, 0.8, 0, 0);
+}
+#btnDiscard:pressed{
+    -fx-effect: dropshadow(gaussian,slategray , 10, 0.5, 0, 0)
+}
+#btnDiscard:hover{
+    -fx-background-color:#ff6b81;
+}
+#btnAddSuppliersValus:pressed{
+    -fx-effect: dropshadow(gaussian,salmon , 10, 0.8, 0, 0);
+}
+.table-view {
+    -fx-background-color: linear-gradient(to bottom, greenyellow, honeydew);
+}
+.table-view {
+    -fx-border-color: saddlebrown;
+    -fx-border-width: 2px;
+}
+.table-cell {
+    -fx-alignment: CENTER;
+}
+.table-row-cell {
+    -fx-cell-size: 40px;
+    -fx-font-family: Kinnari;
+    -fx-font-size: 15px;
+    -fx-fill-width: bold;
+}
+.table-view .column-header-background {
+    -fx-pref-height:45px;
+}
+
+.column-header {
+
+    -fx-background-color: mintcream;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "DejaVu Serif";
+}
+.table-row-cell:selected {
+
+    -fx-background-color: coral;
+    -fx-text-fill: goldenrod;
+
+}
+.table-row-cell:odd {
+    -fx-background-color : peachpuff;
+}
+
+.table-row-cell:even {
+    -fx-background-color: lightcyan;
+}
+
+
+.text-field{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+}
+
+.text-field {
+
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 3px;
+
+}
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-family: Arial;
+    -fx-font-scale: bold;
+    -fx-font-size: 22px;
+
+}
+.combo-box:hover {
+    -fx-border-color: red;
+    -fx-border-width: 0  2 0 2;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1e90ff;
+    -fx-border-width: 0  0 1 0;
+}
+
+.combo-box .list-view {
+
+    -fx-font-size: 16pt;
+    -fx-font-family: Arial;
+    -fx-font-scale: bold;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-border-width: 1px;
+}
+
+.text-field:hover {
+    -fx-border-color: red;
+    -fx-border-width: 0  2 0 2;
+}
+
+.text-field:focused {
+    -fx-border-color: #1e90ff;
+    -fx-border-width: 0  0 1 0;
+}
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

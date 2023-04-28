@@ -1,0 +1,63 @@
+
+.text-field:hover {
+    -fx-border-color: red;
+    -fx-border-width: 0  2 0 2;
+}
+
+.text-field:focused {
+    -fx-border-color: #1e90ff;
+    -fx-border-width: 0  0 1 0;
+}
+
+.text-field{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+}
+.button {
+    -fx-border-color:darkgray;
+    -fx-border-radius: 10 10 10 10 ;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3 ), 5, 0, 0, 1);
+
+}
+
+.button:pressed{
+
+    -fx-effect: dropshadow(gaussian, salmon, 10, 0.8, 0, 0);
+
+}
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-family: Arial;
+    -fx-font-scale: bold;
+    -fx-font-size: 22px;
+
+}
+.combo-box:hover {
+    -fx-border-color: red;
+    -fx-border-width: 0  2 0 2;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1e90ff;
+    -fx-border-width: 0  0 1 0;
+}
+
+.combo-box .list-view {
+
+    -fx-font-size: 16pt;
+    -fx-font-family: Arial;
+    -fx-font-scale: bold;
+    -fx-text-fill: #333333;
+    -fx-border-color: #333333;
+    -fx-border-width: 1px;
+}
+#addPane{
+    -fx-background-color: lemonchiffon;
+}
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

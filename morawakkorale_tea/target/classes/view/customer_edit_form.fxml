@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="addPane" prefHeight="817.0" prefWidth="578.0" style="-fx-background-radius: 15 15 15 15; -fx-border-color: Green; -fx-border-radius: 15 15 0 0;" stylesheets="@../cssStyle/addingFormsStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.CustomerAddOrEditFormController">
+    <children>
+      <TextField fx:id="txtCustomerIdSearch" alignment="CENTER" layoutX="24.0" layoutY="24.0" onAction="#searchCustomerFromDatabase" onKeyReleased="#enterCustomerIdSearch" prefHeight="48.0" prefWidth="404.0" promptText="Search Cutomers ID" style="-fx-background-color: trasparent; -fx-border-color: black; -fx-border-radius: 15 15 15 15;">
+         <font>
+            <Font name="DejaVu Serif Bold" size="26.0" />
+         </font>
+      </TextField>
+        <Label fx:id="lblCustIdEdit" layoutX="34.0" layoutY="103.0" prefHeight="63.0" prefWidth="214.0">
+            <font>
+                <Font name="DejaVu Serif Bold" size="26.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtCustOriginEdit" editable="false" layoutX="296.0" layoutY="520.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </TextField>
+        <Label layoutX="29.0" layoutY="311.0" prefHeight="34.0" prefWidth="197.0" text="Contact No">
+            <font>
+                <Font name="FreeMono" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtCustContactEdit" layoutX="296.0" layoutY="300.0" onAction="#enteredCustContactEdit" onKeyReleased="#enterCustomerContactED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </TextField>
+        <Label layoutX="31.0" layoutY="195.0" prefHeight="34.0" prefWidth="197.0" text="Name">
+            <font>
+                <Font name="FreeMono" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtCustNameEdit" layoutX="296.0" layoutY="185.0" onAction="#enteredCustNameEdit" onKeyReleased="#enterCustomerNameED" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;">
+            <font>
+                <Font name="Arial Bold" size="22.0" />
+            </font>
+        </TextField>
+        <Label layoutX="27.0" layoutY="534.0" prefHeight="34.0" prefWidth="197.0" text="Origin">
+            <font>
+                <Font name="FreeMono" size="22.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnCustEdit" layoutX="346.0" layoutY="701.0" mnemonicParsing="false" onAction="#addEditedCustomersToDatabase" prefHeight="54.0" prefWidth="182.0" style="-fx-background-color: #1e64cd; -fx-background-radius: 10 10 10 10;" text="Save" textFill="WHITE">
+            <effect>
+                <ColorAdjust />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="System Bold" size="21.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnCustEditDiscard" layoutX="174.0" layoutY="701.0" mnemonicParsing="false" onAction="#discardCustomerEditForm" prefHeight="54.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-border-color: grey;" text="Discard" textFill="#030303">
+            <effect>
+                <ColorAdjust />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="System Bold" size="21.0" />
+            </font>
+        </Button>
+      <ImageView fitHeight="45.0" fitWidth="36.0" layoutX="35.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="27.0" layoutY="423.0" prefHeight="34.0" prefWidth="197.0" text="Employee">
+         <font>
+            <Font name="FreeMono" size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbEmpIds" layoutX="296.0" layoutY="411.0" prefHeight="55.0" prefWidth="261.0" style="-fx-background-radius: 10 10 10 10;" />
+    </children>
+</AnchorPane>

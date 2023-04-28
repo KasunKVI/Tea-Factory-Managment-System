@@ -57,7 +57,7 @@
         <band splitType="Stretch"/>
     </pageHeader>
     <columnHeader>
-        <band height="25" splitType="Stretch">
+        <band height="40" splitType="Stretch">
             <staticText>
                 <reportElement style="Column header" x="0" y="7" width="138" height="18" forecolor="#000000" uuid="50decfb1-b78d-4a3e-a6f5-9b705dc8476b">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40573dba-1597-4c40-955f-28e5ae6c4e94"/>

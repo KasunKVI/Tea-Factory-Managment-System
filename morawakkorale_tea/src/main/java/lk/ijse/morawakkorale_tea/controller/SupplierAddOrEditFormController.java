@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 
 public class SupplierAddOrEditFormController implements Initializable {
 
+
+    //components from supplier add and edit forms
     @FXML
     private Button btnSupAdd;
     @FXML
@@ -57,8 +59,7 @@ public class SupplierAddOrEditFormController implements Initializable {
 
     private Stage stage = new Stage();
 
-
-
+    //add new supplier details to database
     public void addSupplierToDatabase(ActionEvent actionEvent) {
 
         if(!condition||txtSupId.getText().isEmpty()||txtSupName.getText().isEmpty()||txtSupContact.getText().isEmpty()||txtSupAddress.getText().isEmpty()||dtpSupRegDate.getValue()==null){
@@ -102,6 +103,8 @@ public class SupplierAddOrEditFormController implements Initializable {
         }
 
     }
+
+    //add edited supplier details to database
     public void addEditedSupplierToDatabase(ActionEvent actionEvent) {
 
         if(!condition||txtSupNameEdit.getText().isEmpty()||txtSupContactEdit.getText().isEmpty()||txtSupAddressEdit.getText().isEmpty()){
@@ -141,6 +144,7 @@ public class SupplierAddOrEditFormController implements Initializable {
 
     }
 
+    //search supplier details from database with selected id
     public void searchSupplierFromDatabase(ActionEvent actionEvent) throws IOException {
 
         if(!condition){
@@ -206,6 +210,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         txtSupAddress.requestFocus();
     }
 
+    //clear supplier edit form
     public void discardEditSupplierValues(ActionEvent actionEvent) {
 
         txtSupplierIdSearch.clear();
@@ -218,6 +223,7 @@ public class SupplierAddOrEditFormController implements Initializable {
 
     }
 
+    //clear supplier add form
     public void discardNewSupplierAdd(ActionEvent actionEvent) {
 
         txtSupId.clear();
@@ -230,6 +236,7 @@ public class SupplierAddOrEditFormController implements Initializable {
 
     }
 
+    //validate supplier id
     public void enterSupId(KeyEvent keyEvent) throws SQLException {
 
         if (!txtSupId.getText().matches(Regex.idRegEx())){
@@ -247,6 +254,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate supplier address
     public void enterSupAddress(KeyEvent keyEvent) {
 
         if (!txtSupAddress.getText().matches(Regex.addressRegEx())){
@@ -258,6 +266,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate supplier contact
     public void enterSupContact(KeyEvent keyEvent) {
 
         if (!txtSupContact.getText().matches(Regex.contactRegEx())){
@@ -269,6 +278,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate supplier name
     public void enterSupName(KeyEvent keyEvent) {
 
         if (!txtSupName.getText().matches(Regex.nameRegEx())){
@@ -280,6 +290,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate edited supplier address
     public void enterSupplierAddressED(KeyEvent keyEvent) {
 
         if (!txtSupAddressEdit.getText().matches(Regex.addressRegEx())){
@@ -295,6 +306,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         txtSupAddressEdit.requestFocus();
     }
 
+    //validate edited supplier contact
     public void enterSupplierContactED(KeyEvent keyEvent) {
 
         if (!txtSupContactEdit.getText().matches(Regex.contactRegEx())){
@@ -310,6 +322,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         txtSupContactEdit.requestFocus();
     }
 
+    //validate edited supplier name
     public void enterSupplierNameED(KeyEvent keyEvent) {
 
         if (!txtSupNameEdit.getText().matches(Regex.nameRegEx())){
@@ -321,6 +334,7 @@ public class SupplierAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate selected supplier id from search bar
     public void enterSupplierIdSearch(KeyEvent keyEvent) {
 
         if (!txtSupplierIdSearch.getText().matches(Regex.idRegEx())){

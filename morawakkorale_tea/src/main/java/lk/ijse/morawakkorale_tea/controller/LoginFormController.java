@@ -5,10 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lk.ijse.morawakkorale_tea.Launcher;
 import lk.ijse.morawakkorale_tea.dto.LogIn;
@@ -20,13 +18,20 @@ import java.util.Optional;
 
 public class LoginFormController {
 
+    //components from loi in form
     @FXML
     private TextField txtUserId;
     @FXML
     private TextField txtPassword;
 
+
+    @FXML
+    private Button btnLogin;
+
     public static String id;
 
+
+    //load dashboard using username and password
     public void loginBtnOnAction() throws IOException, SQLException {
 
         id= txtUserId.getText();
@@ -70,7 +75,9 @@ public class LoginFormController {
 
             stage.centerOnScreen();
             stage.show();
-            Launcher.primaryStage.close();
+            Stage st = new Stage();
+            st =(Stage) btnLogin.getScene().getWindow();
+            st.close();
 
 
         }else{
@@ -105,4 +112,14 @@ public class LoginFormController {
 
     }
 
+    //validate user id
+    public void checkId(KeyEvent keyEvent) {
+
+        if (!txtUserId.getText().matches(Regex.userName())){
+            FontChanger.setTextColorRed(txtUserId);
+        }else {
+            FontChanger.setTextBlack(txtUserId);
+
+        }
+    }
 }

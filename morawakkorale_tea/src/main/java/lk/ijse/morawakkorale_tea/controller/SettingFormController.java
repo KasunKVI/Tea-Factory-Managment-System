@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class SettingFormController implements Initializable {
 
+    //components from setting form
     @FXML
     private Button btnCloseSetting;
 
@@ -40,6 +41,8 @@ public class SettingFormController implements Initializable {
     @FXML
     private TextField txtUserPosition;
 
+
+    //Initialize textfield with user details
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -64,6 +67,7 @@ public class SettingFormController implements Initializable {
 
     }
 
+    //close setting form
     public void closeSettingForm(ActionEvent actionEvent) {
 
 
@@ -72,6 +76,7 @@ public class SettingFormController implements Initializable {
 
     }
 
+    //add edited details to database
     public void saveEditedUserDetails(ActionEvent actionEvent) {
 
         String id = lblUserId.getText();
@@ -90,12 +95,14 @@ public class SettingFormController implements Initializable {
         }
     }
 
+    //validate name
     public void enteredName(KeyEvent keyEvent) {
         if (!txtUserName.getText().matches(Regex.nameRegEx())) {
            FontChanger.setTextColorRed(txtUserName);
         }else FontChanger.setTextBlack(txtUserName);
     }
 
+    //validate email
     public void enteredEmail(KeyEvent keyEvent) {
 
         if(!txtUserEmail.getText().matches(Regex.emailRegEx())){
@@ -103,6 +110,7 @@ public class SettingFormController implements Initializable {
         }else FontChanger.setTextBlack(txtUserEmail);
     }
 
+    //validate contact
     public void enteredContact(KeyEvent keyEvent) {
 
         if(!txtUserContact.getText().matches(Regex.contactRegEx())){

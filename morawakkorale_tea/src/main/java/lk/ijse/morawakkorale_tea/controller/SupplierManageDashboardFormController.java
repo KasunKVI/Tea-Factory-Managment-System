@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 public class SupplierManageDashboardFormController implements Initializable {
 
 
-
+    //components from supplier manage from
     @FXML
     public TableView<SupplierTM> allSupplierDetails;
 
@@ -51,6 +51,7 @@ public class SupplierManageDashboardFormController implements Initializable {
 
     private Stage stage = new Stage();
 
+    //show add new supplier from
     public void addNewSupplier(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/supplier_adding_form.fxml"));
@@ -64,6 +65,8 @@ public class SupplierManageDashboardFormController implements Initializable {
         loadEditForm("supplier");
 
     }
+
+    //load edit supplier form
     public void loadEditForm(String form) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/"+form+"_edit_form.fxml"));
@@ -93,6 +96,7 @@ public class SupplierManageDashboardFormController implements Initializable {
         getAll();
     }
 
+    //get all suppliers details from database and set it to tableView
     public void getAll() {
         try {
             ObservableList<SupplierTM> obList = FXCollections.observableArrayList();
@@ -115,24 +119,21 @@ public class SupplierManageDashboardFormController implements Initializable {
         }
     }
 
+    //refresh tableView
     public void refreshTable(MouseEvent mouseEvent) {
         getAll();
         allSupplierDetails.refresh();
     }
 
+    //delete supplier from database
     public void deleteSupplierFromDatabase(ActionEvent actionEvent) {
 
-
-        //Get selected column index
         int selectedID=allSupplierDetails.getSelectionModel().getSelectedIndex();
 
-        //Get selected values in table
         SupplierTM supplier = allSupplierDetails.getSelectionModel().getSelectedItem();
 
-        //Assign selected raw's supplier_id
         int supplierId = supplier.getId();
 
-        //Remove selected raw from the table
         allSupplierDetails.getItems().remove(selectedID);
 
         try {

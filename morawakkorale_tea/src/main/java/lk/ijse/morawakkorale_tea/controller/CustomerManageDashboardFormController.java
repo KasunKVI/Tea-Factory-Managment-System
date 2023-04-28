@@ -29,6 +29,7 @@ import java.util.ResourceBundle;
 
 public class CustomerManageDashboardFormController implements Initializable {
 
+    //Components from customer manage form
     @FXML
     private TableView<CustomerTM> allCustomersDetails;
     @FXML
@@ -44,7 +45,7 @@ public class CustomerManageDashboardFormController implements Initializable {
 
     Stage stage = new Stage();
 
-
+    //show add customer form
     public void addNewCustomer(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/customer_adding_form.fxml"));
@@ -54,7 +55,7 @@ public class CustomerManageDashboardFormController implements Initializable {
 
     }
 
-
+    //show edit customer form
     public void editCustomer(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/customer_edit_form.fxml"));
@@ -80,6 +81,7 @@ public class CustomerManageDashboardFormController implements Initializable {
 
     }
 
+    //add all customers data to table view
     void getAll() {
         try {
             ObservableList<CustomerTM> obList = FXCollections.observableArrayList();
@@ -103,6 +105,7 @@ public class CustomerManageDashboardFormController implements Initializable {
         }
     }
 
+    //run getAll method and refresh table
     public void refreshTable(MouseEvent mouseEvent) {
 
         getAll();
@@ -110,18 +113,16 @@ public class CustomerManageDashboardFormController implements Initializable {
 
     }
 
+    //delete customer data from database and tableView
     public void deleteCustomerFromDatabase(ActionEvent actionEvent) {
 
-        //Get selected column index
+
         int selectedID=allCustomersDetails.getSelectionModel().getSelectedIndex();
 
-        //Get selected values in table
         CustomerTM customer = allCustomersDetails.getSelectionModel().getSelectedItem();
 
-        //Assign selected raw's supplier_id
         String customerId = customer.getId();
 
-        //Remove selected raw from the table
         allCustomersDetails.getItems().remove(selectedID);
 
         try {

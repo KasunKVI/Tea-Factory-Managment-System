@@ -61,6 +61,7 @@ public class CustomerAddOrEditFormController implements Initializable {
     private String contact_no;
     private String employee_id;
 
+    //add new customer to database
     public void addCustomerToDatabase(ActionEvent actionEvent) {
 
         if(!condition||txtCustId.getText().isEmpty()||txtCustName.getText().isEmpty()||txtCustContact.getText().isEmpty()||cmbCustOrigin.getValue()==null||cmbEmpIds.getValue()==null){
@@ -106,6 +107,7 @@ public class CustomerAddOrEditFormController implements Initializable {
 
     }
 
+    //search customer from database
     public void searchCustomerFromDatabase(ActionEvent actionEvent) {
 
         if(!condition){
@@ -141,6 +143,7 @@ public class CustomerAddOrEditFormController implements Initializable {
 
     }
 
+    //add edited customer values to database
     public void addEditedCustomersToDatabase(ActionEvent actionEvent) {
 
         if (!condition||txtCustNameEdit.getText().isEmpty()||txtCustContactEdit.getText().isEmpty()) {
@@ -177,6 +180,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
+    //clear customer adding form
     public void discardCustomerAddingDetails(ActionEvent actionEvent){
 
             txtCustId.clear();
@@ -188,6 +192,7 @@ public class CustomerAddOrEditFormController implements Initializable {
 
     }
 
+    //initialize comboBox while it showing
     public void initializeComboBox(Event event) {
 
         if(!condition){
@@ -209,6 +214,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         
     }
 
+    //check customer id
     public void enteredCustId(ActionEvent actionEvent) {
 
         if(!condition){
@@ -219,7 +225,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
-
+    //check customer name
     public void enteredCustName(ActionEvent actionEvent) {
 
         if(!condition){
@@ -230,7 +236,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
     
-
+    //check edited customer contact
     public void enteredCustContactEdit(ActionEvent actionEvent) {
 
         if(!condition){
@@ -239,6 +245,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
+    //check edited customer name
     public void enteredCustNameEdit(ActionEvent actionEvent) {
 
         if(!condition){
@@ -249,7 +256,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
-
+    //clear customer edit window
     public void discardCustomerEditForm(ActionEvent actionEvent) {
 
         txtCustomerIdSearch.clear();
@@ -261,6 +268,7 @@ public class CustomerAddOrEditFormController implements Initializable {
 
     }
 
+    //validate customer id
     public void enterCustomerId(KeyEvent keyEvent) throws SQLException {
 
         if (!txtCustId.getText().matches(Regex.customerIdRegEx())) {
@@ -278,6 +286,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate customer contact
     public void enterCustomerContact(KeyEvent keyEvent) {
         if (!txtCustContact.getText().matches(Regex.contactRegEx())) {
             FontChanger.setTextColorRed(txtCustContact);
@@ -288,6 +297,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate customer name
     public void enterCustomerName(KeyEvent keyEvent) {
         if (!txtCustName.getText().matches(Regex.nameRegEx())) {
             FontChanger.setTextColorRed(txtCustName);
@@ -309,6 +319,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate edited customer edited name
     public void enterCustomerNameED(KeyEvent keyEvent) {
         if (!txtCustNameEdit.getText().matches(Regex.nameRegEx())) {
            FontChanger.setTextColorRed(txtCustNameEdit);
@@ -319,7 +330,7 @@ public class CustomerAddOrEditFormController implements Initializable {
         }
     }
 
-
+    //check customer id from search bar
     public void enterCustomerIdSearch(KeyEvent keyEvent) {
 
         if (!txtCustomerIdSearch.getText().matches(Regex.customerIdRegEx())) {
@@ -332,6 +343,7 @@ public class CustomerAddOrEditFormController implements Initializable {
     }
 
 
+    //initialize comboBx while form load form
     public void initializeComboBoxEmp() {
         ObservableList <String> observableList = FXCollections.observableArrayList();
         try {

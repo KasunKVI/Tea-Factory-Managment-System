@@ -11,6 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +29,7 @@ import lk.ijse.morawakkorale_tea.model.StockModel;
 import lk.ijse.morawakkorale_tea.model.SupplierModel;
 import lk.ijse.morawakkorale_tea.model.TransporterModel;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -35,8 +39,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class CollectorDashboardFormController implements Initializable {
+public class CollectorDashboardFormController implements Initializable,MenuBarControl {
 
+    //components form collector dashboard
     @FXML
     private Pane menuBarPanel;
 
@@ -79,15 +84,13 @@ public class CollectorDashboardFormController implements Initializable {
     @FXML
     private Button btnLogOut;
 
-    @FXML
-    private Button btnAddSuppliersValus;
-
     private boolean condition = false;
 
-
+    //observableList for initialize table
     ObservableList <SupplierTeaValuesTM> observableList = FXCollections.observableArrayList();
 
 
+    //call two methods while load form
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -95,6 +98,7 @@ public class CollectorDashboardFormController implements Initializable {
         setCellValueFactory();
 
     }
+
 
     private void setCellValueFactory() {
 
@@ -104,21 +108,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
-
-    public void hideMenuBar(MouseEvent mouseEvent) {
-
-        SideBarOperations.hideMenuBar(menuBarPanel);
-
-    }
-
-
-    public void showMenuBar(MouseEvent mouseEvent) {
-
-        SideBarOperations.showMenuBar(menuBarPanel);
-
-
-    }
-
+    //show supplier value add window
     public void supplierValuesAddWindowShower(ActionEvent actionEvent) {
 
         if(!condition){
@@ -135,6 +125,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+    //add new stock to a database
     public void addStockToDatabase(ActionEvent actionEvent) {
 
         if(!condition){
@@ -180,6 +171,7 @@ public class CollectorDashboardFormController implements Initializable {
         }
     }
 
+    //generate next stock id
     public void generateNextStockId(){
 
         try {
@@ -195,6 +187,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+    //add supplier tea values to tableView
     public void addSupplierValuesToTable(ActionEvent actionEvent)  {
 
         if(!condition){
@@ -220,6 +213,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+    //clear supplier value window
     public void discardOrClearSupplierValues(ActionEvent actionEvent) {
 
         txtSupIdStock.setText("");
@@ -228,6 +222,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+    //clear stock add window
     public void discardOrClearStockAddValues(ActionEvent actionEvent) {
 
         txtTransporterIdStock.setText("");
@@ -236,10 +231,8 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
-    public void exitSystem(MouseEvent mouseEvent) {
-        System.exit(1);
-    }
 
+    //check stock date if already added
     public void filledDate(ActionEvent actionEvent) {
 
         LocalDate lDate = dtpStockDate.getValue();
@@ -274,6 +267,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+
     public void filledTotalValue(ActionEvent actionEvent) {
         supplierValuesAddWindowShower(actionEvent);
     }
@@ -307,11 +301,34 @@ public class CollectorDashboardFormController implements Initializable {
         }
     }
 
+    //close supplier value add window
     public void closeSupplierValuesAddForm(ActionEvent actionEvent) {
         condition=true;
         supplierValuesAddPane.setVisible(false);
     }
 
+    /*these five  methods use for operate menu bar*/
+    @Override
+    public void hideMenuBar(MouseEvent mouseEvent) {
+
+        SideBarOperations.hideMenuBar(menuBarPanel);
+
+    }
+
+    @Override
+    public void showMenuBar(MouseEvent mouseEvent) {
+
+        SideBarOperations.showMenuBar(menuBarPanel);
+
+
+    }
+
+    @Override
+    public void exitSystem(MouseEvent mouseEvent) {
+        System.exit(0);
+    }
+
+    @Override
     public void openSettingForm(MouseEvent mouseEvent) throws IOException {
 
         Stage stage = new Stage();
@@ -324,12 +341,14 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+    @Override
     public void logOut(ActionEvent actionEvent) throws IOException {
 
        SideBarOperations.logOut(btnLogOut);
 
     }
 
+    //validate transporter id
     public void enterTransporterId(KeyEvent keyEvent) throws SQLException {
 
         if (!txtTransporterIdStock.getText().matches(Regex.idRegEx())){
@@ -347,6 +366,7 @@ public class CollectorDashboardFormController implements Initializable {
 
     }
 
+    //validate tea value
     public void enterTeaValue(KeyEvent keyEvent) {
 
         if (!txtStockValue.getText().matches(Regex.teaValueTrp())){
@@ -358,6 +378,7 @@ public class CollectorDashboardFormController implements Initializable {
         }
     }
 
+    //validate supplier id
     public void enterSupplierId(KeyEvent keyEvent) throws SQLException {
 
         if (!txtSupIdStock.getText().matches(Regex.idRegEx())) {
@@ -373,10 +394,9 @@ public class CollectorDashboardFormController implements Initializable {
                 condition = true;
         }
 
-
-
     }
 
+    //validate supplier tia value
     public void enterSupplierTea(KeyEvent keyEvent) {
 
         if (!txtSupTeaValue.getText().matches(Regex.teaValueSup())){
@@ -388,6 +408,7 @@ public class CollectorDashboardFormController implements Initializable {
         }
     }
 
+    //validate supplier bag count
     public void enterSupplierBag(KeyEvent keyEvent) {
 
         if (!txtSupTeaBagCount.getText().matches(Regex.valueRegEx())){
@@ -399,6 +420,7 @@ public class CollectorDashboardFormController implements Initializable {
         }
     }
 
+    //check transporter id is valid
     public void checkTransporterId(Event event) {
 
         if(!condition) {

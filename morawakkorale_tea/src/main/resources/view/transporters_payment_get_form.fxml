@@ -28,7 +28,7 @@
                 <Image url="@../img/search.png" />
             </image>
         </ImageView>
-        <Pane layoutX="579.0" layoutY="154.0" prefHeight="870.0" prefWidth="1064.0" style="-fx-background-color: White; -fx-background-radius: 18 18 18 18;">
+        <Pane fx:id="myPane" layoutX="579.0" layoutY="154.0" prefHeight="870.0" prefWidth="1064.0" style="-fx-background-radius: 18 18 18 18;">
             <children>
                 <Line endX="88.0" endY="428.0" layoutX="395.0" layoutY="326.0" startX="88.0" startY="-136.0" />
                 <Label fx:id="lblTransporterName" layoutX="44.0" layoutY="65.0" prefHeight="58.0" prefWidth="259.0">

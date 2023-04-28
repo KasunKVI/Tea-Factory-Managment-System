@@ -32,8 +32,7 @@ public class TransporterManageDashboardFormController implements Initializable {
 
     private Stage stage = new Stage();
 
-
-
+    //components from transporter manage form
     @FXML
     private TableView<TransporterTM> allTransportersDetails;
 
@@ -48,9 +47,7 @@ public class TransporterManageDashboardFormController implements Initializable {
     @FXML
     private TableColumn<?,?> clmTrpAddress;
 
-
-
-
+    //show add new transporter form
     public void addNewTransporter(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/transporter_adding_form.fxml"));
@@ -62,7 +59,7 @@ public class TransporterManageDashboardFormController implements Initializable {
 
     }
 
-
+    //show edit transporter form
     public void loadEditForm(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/transporter_edit_form.fxml"));
@@ -91,6 +88,8 @@ public class TransporterManageDashboardFormController implements Initializable {
 
 
     }
+
+    //get all transporters from database and initialize table with those details
     void getAll() {
         try {
             ObservableList<TransporterTM> obList = FXCollections.observableArrayList();
@@ -112,24 +111,22 @@ public class TransporterManageDashboardFormController implements Initializable {
         }
     }
 
+    //refresh table view
     public void refreshTable(MouseEvent mouseEvent) {
 
         getAll();
         allTransportersDetails.refresh();
     }
 
+    //delete transporter detail from database
     public void deleteTransporterFromDatabase(ActionEvent actionEvent) {
 
-        //Get selected column index
         int selectedID=allTransportersDetails.getSelectionModel().getSelectedIndex();
 
-        //Get selected values in table
         TransporterTM transporterTM = allTransportersDetails.getSelectionModel().getSelectedItem();
 
-        //Assign selected raw's supplier_id
         int transporterId = transporterTM.getId();
 
-        //Remove selected raw from the table
         allTransportersDetails.getItems().remove(selectedID);
 
         try {

@@ -1,0 +1,39 @@
+.chart {
+    -fx-background-color: #F5F5F5;
+}
+
+/* Set the font size and color of the chart title */
+.chart-title {
+    -fx-font-size: 20px;
+    -fx-text-fill: #333333;
+}
+
+/* Set the color of the chart legend */
+.chart-legend {
+    -fx-background-color: #FFFFFF;
+}
+.default-color0.chart-bar {
+    -fx-bar-fill: #eb4d4b;
+    -fx-bar-width: 12px;
+}
+.default-color1.chart-bar {
+    -fx-bar-fill: #f9ca24;
+}
+.default-color2.chart-bar {
+    -fx-bar-fill: #6ab04c;
+}
+.chart-content {
+    -fx-bar-gap: 10px;
+}
+.default-color0.chart-bar > .chart-bar-label > .text {
+
+    -fx-font-size: 16px;
+}
+.default-color1.chart-bar > .chart-bar-label > .text {
+
+    -fx-font-size: 16px;
+}
+.default-color2.chart-bar > .chart-bar-label > .text {
+
+    -fx-font-size: 16px;
+}

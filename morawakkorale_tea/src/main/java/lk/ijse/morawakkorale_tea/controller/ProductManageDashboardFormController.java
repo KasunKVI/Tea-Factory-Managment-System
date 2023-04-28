@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 
 public class ProductManageDashboardFormController implements Initializable {
 
+    //components from product manage dashboard
     @FXML
     private TableView<ProductTM> allProductDetails;
     @FXML
@@ -47,6 +48,7 @@ public class ProductManageDashboardFormController implements Initializable {
 
     Stage stage = new Stage();
 
+    //show add new product form
     public void addNewProduct(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/product_adding_form.fxml"));
@@ -56,8 +58,7 @@ public class ProductManageDashboardFormController implements Initializable {
 
     }
 
-
-
+    //show edit product form
     public void loadEditForm(String form) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/"+form+"_edit_form.fxml"));
@@ -68,13 +69,13 @@ public class ProductManageDashboardFormController implements Initializable {
     }
 
 
-
     public void editProduct(ActionEvent actionEvent) throws IOException {
 
         loadEditForm("product");
 
     }
 
+    //refresh product table
     public void refreshTable(MouseEvent mouseEvent) {
 
         getAll();
@@ -90,6 +91,7 @@ public class ProductManageDashboardFormController implements Initializable {
 
     }
 
+    // initialize table with all products
     private void getAll() {
 
 

@@ -56,8 +56,14 @@
             <Font name="DejaVu Sans Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserId" layoutX="606.0" layoutY="340.0" onAction="#doneUserId" prefHeight="45.0" prefWidth="284.0" promptText="Enter User Name" />
-      <TextField fx:id="txtPassword" layoutX="604.0" layoutY="433.0" onAction="#doneUserIdAndPassword" prefHeight="45.0" prefWidth="284.0" promptText="*********" />
+      <TextField fx:id="txtUserId" layoutX="606.0" layoutY="340.0" onAction="#doneUserId" onKeyReleased="#checkId" prefHeight="45.0" prefWidth="284.0" promptText="Enter User Name">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField fx:id="txtPassword" layoutX="604.0" layoutY="433.0" onAction="#doneUserIdAndPassword" prefHeight="45.0" prefWidth="284.0" promptText="*********">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
       <Label layoutX="692.0" layoutY="519.0" text="Forgot Password" textFill="#1e64cd">
          <opaqueInsets>
             <Insets />

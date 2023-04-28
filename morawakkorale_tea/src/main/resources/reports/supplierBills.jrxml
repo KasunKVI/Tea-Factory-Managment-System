@@ -27,14 +27,14 @@
             <frame>
                 <reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#52D955" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a"/>
                 <staticText>
-                    <reportElement style="Title" x="0" y="0" width="370" height="66" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21"/>
+                    <reportElement style="Title" x="0" y="0" width="370" height="66" forecolor="#140202" uuid="a2a2cac8-5a7d-4487-8c54-dab235ce4e21"/>
                     <textElement>
                         <font size="32" isBold="false"/>
                     </textElement>
                     <text><![CDATA[Morawakkorale Tea CO-OP]]></text>
                 </staticText>
                 <staticText>
-                    <reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="8978eac3-c578-41c9-837e-48d2b0184642"/>
+                    <reportElement style="SubTitle" x="157" y="66" width="249" height="29" forecolor="#420D0D" uuid="8978eac3-c578-41c9-837e-48d2b0184642"/>
                     <textElement>
                         <font size="22" isBold="false"/>
                     </textElement>

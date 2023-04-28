@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane2" prefHeight="1020.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.GeneralManagerDashboardFormController">
+<AnchorPane fx:id="pane2" prefHeight="1020.0" prefWidth="1920.0" stylesheets="@../cssStyle/accountantDashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.morawakkorale_tea.controller.GeneralManagerDashboardFormController">
     <children>
         <AnchorPane fx:id="bgPane" layoutX="88.0" layoutY="-1.0" prefHeight="1048.0" prefWidth="1853.0">
             <children>
@@ -129,7 +129,7 @@
             </Group>
             </children>
         </Pane>
-      <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: black; -fx-border-color: brown; -fx-border-width: 3;">
+      <AnchorPane fx:id="menu" prefHeight="1048.0" prefWidth="88.0" style="-fx-background-color: black; -fx-border-color: brown; -fx-border-width: 3;" stylesheets="@../cssStyle/barStyle.css">
          <children>
             <ImageView fitHeight="79.0" fitWidth="65.0" layoutX="8.0" layoutY="14.0" onMouseClicked="#showMenuBar" pickOnBounds="true" preserveRatio="true">
                <image>

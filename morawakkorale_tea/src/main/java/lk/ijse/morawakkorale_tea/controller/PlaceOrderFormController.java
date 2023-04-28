@@ -11,28 +11,24 @@ import javafx.scene.input.KeyEvent;
 import lk.ijse.morawakkorale_tea.dto.CartDTO;
 import lk.ijse.morawakkorale_tea.dto.Payment;
 import lk.ijse.morawakkorale_tea.dto.Product;
+import lk.ijse.morawakkorale_tea.dto.Order_Payment;
 import lk.ijse.morawakkorale_tea.dto.tm.PlaceOrderTM;
-import lk.ijse.morawakkorale_tea.dto.tm.ProductTM;
 import lk.ijse.morawakkorale_tea.model.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PlaceOrderFormController implements Initializable {
 
-    @FXML
-    private Button btnDiscardProductAdd;
-
-    @FXML
-    private Button btnPdtAdd;
-
-    @FXML
-    private Button btnPdtAdd1;
-
+    //components from placeOrder form
     @FXML
     private TableColumn<?, ?> clmItemId;
 
@@ -81,11 +77,15 @@ public class PlaceOrderFormController implements Initializable {
     @FXML
     private TextField txtOrderProductQty;
 
+    //observableList for initialize table
     ObservableList<PlaceOrderTM> obList = FXCollections.observableArrayList();
 
     public void discardPlaceOrderForm(ActionEvent actionEvent) {
+        clearItemDetails();
+        cmbOrderCustomerIds.setValue(null);
     }
 
+    //add selected product to cart table
     public void addProductToCart(ActionEvent actionEvent) {
 
         if(cmbOrderItemIds.getValue()==null||cmbOrderCustomerIds.getValue()==null) {
@@ -131,6 +131,7 @@ public class PlaceOrderFormController implements Initializable {
 
     }
 
+    //place order and update database
     public void placeOrder(ActionEvent actionEvent) throws SQLException {
 
 
@@ -175,7 +176,36 @@ public class PlaceOrderFormController implements Initializable {
 
     }
 
-    public void showReport(ActionEvent actionEvent) {
+    //show all orders report
+    public void showReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
+
+
+                List<Order_Payment> orders = OrderModel.getAllIds();
+                List<Order_Payment> order_payments = new ArrayList<>();
+
+                for (Order_Payment order_payment : orders) {
+
+                    String id = order_payment.getOrder_id();
+                    LocalDate date = order_payment.getDate();
+                    int total = order_payment.getTotal();
+                    String customer = order_payment.getCustomer();
+
+                    order_payments.add(new Order_Payment(
+                            id,
+                            date,
+                            total,
+                            customer
+                    ));
+                }
+
+                File file = ResourceUtils.getFile("/home/kaviyakv/Desktop/Morawakkorale_Tea/morawakkorale_tea/src/main/resources/reports/orderDetails.jrxml");
+                JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+                JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(order_payments);
+                Map<String, Object> map = new HashMap<>();
+                map.put("CreatedBy", "Kasun Kavinda - GDSE65");
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, dataSource);
+                JasperViewer.viewReport(jasperPrint, false);
+
     }
 
     @Override
@@ -197,6 +227,7 @@ public class PlaceOrderFormController implements Initializable {
         clmItemTotal.setCellValueFactory(new PropertyValueFactory<>("Total"));
     }
 
+    //initialize item ids to combo box
     private void initializeItemIdsBox() {
 
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -214,6 +245,7 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
+    //initialize customer ids to combo box
     private void initializeCustomerIdsBox() {
 
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -231,6 +263,7 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
+    //set values to labels when selected product
     public void selectedProductId(ActionEvent actionEvent) {
 
         String item_id = cmbOrderItemIds.getValue();
@@ -252,6 +285,7 @@ public class PlaceOrderFormController implements Initializable {
 
     }
 
+    //calculate order total
     private void calculateNetTotal() {
         double netTotal = 0.0;
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
@@ -263,6 +297,7 @@ public class PlaceOrderFormController implements Initializable {
         lblOrderTotalPrice.setText(String.valueOf(netTotal));
     }
 
+    //generate order id
     public void generateNextOrderId(){
 
         try {
@@ -279,6 +314,7 @@ public class PlaceOrderFormController implements Initializable {
 
     }
 
+    //check product qty
     public void enterProductQty(KeyEvent keyEvent) {
 
 
@@ -297,6 +333,7 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
+    //clear order form
     public void clearItemDetails(){
 
         cmbOrderItemIds.setValue(null);

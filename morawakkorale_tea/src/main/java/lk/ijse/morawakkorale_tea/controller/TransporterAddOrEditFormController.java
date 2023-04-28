@@ -53,6 +53,7 @@ public class TransporterAddOrEditFormController {
     private boolean condition = true;
     private Stage stage = new Stage();
 
+    //add new transporter to database
     public void addTransporterToDatabase(ActionEvent actionEvent) {
 
         if (!condition||txtTrpId.getText().isEmpty()||txtTrpName.getText().isEmpty()||txtTrpContact.getText().isEmpty()||txtTrpRoute.getText().isEmpty()||txtTrpAddress.getText().isEmpty()){
@@ -96,6 +97,8 @@ public class TransporterAddOrEditFormController {
 
     }
 
+
+    //add edited transporter details to database
     public void addEditedTransportersToDatabase(ActionEvent actionEvent) {
 
         if (!condition||txtTransporterNameEdit.getText().isEmpty()||txtTransporterContactEdit.getText().isEmpty()||txtTransporterRouteEdit.getText().isEmpty()||txtTransporterAddressEdit.getText().isEmpty()||txtTransporterIdSearch.getText().isEmpty()){
@@ -134,6 +137,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //search transporter from database with selected id
     public void searchTransporterFromDatabase(ActionEvent actionEvent) {
 
         if(!condition){
@@ -170,6 +174,7 @@ public class TransporterAddOrEditFormController {
 
     }
 
+    //clear transporter add form
     public void discardAddTransporterForm(ActionEvent actionEvent) {
 
         txtTrpId.clear();
@@ -180,6 +185,7 @@ public class TransporterAddOrEditFormController {
 
     }
 
+    //clear transporter edit form
     public void discardTransporterEdit(ActionEvent actionEvent) {
 
         txtTransporterIdSearch.clear();
@@ -227,6 +233,7 @@ public class TransporterAddOrEditFormController {
         txtTrpAddress.requestFocus();
     }
 
+    //validate transporter id
     public void enterTransporterId(KeyEvent keyEvent) throws SQLException {
 
         if (!txtTrpId.getText().matches(Regex.idRegEx())) {
@@ -242,6 +249,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate transporter address
     public void enterTransporterAddress(KeyEvent keyEvent) {
 
         if (!txtTrpAddress.getText().matches(Regex.addressRegEx())){
@@ -253,6 +261,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate transporter contact
     public void enterTransporterContact(KeyEvent keyEvent) {
 
         if (!txtTrpContact.getText().matches(Regex.contactRegEx())){
@@ -264,6 +273,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate transporter name
     public void enterTransporterName(KeyEvent keyEvent) {
 
         if (!txtTrpName.getText().matches(Regex.nameRegEx())) {
@@ -274,7 +284,7 @@ public class TransporterAddOrEditFormController {
             condition = true;
          }
     }
-
+    //validate transporter route
     public void enterTransporterRoute(KeyEvent keyEvent) {
 
         if (!txtTrpRoute.getText().matches(Regex.routeRegEx())){
@@ -286,8 +296,8 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate edited transporter contact
     public void enterTransporterContactED(KeyEvent keyEvent) {
-
         if (!txtTransporterContactEdit.getText().matches(Regex.contactRegEx())){
             condition =false;
             FontChanger.setTextColorRed(txtTransporterContactEdit);
@@ -297,6 +307,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate edited transporter name
     public void enterTransporterNameED(KeyEvent keyEvent) {
 
         if (!txtTransporterNameEdit.getText().matches(Regex.nameRegEx())){
@@ -308,6 +319,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate edited transporter route
     public void enterTransporterRouteED(KeyEvent keyEvent) {
 
         if (!txtTransporterRouteEdit.getText().matches(Regex.routeRegEx())){
@@ -319,6 +331,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate edited transporter address
     public void enterTransporterAddressED(KeyEvent keyEvent) {
 
         if (!txtTransporterAddressEdit.getText().matches(Regex.addressRegEx())){
@@ -330,6 +343,7 @@ public class TransporterAddOrEditFormController {
         }
     }
 
+    //validate transporter id from search bar
     public void enterTransporterIdSearchED(KeyEvent keyEvent) {
 
         if (!txtTransporterIdSearch.getText().matches(Regex.idRegEx())){

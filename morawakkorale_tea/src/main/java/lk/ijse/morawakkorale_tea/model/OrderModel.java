@@ -1,12 +1,15 @@
 package lk.ijse.morawakkorale_tea.model;
 
 import lk.ijse.morawakkorale_tea.db.DBConnection;
+import lk.ijse.morawakkorale_tea.dto.Order_Payment;
+import lk.ijse.morawakkorale_tea.dto.Product;
 import lk.ijse.morawakkorale_tea.util.CrudUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderModel {
@@ -103,5 +106,24 @@ public class OrderModel {
 
         return sale;
 
+    }
+
+    public static List<Order_Payment> getAllIds() throws SQLException {
+
+        String sql = "SELECT order_id,date,total,customer_id FROM Orders";
+        List<Order_Payment> orders = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute(sql);
+
+        while (resultSet.next()){
+            orders.add(new Order_Payment(
+                    resultSet.getString(1),
+                    resultSet.getDate(2).toLocalDate(),
+                    resultSet.getInt(3),
+                    resultSet.getString(4)
+            ));
+
+        }
+        return orders;
     }
 }

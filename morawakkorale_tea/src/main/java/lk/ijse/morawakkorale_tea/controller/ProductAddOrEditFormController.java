@@ -20,6 +20,7 @@ import java.util.*;
 
 public class ProductAddOrEditFormController implements Initializable {
 
+    //components from product add and edit form
     @FXML
     private Label lblProductIdEdit;
     @FXML
@@ -63,6 +64,7 @@ public class ProductAddOrEditFormController implements Initializable {
     private String id;
 
 
+    //add new product to database
     public void addProductToDatabase(ActionEvent actionEvent) {
 
         if(!condition||txtPdtId.getText().isEmpty()||txtProductLeafValue.getText().isEmpty()||txtPdtProductQuantity.getText().isEmpty()||txtProductUnitPrice.getText().isEmpty()||cmbPdtProductType.getValue()==null||cmbPdtStockId.getValue()==null||dtpPdtMadeDate.getValue()==null) {
@@ -108,6 +110,8 @@ public class ProductAddOrEditFormController implements Initializable {
 
     }
 
+
+    //search product from database with selected id
     public void searchProductFromDatabase(ActionEvent actionEvent) {
 
         if(!condition){
@@ -145,7 +149,7 @@ public class ProductAddOrEditFormController implements Initializable {
 
     }
 
-
+    // add edited product details to database
     public void addEditedProductToDatabase(ActionEvent actionEvent) {
 
         if (!condition||txtProductQuantityEdit.getText().isEmpty()||txtProductLeafValueEdit.getText().isEmpty()||txtProductStockIdEdit.getText().isEmpty()) {
@@ -192,7 +196,7 @@ public class ProductAddOrEditFormController implements Initializable {
 
     }
 
-
+    //add product types to combobox
     public void addProducts(ComboBox<String> typeBox) {
 
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -207,6 +211,7 @@ public class ProductAddOrEditFormController implements Initializable {
         typeBox.setItems(obList);
     }
 
+    //add stockIds to comboBox
     public void addStockIds(Event event) {
         
         ObservableList <String> observableList = FXCollections.observableArrayList();
@@ -221,7 +226,7 @@ public class ProductAddOrEditFormController implements Initializable {
 
     }
 
-
+    //clear product edit form
     public void discardProductEditForm(ActionEvent actionEvent) {
 
         txtProductIdSearch.clear();
@@ -234,6 +239,7 @@ public class ProductAddOrEditFormController implements Initializable {
 
     }
 
+    //clear product add form
     public void discardProductAddForm(ActionEvent actionEvent) {
 
         txtPdtId.clear();
@@ -254,6 +260,7 @@ public class ProductAddOrEditFormController implements Initializable {
         addProductToDatabase(actionEvent);
     }
 
+    //add stock value to label when select stock id
     public void enteredStockId(ActionEvent actionEvent) {
 
         String stock_id = cmbPdtStockId.getValue();
@@ -273,7 +280,9 @@ public class ProductAddOrEditFormController implements Initializable {
     public void initializedProductTypeEditCmb(Event event) {
         addProducts(cmbProductTypeBoxEdit);
     }
-                 
+
+
+    //validate product id
     public void enterProductId(KeyEvent keyEvent) throws SQLException {
 
         if (!txtPdtId.getText().matches(Regex.productIdRegEx())) {
@@ -291,6 +300,7 @@ public class ProductAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate leaf value
     public void enterLeafValue(KeyEvent keyEvent) {
 
         if(!txtProductLeafValue.getText().matches(Regex.productLeafValue())){
@@ -302,6 +312,7 @@ public class ProductAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate unit price
     public void enterUnitPrice(KeyEvent keyEvent) {
 
         if(!txtProductUnitPrice.getText().matches(Regex.unitPrice())){
@@ -313,6 +324,7 @@ public class ProductAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate qty
     public void enterQuantity(KeyEvent keyEvent) {
 
         if(!txtPdtProductQuantity.getText().matches(Regex.valueRegEx())){
@@ -324,6 +336,7 @@ public class ProductAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate qty form edit form
     public void enterProductQuantityED(KeyEvent keyEvent) {
 
         if(!txtProductQuantityEdit.getText().matches(Regex.valueRegEx())){
@@ -335,6 +348,7 @@ public class ProductAddOrEditFormController implements Initializable {
         }
     }
 
+    //validate product id from search bar
     public void enterProductIdSearch(KeyEvent keyEvent) {
 
         if(!txtProductIdSearch.getText().matches(Regex.productIdRegEx())){

@@ -28,9 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ManagerDashboardFormController implements Initializable {
+public class ManagerDashboardFormController implements Initializable,MenuBarControl {
 
-
+    //components from manager dashboard
     @FXML
     private AnchorPane backgroundPane;
     @FXML
@@ -57,34 +57,11 @@ public class ManagerDashboardFormController implements Initializable {
     @FXML
     private ComboBox <Year> cmbSupplierYear;
 
-    @FXML
-    private ImageView imgHome;
-    @FXML
-    private Button btnSupplier;
-    @FXML
-    private Button btnTransporter;
-    @FXML
-    private Button btnCustomer;
-    @FXML
-    private Button btnProduct;
 
     @FXML
     private Button btnLogOut;
 
-
-    public void hideMenuBar(MouseEvent mouseEvent) {
-
-      SideBarOperations.hideMenuBar(menuBarPanel);
-
-    }
-
-    public void showMenuBar(MouseEvent mouseEvent) {
-
-       SideBarOperations.showMenuBar(menuBarPanel);
-
-    }
-
-
+    //show supplier manage window
     public void showSupplierManage(ActionEvent actionEvent) throws IOException {
 
         backgroundPane.getChildren().clear();
@@ -92,6 +69,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    //show customer manage window
     public void showBuyersManage(ActionEvent actionEvent) throws IOException {
 
         backgroundPane.getChildren().clear();
@@ -99,6 +77,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    //show transporter manage window
     public void showTransportersManage(ActionEvent actionEvent) throws IOException {
 
         backgroundPane.getChildren().clear();
@@ -106,6 +85,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    //show product manage window
     public void showProductManage(ActionEvent actionEvent) throws IOException {
 
         backgroundPane.getChildren().clear();
@@ -113,6 +93,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    //load manager dashboard back
     public void showDashboard(MouseEvent mouseEvent) throws IOException {
 
         backgroundPane.getChildren().clear();
@@ -132,6 +113,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    //initialize bar chart using all years
     private void updateBarChart() throws SQLException {
 
         XYChart.Series<String, Number>[] series1 = new XYChart.Series[24];
@@ -153,6 +135,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    //initialize combo box
     private void loadSupplierYears() {
 
             ObservableList<Year> obList = FXCollections.observableArrayList();
@@ -172,11 +155,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
-
-    public void exitSystem(MouseEvent mouseEvent) {
-        System.exit(0);
-    }
-
+    //load values to labels
     public void updatePanes() throws SQLException {
 
         int supplier_count = SupplierModel.getSuppliersCount();
@@ -197,7 +176,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
-
+    //initialize bar chart using selected year
     public void initializeChartUsingYear(ActionEvent actionEvent) throws SQLException {
 
         suppliersChart.getData().clear();
@@ -219,6 +198,7 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+    @Override
     public void openSettingForm(MouseEvent mouseEvent) throws IOException {
 
         Stage stage = new Stage();
@@ -231,8 +211,32 @@ public class ManagerDashboardFormController implements Initializable {
 
     }
 
+
+
+    /*these five  methods use for operate menu bar*/
+
+    @Override
     public void logOut(ActionEvent actionEvent) throws IOException {
 
         SideBarOperations.logOut(btnLogOut);
+    }
+
+    @Override
+    public void exitSystem(MouseEvent mouseEvent) {
+        System.exit(0);
+    }
+
+    @Override
+    public void hideMenuBar(MouseEvent mouseEvent) {
+
+        SideBarOperations.hideMenuBar(menuBarPanel);
+
+    }
+
+    @Override
+    public void showMenuBar(MouseEvent mouseEvent) {
+
+        SideBarOperations.showMenuBar(menuBarPanel);
+
     }
 }

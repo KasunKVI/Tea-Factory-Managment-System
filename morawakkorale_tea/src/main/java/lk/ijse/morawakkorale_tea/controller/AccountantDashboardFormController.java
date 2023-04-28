@@ -11,6 +11,7 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -34,11 +35,13 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
 
-public class AccountantDashboardFormController implements Initializable {
+public class AccountantDashboardFormController implements Initializable,MenuBarControl {
 
+
+
+    //Components for accountant dashboard
     @FXML
     public AnchorPane bgPane;
-
     @FXML
     private Label lblSupplierCount;
     @FXML
@@ -56,6 +59,10 @@ public class AccountantDashboardFormController implements Initializable {
     @FXML
     private Button btnLogOut;
 
+    @FXML
+    private ImageView menuImg;
+
+    //load supplier bill form
     public void loadSupplierBills(ActionEvent actionEvent) throws IOException {
 
         bgPane.getChildren().clear();
@@ -63,22 +70,8 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
-    public void hideMenuBar(MouseEvent mouseEvent) {
 
-        SideBarOperations.hideMenuBar(menuBarPanel);
-
-    }
-
-    public void showMenuBar(MouseEvent mouseEvent) {
-
-       SideBarOperations.showMenuBar(menuBarPanel);
-
-    }
-
-    public void exitSystem(MouseEvent mouseEvent) {
-        System.exit(0);
-    }
-
+    //initialize bar chart, area chart and labels
     @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,6 +84,7 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
+    //initialize label with current time and date
     private void initializeTimeLabel() {
 
         Date date = new Date();
@@ -108,6 +102,7 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
+    //initialize bar chart
     private void initializeBarChart() throws SQLException {
 
 
@@ -130,6 +125,8 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
+
+    //initialize area chart
     private void initializeAreaChart() throws SQLException {
 
         XYChart.Series [] series = new XYChart.Series[12];
@@ -146,6 +143,7 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
+    //load supplier bill form
     public void loadTransporterBills(ActionEvent actionEvent) throws IOException {
 
         bgPane.getChildren().clear();
@@ -153,6 +151,7 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
+    //load add order form
     public void loadOrderAdder(ActionEvent actionEvent) throws IOException {
 
         bgPane.getChildren().clear();
@@ -160,8 +159,31 @@ public class AccountantDashboardFormController implements Initializable {
 
     }
 
-    public void openSettingForm(MouseEvent mouseEvent) throws IOException {
+    //load dashboard back
+    public void showDashboard(MouseEvent mouseEvent) throws IOException {
 
+        bgPane.getChildren().clear();
+        bgPane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/clone_accountant_dashboard_form.fxml")));
+    }
+
+    /*these five  methods use for operate menu bar*/
+    @Override
+    public void hideMenuBar(MouseEvent mouseEvent) {
+        SideBarOperations.hideMenuBar(menuBarPanel);
+    }
+
+    @Override
+    public void showMenuBar(MouseEvent mouseEvent) {
+        SideBarOperations.showMenuBar(menuBarPanel);
+    }
+
+    @Override
+    public void exitSystem(MouseEvent mouseEvent) {
+        System.exit(0);
+    }
+
+    @Override
+    public void openSettingForm(MouseEvent mouseEvent) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/view/setting_form.fxml"));
         stage.setTitle("Setting Window");
@@ -169,17 +191,10 @@ public class AccountantDashboardFormController implements Initializable {
         stage.setScene(new Scene(root));
 
         stage.show();
-
     }
 
-    public void showDashboard(MouseEvent mouseEvent) throws IOException {
-
-        bgPane.getChildren().clear();
-        bgPane.getChildren().add(FXMLLoader.load(getClass().getResource("/view/clone_accountant_dashboard_form.fxml")));
-    }
-
+    @Override
     public void logOut(ActionEvent actionEvent) throws IOException {
-
         SideBarOperations.logOut(btnLogOut);
     }
 }

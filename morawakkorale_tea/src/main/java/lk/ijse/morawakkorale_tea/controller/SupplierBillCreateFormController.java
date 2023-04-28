@@ -40,6 +40,7 @@ import java.util.concurrent.ExecutorService;
 
 public class SupplierBillCreateFormController implements Initializable {
 
+    //components from supplier payment form
     @FXML
     private ComboBox<Month> cmbMonthSelect;
 
@@ -72,6 +73,7 @@ public class SupplierBillCreateFormController implements Initializable {
 
     private boolean condition = true;
 
+    //show selected month all supplier payment details
     public void showReport(ActionEvent actionEvent) throws SQLException, FileNotFoundException, JRException {
 
         if(!condition||txtSupplierIdSearch.getText().isEmpty()||txtMonthlyRate.getText().isEmpty()||cmbMonthSelect.getValue()==null){
@@ -110,6 +112,7 @@ public class SupplierBillCreateFormController implements Initializable {
         }
     }
 
+    //search supplier from database with selected id
     public Supplier searchedSupplierId(ActionEvent actionEvent) {
 
         if(!condition){
@@ -142,6 +145,7 @@ public class SupplierBillCreateFormController implements Initializable {
         return null;
     }
 
+    //set supplier details to labels with selected month
     public void selectedMonthOfSupplier(ActionEvent actionEvent) {
 
         if(!condition||txtSupplierIdSearch.getText().isEmpty()){
@@ -175,6 +179,7 @@ public class SupplierBillCreateFormController implements Initializable {
 
     }
 
+    //initialize comboBox with months
     public void initializedMonthBox() {
 
         ObservableList<Month> obList = FXCollections.observableArrayList();
@@ -194,6 +199,7 @@ public class SupplierBillCreateFormController implements Initializable {
 
     }
 
+    //add supplier payment to database
     public void correctSupplierMonthlyPayment(ActionEvent actionEvent) throws SQLException {
 
         if(!condition||txtSupplierIdSearch.getText().isEmpty()||cmbMonthSelect.getValue()==null||txtMonthlyRate.getText().isEmpty()||lblSupLastPayment.getText().equals("0.0")){
@@ -228,6 +234,8 @@ public class SupplierBillCreateFormController implements Initializable {
         }
     }
 
+
+    //validate supplier id from search bar
     public void searchSupplierId(KeyEvent keyEvent) {
 
         if (!txtSupplierIdSearch.getText().matches(Regex.idRegEx())){
@@ -241,6 +249,7 @@ public class SupplierBillCreateFormController implements Initializable {
         }
     }
 
+    //validate supplier rate
     public void enterMonthlySupplierRate(KeyEvent keyEvent) {
 
         if (!txtMonthlyRate.getText().matches(Regex.valueRegEx())){
@@ -256,6 +265,7 @@ public class SupplierBillCreateFormController implements Initializable {
         }
     }
 
+    //check if month selected
     public void checkMonth(MouseEvent mouseEvent) {
 
         if(cmbMonthSelect.getValue()==null){
@@ -266,6 +276,7 @@ public class SupplierBillCreateFormController implements Initializable {
         }
     }
 
+    //clear bill form
     public void clearForm(){
 
         txtSupplierIdSearch.clear();

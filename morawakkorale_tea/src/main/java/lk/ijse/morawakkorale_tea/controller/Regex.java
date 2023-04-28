@@ -62,5 +62,8 @@ public class Regex {
         return "^(?!0)\\d{2,}$";
     }
 
+    public static String userName(){
+        return "^A00[1-4]$";
+    }
 
 }

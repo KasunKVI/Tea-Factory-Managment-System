@@ -26,6 +26,7 @@ import java.util.*;
 
 public class TransporterBillCreateFormController implements Initializable {
 
+    //components from transporter payments form
     @FXML
     private ComboBox<Month> cmbMonthSelect;
 
@@ -57,6 +58,7 @@ public class TransporterBillCreateFormController implements Initializable {
     private boolean condition=true;
 
 
+    //search transporter from database
     public Transporter searchedTransporterId(ActionEvent actionEvent) {
 
         if(!condition){
@@ -90,6 +92,7 @@ public class TransporterBillCreateFormController implements Initializable {
 
     }
 
+    //show transporters payment report from selected month
     public void showReport(ActionEvent actionEvent) throws SQLException, FileNotFoundException, JRException {
 
         if (!condition||txtTransporterIdSearch.getText().isEmpty()||txtMonthlyRate.getText().isEmpty()||cmbMonthSelect.getValue()==null){
@@ -130,6 +133,7 @@ public class TransporterBillCreateFormController implements Initializable {
         }
     }
 
+    //add transporter payment to database
     public void correctTransporterMonthlyPayment(ActionEvent actionEvent) throws SQLException {
 
         if(!condition||txtTransporterIdSearch.getText().isEmpty()||txtMonthlyRate.getText().isEmpty()||cmbMonthSelect.getValue()==null||lblTransporterLastPayment.getText().equals("0.0")){
@@ -168,6 +172,7 @@ public class TransporterBillCreateFormController implements Initializable {
         }
     }
 
+    //clear payment form
     private void clearForm() {
 
         txtMonthlyRate.clear();
@@ -181,6 +186,7 @@ public class TransporterBillCreateFormController implements Initializable {
 
     }
 
+    //set values for labels with selected month
     public void selectedMonthOfTransporter(ActionEvent actionEvent) {
 
         if (!condition||txtTransporterIdSearch.getText().isEmpty()){
@@ -212,6 +218,7 @@ public class TransporterBillCreateFormController implements Initializable {
         }
     }
 
+    //initialize comboBox with months
     public void initializedMonthBox() {
 
         ObservableList<Month> obList = FXCollections.observableArrayList();
@@ -231,6 +238,7 @@ public class TransporterBillCreateFormController implements Initializable {
 
     }
 
+    //validate transporter monthly rate
     public void enterTransporterMonthlyRate(KeyEvent keyEvent) {
 
         if (!txtMonthlyRate.getText().matches(Regex.valueRegEx())){
@@ -246,6 +254,7 @@ public class TransporterBillCreateFormController implements Initializable {
         }
     }
 
+    //validate transporter id
     public void enterTransporterIdSearch(KeyEvent keyEvent) {
 
         if (!txtTransporterIdSearch.getText().matches(Regex.idRegEx())){
@@ -259,6 +268,7 @@ public class TransporterBillCreateFormController implements Initializable {
         }
     }
 
+    //check if month selected or not
     public void checkMonth(MouseEvent mouseEvent) {
 
         if(cmbMonthSelect.getValue()==null){

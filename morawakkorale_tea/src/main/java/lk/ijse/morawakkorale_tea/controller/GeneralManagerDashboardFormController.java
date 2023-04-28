@@ -51,7 +51,7 @@ public class GeneralManagerDashboardFormController implements Initializable ,Men
         initializeLineChart();
     }
 
-    //initialize line chart
+    //initialize pie chart
     private void initializeLineChart() throws SQLException {
 
         chartProductSales.getData().add(new PieChart.Data("English Afternoon", OrderModel.getSaleValue("English Afternoon - Green Tea")));
